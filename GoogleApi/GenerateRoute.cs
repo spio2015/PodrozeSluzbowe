@@ -6,7 +6,7 @@ using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
 
-namespace PodrozeSluzbowe
+namespace GoogleApi
 {    
     public static class GenerateRoute
     {
@@ -49,9 +49,8 @@ namespace PodrozeSluzbowe
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Unable to get location from google:" + Environment.NewLine + ex.Message);
+                throw ex;
             }
-            return result;
         }
     }
 }
