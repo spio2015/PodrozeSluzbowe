@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PodrozeSluzbowe", "PodrozeS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleApi", "GoogleApi\GoogleApi.csproj", "{BA7DC597-2DCA-4899-9FB7-C0D9C0514B49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{75FE7CD1-61E3-4BDE-9978-54424BB3F447}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BA7DC597-2DCA-4899-9FB7-C0D9C0514B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7DC597-2DCA-4899-9FB7-C0D9C0514B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7DC597-2DCA-4899-9FB7-C0D9C0514B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75FE7CD1-61E3-4BDE-9978-54424BB3F447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75FE7CD1-61E3-4BDE-9978-54424BB3F447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75FE7CD1-61E3-4BDE-9978-54424BB3F447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75FE7CD1-61E3-4BDE-9978-54424BB3F447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
