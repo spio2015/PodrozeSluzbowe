@@ -5,14 +5,39 @@
 <edmx:StorageModels>
 <Schema Namespace="PodrozeModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="PodrozeModelStoreContainer">
+    <EntitySet Name="BusinessTrips" EntityType="PodrozeModel.Store.BusinessTrips" store:Type="Tables" />
     <EntitySet Name="Cars" EntityType="PodrozeModel.Store.Cars" store:Type="Tables" />
     <EntitySet Name="Departments" EntityType="PodrozeModel.Store.Departments" store:Type="Tables" />
+    <EntitySet Name="Destinations" EntityType="PodrozeModel.Store.Destinations" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="PodrozeModel.Store.Users" store:Type="Tables" />
-    <AssociationSet Name="UserDepartment" Association="PodrozeModel.Store.UserDepartment">
+    <AssociationSet Name="FK_BusinessTripsCar" Association="PodrozeModel.Store.FK_BusinessTripsCar">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="BusinessTrips" EntitySet="BusinessTrips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessTripsDestination" Association="PodrozeModel.Store.FK_BusinessTripsDestination">
+      <End Role="Destinations" EntitySet="Destinations" />
+      <End Role="BusinessTrips" EntitySet="BusinessTrips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessTripsUser" Association="PodrozeModel.Store.FK_BusinessTripsUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BusinessTrips" EntitySet="BusinessTrips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDepartment" Association="PodrozeModel.Store.FK_UsersDepartment">
       <End Role="Departments" EntitySet="Departments" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="BusinessTrips">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CarId" Type="int" Nullable="false" />
+    <Property Name="DestinationId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DepartureDate" Type="datetime" Nullable="false" />
+    <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Cars">
     <Key>
       <PropertyRef Name="Id" />
@@ -30,6 +55,15 @@
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DepartmentName" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
+  <EntityType Name="Destinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Latitude" Type="float" Nullable="false" />
+    <Property Name="Longitude" Type="float" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -41,7 +75,43 @@
     <Property Name="SurName" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="DepartmentId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="UserDepartment">
+  <Association Name="FK_BusinessTripsCar">
+    <End Role="Cars" Type="PodrozeModel.Store.Cars" Multiplicity="1" />
+    <End Role="BusinessTrips" Type="PodrozeModel.Store.BusinessTrips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessTrips">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessTripsDestination">
+    <End Role="Destinations" Type="PodrozeModel.Store.Destinations" Multiplicity="1" />
+    <End Role="BusinessTrips" Type="PodrozeModel.Store.BusinessTrips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessTrips">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessTripsUser">
+    <End Role="Users" Type="PodrozeModel.Store.Users" Multiplicity="1" />
+    <End Role="BusinessTrips" Type="PodrozeModel.Store.BusinessTrips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessTrips">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDepartment">
     <End Role="Departments" Type="PodrozeModel.Store.Departments" Multiplicity="1" />
     <End Role="Users" Type="PodrozeModel.Store.Users" Multiplicity="*" />
     <ReferentialConstraint>
@@ -59,14 +129,42 @@
 <edmx:ConceptualModels>
 <Schema Namespace="PodrozeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="PodrozeEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="BusinessTrips" EntityType="PodrozeModel.BusinessTrips" />
     <EntitySet Name="Cars" EntityType="PodrozeModel.Cars" />
     <EntitySet Name="Departments" EntityType="PodrozeModel.Departments" />
+    <EntitySet Name="Destinations" EntityType="PodrozeModel.Destinations" />
     <EntitySet Name="Users" EntityType="PodrozeModel.Users" />
-    <AssociationSet Name="UserDepartment" Association="PodrozeModel.UserDepartment">
+    <AssociationSet Name="FK_BusinessTripsCar" Association="PodrozeModel.FK_BusinessTripsCar">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="BusinessTrips" EntitySet="BusinessTrips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessTripsDestination" Association="PodrozeModel.FK_BusinessTripsDestination">
+      <End Role="Destinations" EntitySet="Destinations" />
+      <End Role="BusinessTrips" EntitySet="BusinessTrips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusinessTripsUser" Association="PodrozeModel.FK_BusinessTripsUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BusinessTrips" EntitySet="BusinessTrips" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDepartment" Association="PodrozeModel.FK_UsersDepartment">
       <End Role="Departments" EntitySet="Departments" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="BusinessTrips">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="DestinationId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DepartureDate" Type="DateTime" Nullable="false" />
+    <Property Name="ArrivalDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="PodrozeModel.FK_BusinessTripsCar" FromRole="BusinessTrips" ToRole="Cars" />
+    <NavigationProperty Name="Destinations" Relationship="PodrozeModel.FK_BusinessTripsDestination" FromRole="BusinessTrips" ToRole="Destinations" />
+    <NavigationProperty Name="Users" Relationship="PodrozeModel.FK_BusinessTripsUser" FromRole="BusinessTrips" ToRole="Users" />
+  </EntityType>
   <EntityType Name="Cars">
     <Key>
       <PropertyRef Name="Id" />
@@ -76,6 +174,7 @@
     <Property Name="Model" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="RegistrationNumber" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
     <Property Name="NumberOfSeats" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="BusinessTrips" Relationship="PodrozeModel.FK_BusinessTripsCar" FromRole="Cars" ToRole="BusinessTrips" />
   </EntityType>
   <EntityType Name="Departments">
     <Key>
@@ -83,7 +182,17 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="Users" Relationship="PodrozeModel.UserDepartment" FromRole="Departments" ToRole="Users" />
+    <NavigationProperty Name="Users" Relationship="PodrozeModel.FK_UsersDepartment" FromRole="Departments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Destinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <Property Name="Longitude" Type="Double" Nullable="false" />
+    <NavigationProperty Name="BusinessTrips" Relationship="PodrozeModel.FK_BusinessTripsDestination" FromRole="Destinations" ToRole="BusinessTrips" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -95,9 +204,46 @@
     <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="SurName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
     <Property Name="DepartmentId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Departments" Relationship="PodrozeModel.UserDepartment" FromRole="Users" ToRole="Departments" />
+    <NavigationProperty Name="BusinessTrips" Relationship="PodrozeModel.FK_BusinessTripsUser" FromRole="Users" ToRole="BusinessTrips" />
+    <NavigationProperty Name="Departments" Relationship="PodrozeModel.FK_UsersDepartment" FromRole="Users" ToRole="Departments" />
   </EntityType>
-  <Association Name="UserDepartment">
+  <Association Name="FK_BusinessTripsCar">
+    <End Role="Cars" Type="PodrozeModel.Cars" Multiplicity="1" />
+    <End Role="BusinessTrips" Type="PodrozeModel.BusinessTrips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessTrips">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessTripsDestination">
+    <End Role="Destinations" Type="PodrozeModel.Destinations" Multiplicity="1" />
+    <End Role="BusinessTrips" Type="PodrozeModel.BusinessTrips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessTrips">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusinessTripsUser">
+    <End Role="Users" Type="PodrozeModel.Users" Multiplicity="1" />
+    <End Role="BusinessTrips" Type="PodrozeModel.BusinessTrips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BusinessTrips">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDepartment">
     <End Role="Departments" Type="PodrozeModel.Departments" Multiplicity="1" />
     <End Role="Users" Type="PodrozeModel.Users" Multiplicity="*" />
     <ReferentialConstraint>
@@ -115,6 +261,18 @@
 <edmx:Mappings>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PodrozeModelStoreContainer" CdmEntityContainer="PodrozeEntities">
+    <EntitySetMapping Name="BusinessTrips">
+      <EntityTypeMapping TypeName="PodrozeModel.BusinessTrips">
+        <MappingFragment StoreEntitySet="BusinessTrips">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="DestinationId" ColumnName="DestinationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Cars">
       <EntityTypeMapping TypeName="PodrozeModel.Cars">
         <MappingFragment StoreEntitySet="Cars">
@@ -131,6 +289,16 @@
         <MappingFragment StoreEntitySet="Departments">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Destinations">
+      <EntityTypeMapping TypeName="PodrozeModel.Destinations">
+        <MappingFragment StoreEntitySet="Destinations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

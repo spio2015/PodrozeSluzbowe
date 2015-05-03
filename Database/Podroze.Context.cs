@@ -25,8 +25,10 @@ namespace Database
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<BusinessTrips> BusinessTrips { get; set; }
         public virtual DbSet<Cars> Cars { get; set; }
         public virtual DbSet<Departments> Departments { get; set; }
+        public virtual DbSet<Destinations> Destinations { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

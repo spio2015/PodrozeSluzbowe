@@ -12,18 +12,17 @@ namespace Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Cars
+    public partial class Destinations
     {
-        public Cars()
+        public Destinations()
         {
             this.BusinessTrips = new HashSet<BusinessTrips>();
         }
     
         public int Id { get; set; }
-        public string Brand { get; set; }
-        public string Model { get; set; }
-        public string RegistrationNumber { get; set; }
-        public short NumberOfSeats { get; set; }
+        public string Address { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     
         public virtual ICollection<BusinessTrips> BusinessTrips { get; set; }
     }

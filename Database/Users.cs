@@ -14,6 +14,11 @@ namespace Database
     
     public partial class Users
     {
+        public Users()
+        {
+            this.BusinessTrips = new HashSet<BusinessTrips>();
+        }
+    
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
@@ -21,6 +26,7 @@ namespace Database
         public string SurName { get; set; }
         public int DepartmentId { get; set; }
     
+        public virtual ICollection<BusinessTrips> BusinessTrips { get; set; }
         public virtual Departments Departments { get; set; }
     }
 }

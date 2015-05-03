@@ -55,10 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessTrips.cs">
+      <DependentUpon>Podroze.tt</DependentUpon>
+    </Compile>
     <Compile Include="Cars.cs">
       <DependentUpon>Podroze.tt</DependentUpon>
     </Compile>
     <Compile Include="Departments.cs">
+      <DependentUpon>Podroze.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Destinations.cs">
       <DependentUpon>Podroze.tt</DependentUpon>
     </Compile>
     <Compile Include="Podroze.Context.cs">
