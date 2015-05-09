@@ -73,15 +73,17 @@
             // 
             // tbxEndAddress
             // 
-            this.tbxEndAddress.Location = new System.Drawing.Point(15, 346);
+            this.tbxEndAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbxEndAddress.Location = new System.Drawing.Point(15, 651);
             this.tbxEndAddress.Name = "tbxEndAddress";
             this.tbxEndAddress.Size = new System.Drawing.Size(509, 20);
             this.tbxEndAddress.TabIndex = 3;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 330);
+            this.label2.Location = new System.Drawing.Point(12, 635);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 2;
@@ -89,7 +91,8 @@
             // 
             // btnGenerateRoute
             // 
-            this.btnGenerateRoute.Location = new System.Drawing.Point(407, 453);
+            this.btnGenerateRoute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGenerateRoute.Location = new System.Drawing.Point(407, 724);
             this.btnGenerateRoute.Name = "btnGenerateRoute";
             this.btnGenerateRoute.Size = new System.Drawing.Size(117, 36);
             this.btnGenerateRoute.TabIndex = 4;
@@ -99,15 +102,17 @@
             // 
             // tbxDuration
             // 
-            this.tbxDuration.Location = new System.Drawing.Point(176, 469);
+            this.tbxDuration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbxDuration.Location = new System.Drawing.Point(176, 731);
             this.tbxDuration.Name = "tbxDuration";
             this.tbxDuration.Size = new System.Drawing.Size(133, 20);
             this.tbxDuration.TabIndex = 8;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(173, 453);
+            this.label3.Location = new System.Drawing.Point(173, 715);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 7;
@@ -115,15 +120,17 @@
             // 
             // tbxDistance
             // 
-            this.tbxDistance.Location = new System.Drawing.Point(15, 469);
+            this.tbxDistance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbxDistance.Location = new System.Drawing.Point(15, 731);
             this.tbxDistance.Name = "tbxDistance";
             this.tbxDistance.Size = new System.Drawing.Size(133, 20);
             this.tbxDistance.TabIndex = 6;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 453);
+            this.label4.Location = new System.Drawing.Point(12, 715);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 5;
@@ -147,15 +154,17 @@
             // 
             // tbxEndLocation
             // 
-            this.tbxEndLocation.Location = new System.Drawing.Point(15, 385);
+            this.tbxEndLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbxEndLocation.Location = new System.Drawing.Point(15, 690);
             this.tbxEndLocation.Name = "tbxEndLocation";
             this.tbxEndLocation.Size = new System.Drawing.Size(294, 20);
             this.tbxEndLocation.TabIndex = 12;
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 369);
+            this.label6.Location = new System.Drawing.Point(12, 674);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 13);
             this.label6.TabIndex = 11;
@@ -173,7 +182,8 @@
             // 
             // btnOpenEndLocation
             // 
-            this.btnOpenEndLocation.Location = new System.Drawing.Point(324, 369);
+            this.btnOpenEndLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOpenEndLocation.Location = new System.Drawing.Point(324, 674);
             this.btnOpenEndLocation.Name = "btnOpenEndLocation";
             this.btnOpenEndLocation.Size = new System.Drawing.Size(200, 44);
             this.btnOpenEndLocation.TabIndex = 14;
@@ -186,10 +196,10 @@
             this.webBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser.Location = new System.Drawing.Point(540, 25);
+            this.webBrowser.Location = new System.Drawing.Point(672, 25);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(587, 764);
+            this.webBrowser.Size = new System.Drawing.Size(455, 764);
             this.webBrowser.TabIndex = 15;
             // 
             // tbxAppKey
@@ -212,14 +222,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 509);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 129);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(509, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 487);
             this.dataGridView1.TabIndex = 18;
             // 
             // tbxArrival
             // 
+            this.tbxArrival.BackColor = System.Drawing.Color.White;
             this.tbxArrival.Location = new System.Drawing.Point(176, 103);
             this.tbxArrival.Name = "tbxArrival";
             this.tbxArrival.ReadOnly = true;
@@ -238,6 +251,7 @@
             // 
             // tbxDeparture
             // 
+            this.tbxDeparture.BackColor = System.Drawing.Color.White;
             this.tbxDeparture.Location = new System.Drawing.Point(15, 103);
             this.tbxDeparture.Name = "tbxDeparture";
             this.tbxDeparture.ReadOnly = true;
