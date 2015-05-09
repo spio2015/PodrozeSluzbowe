@@ -50,5 +50,15 @@ namespace PodrozeSluzbowe
             //ProcessStartInfo sInfo = new ProcessStartInfo("http://maps.google.com/maps?q=loc:" + tbxEndLocation.Text);
             //Process.Start(sInfo);
         }
+
+        private void calendar_DoubleClick(object sender, EventArgs e)
+        {
+            kalendarz _kalendarz = new kalendarz();
+            _kalendarz.ShowDialog();
+            TextBox tbx = (TextBox)sender;
+            tbx.Text = _kalendarz.data;
+        }
+
+
     }
 }
