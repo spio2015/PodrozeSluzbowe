@@ -6,6 +6,8 @@ using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
 
+using GoogleApi.DataTypesDistance;
+
 namespace GoogleApi
 {    
     public static class GenerateRoute
@@ -15,7 +17,7 @@ namespace GoogleApi
             Dictionary<string, string> result = new Dictionary<string, string>();
             try
             {
-                string apiUrl = "https://maps.googleapis.com/maps/api/directions/json?origin={0},&destination={1}&sensor=false&key={2}";
+                string apiUrl = "https://maps.googleapis.com/maps/api/directions/json?origin={0}&destination={1}&mode=driving&sensor=false&key={2}";
                 apiUrl = string.Format(apiUrl, origin, destination, key);
                 WebRequest request = HttpWebRequest.Create(apiUrl);
                 WebResponse response = request.GetResponse();
@@ -51,6 +53,6 @@ namespace GoogleApi
             {
                 throw ex;
             }
-        }
+        }        
     }
 }

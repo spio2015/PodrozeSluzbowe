@@ -13,9 +13,13 @@ namespace PodrozeSluzbowe.BusinessClasses
         private int tripId;
         private string userName;
         private string address;
+        private string lat;
+        private string lng;
         private string registrationNumber;
         private DateTime departureDate;
         private DateTime arrivalDate;
+        private string distance;
+        private string duration;
 
 	    public int TripId
 	    {
@@ -32,6 +36,16 @@ namespace PodrozeSluzbowe.BusinessClasses
             get { return address; }
             set { address = value; }
         }
+        public string Lat
+        {
+            get { return lat; }
+            set { lat = value; }
+        }
+        public string Lng
+        {
+            get { return lng; }
+            set { lng = value; }
+        }
         public string RegistrationNumber
         {
             get { return registrationNumber; }
@@ -46,6 +60,16 @@ namespace PodrozeSluzbowe.BusinessClasses
         {
             get { return arrivalDate; }
             set { arrivalDate = value; }
+        }
+        public string Distance
+        {
+            get { return distance; }
+            set { distance = value; }
+        }
+        public string Duration
+        {
+            get { return duration; }
+            set { duration = value; }
         }
     }
 }

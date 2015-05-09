@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes.cs" />
+    <Compile Include="DataTypesGeolocation\DataTypes.cs" />
+    <Compile Include="DataTypesDistance\DataTypes.cs" />
+    <Compile Include="GenerateGeolocation.cs" />
     <Compile Include="GenerateRoute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

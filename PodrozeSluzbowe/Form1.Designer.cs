@@ -49,11 +49,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxTolerance = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.cmbCars = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,7 @@
             this.tbxStartAddress.Name = "tbxStartAddress";
             this.tbxStartAddress.Size = new System.Drawing.Size(390, 20);
             this.tbxStartAddress.TabIndex = 1;
+            this.tbxStartAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxStartAddress_KeyPress);
             // 
             // tbxDuration
             // 
@@ -174,6 +175,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(639, 487);
             this.dataGridView1.TabIndex = 18;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // tbxArrival
             // 
@@ -238,14 +240,6 @@
             this.button1.Text = "Dodaj podróż";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(425, 28);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 17);
-            this.listBox1.TabIndex = 26;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -257,6 +251,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.Location = new System.Drawing.Point(12, 628);
@@ -276,6 +271,7 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.Location = new System.Drawing.Point(334, 731);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(118, 23);
@@ -283,16 +279,24 @@
             this.button3.Text = "Usuń podróż";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // cmbCars
+            // 
+            this.cmbCars.FormattingEnabled = true;
+            this.cmbCars.Location = new System.Drawing.Point(425, 24);
+            this.cmbCars.Name = "cmbCars";
+            this.cmbCars.Size = new System.Drawing.Size(227, 21);
+            this.cmbCars.TabIndex = 31;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 801);
+            this.Controls.Add(this.cmbCars);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbxTolerance);
             this.Controls.Add(this.label2);
@@ -344,11 +348,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxTolerance;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cmbCars;
     }
 }
 

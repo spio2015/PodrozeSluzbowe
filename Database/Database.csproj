@@ -61,6 +61,7 @@
     <Compile Include="Cars.cs">
       <DependentUpon>Podroze.tt</DependentUpon>
     </Compile>
+    <Compile Include="CarsCmb.cs" />
     <Compile Include="Departments.cs">
       <DependentUpon>Podroze.tt</DependentUpon>
     </Compile>

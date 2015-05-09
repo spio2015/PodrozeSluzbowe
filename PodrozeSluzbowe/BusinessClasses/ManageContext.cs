@@ -13,7 +13,7 @@ namespace PodrozeSluzbowe.BusinessClasses
     {
         PodrozeEntities context = new PodrozeEntities();
         
-        public int AddDestination(string Address, double Latitude, double Longitude)
+        public int AddDestination(string Address, string Latitude, string Longitude)
         {
             using (PodrozeEntities context = new PodrozeEntities())
             {
@@ -44,12 +44,12 @@ namespace PodrozeSluzbowe.BusinessClasses
         }
 
 
-        public static List<TravelsGrid> GetTravelsList(DateTime DepartureDate, DateTime ArrivalDate, int DayTolerance)
+        public static List<TravelsGrid> GetTravelsList(DateTime DepartureDate, DateTime ArrivalDate, int DayTolerance, string Lat, string Lng)
         {
-            using (PodrozeEntities context = new PodrozeEntities())
-            {
-                List<TravelsGrid> TravelsGridList = new List<TravelsGrid>();
+            List<TravelsGrid> TravelsGridList = new List<TravelsGrid>();
 
+            using (PodrozeEntities context = new PodrozeEntities())
+            {              
                 DateTime departureDateFrom = DepartureDate.AddDays(DayTolerance * (-1));
                 DateTime departureDateTo = DepartureDate.AddDays(DayTolerance);
                 DateTime arrivalDateFrom = ArrivalDate.AddDays(DayTolerance * (-1));
@@ -76,11 +76,27 @@ namespace PodrozeSluzbowe.BusinessClasses
                     travel.RegistrationNumber = businessTrip.Cars.RegistrationNumber;
                     travel.DepartureDate = businessTrip.DepartureDate;
                     travel.ArrivalDate = businessTrip.ArrivalDate;
+                    travel.Lat = businessTrip.Destinations.Latitude;
+                    travel.Lng = businessTrip.Destinations.Longitude;
+                    string startGeolocation = travel.Lat.ToString().Replace(',', '.') + ',' + travel.Lng.ToString().Replace(',', '.');
+                    string endGeolocation = Lat.Replace(',', '.') + ',' + Lng.Replace(',', '.');
+                    Dictionary<string, string> result = GoogleApi.GenerateRoute.GetDistance(startGeolocation, endGeolocation, "");
+                    travel.Distance = result["distance"];
+                    travel.Duration = result["duration"];
                     TravelsGridList.Add(travel);
                 }
-
-                return TravelsGridList;
             }
+            return TravelsGridList;  
+        }
+
+        public static List<Cars> GetCars()
+        {
+            List<Cars> cars = new List<Cars>();
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                cars = context.Cars.ToList();
+            }
+            return cars;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoogleApi
+namespace GoogleApi.DataTypesDistance
 {
     public class Northeast
     {
@@ -122,6 +122,7 @@ namespace GoogleApi
         public List<Route> routes { get; set; }
         public string status { get; set; }
     }
+
 }
 
      

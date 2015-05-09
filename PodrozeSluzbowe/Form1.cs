@@ -14,9 +14,13 @@ namespace PodrozeSluzbowe
 {
     public partial class Form1 : Form
     {
+        private string lat;
+        private string lng;
+
         public Form1()
         {
             InitializeComponent();
+            LoadCarsToCombox();
         }
 
         private void btnGenerateRoute_Click(object sender, EventArgs e)
@@ -56,10 +60,44 @@ namespace PodrozeSluzbowe
 
         private void btnSearchTravels_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BusinessClasses.MenageContext.GetTravelsList(DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null),
-                DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null), int.Parse(tbxTolerance.Text));
+            int tolerance = 0;
+            int.TryParse(tbxTolerance.Text, out tolerance);
+            if (tbxDeparture.Text != "" && tbxArrival.Text != "" && !string.IsNullOrEmpty(lat) && !string.IsNullOrEmpty(lng))
+            {
+                dataGridView1.DataSource = BusinessClasses.MenageContext.GetTravelsList(DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null),
+                                                                                        DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null), tolerance, lat, lng);
+            }
         }
 
+        private void tbxStartAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                string key = tbxAppKey.Text;
+                Dictionary<string, string> result = GoogleApi.GenerateGeolocation.GetGeoloacation(tbxStartAddress.Text, key);
+                tbxStartAddress.Text = result["formatted_address"];
+                lat = result["lat"].Replace(',', '.');
+                lng = result["lng"].Replace(',', '.');
+                webBrowser.Navigate(string.Format("http://maps.google.com/maps?q={0},{1}", lat, lng));
+            }
+        }
 
+        private void LoadCarsToCombox()
+        {
+            cmbCars.DataSource = BusinessClasses.MenageContext.GetCars();
+            cmbCars.DisplayMember = "CmbCars";
+            cmbCars.ValueMember = "Id";
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                BusinessClasses.TravelsGrid travel = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
+                {
+                    webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr=52.4022813,16.9496191&daddr={2},{3}+to:{0},{1}&dirflg=d", travel.Lat, travel.Lng, lat, lng));
+                }
+            }            
+        }
     }
 }
