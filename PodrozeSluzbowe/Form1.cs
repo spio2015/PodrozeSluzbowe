@@ -95,7 +95,7 @@ namespace PodrozeSluzbowe
             {
                 BusinessClasses.TravelsGrid travel = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
                 {
-                    webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr=52.4022813,16.9496191&daddr={2},{3}+to:{0},{1}&dirflg=d", travel.Lat, travel.Lng, lat, lng));
+                    webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1},{2}+to:{3},{4}&dirflg=d", Properties.Settings.Default.CompanyLatLng, lat, lng, travel.Lat, travel.Lng));
                 }
             }            
         }
