@@ -50,15 +50,20 @@ namespace PodrozeSluzbowe.BusinessClasses
             {
                 List<TravelsGrid> TravelsGridList = new List<TravelsGrid>();
 
+                DateTime departureDateFrom = DepartureDate.AddDays(DayTolerance * (-1));
+                DateTime departureDateTo = DepartureDate.AddDays(DayTolerance);
+                DateTime arrivalDateFrom = ArrivalDate.AddDays(DayTolerance * (-1));
+                DateTime arrivalDateTo = ArrivalDate.AddDays(DayTolerance);
+
                 var travelListQuery = (from BusinessTrip in context.BusinessTrips
-                                       where BusinessTrip.DepartureDate >= DepartureDate.AddDays(DayTolerance * (-1))
-                                           && BusinessTrip.DepartureDate <= DepartureDate.AddDays(DayTolerance)
-                                           && BusinessTrip.ArrivalDate >= ArrivalDate.AddDays(DayTolerance * (-1))
-                                           && BusinessTrip.ArrivalDate >= ArrivalDate.AddDays(DayTolerance)
+                                       where BusinessTrip.DepartureDate >= departureDateFrom
+                                           && BusinessTrip.DepartureDate <= departureDateTo
+                                           && BusinessTrip.ArrivalDate >= arrivalDateFrom
+                                           && BusinessTrip.ArrivalDate <= arrivalDateTo
                                        select BusinessTrip)
                                       .Include(x => x.Users)
-                                      .Include(x => x.Destinations.Address)
-                                      .Include(x => x.Cars.RegistrationNumber);
+                                      .Include(x => x.Destinations)
+                                      .Include(x => x.Cars);
                                                      
                 List<BusinessTrips> BusinessTripsList = travelListQuery.ToList();
 
