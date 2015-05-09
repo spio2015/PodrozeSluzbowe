@@ -35,6 +35,8 @@ namespace PodrozeSluzbowe
             if (result.ContainsKey("duration")) tbxDuration.Text = result["duration"];
         }
 
+        
+
         private void button1_Click(object sender, EventArgs e)
         {
             webBrowser.Navigate("http://maps.google.com/maps?q=loc:" + tbxStartLocation.Text);

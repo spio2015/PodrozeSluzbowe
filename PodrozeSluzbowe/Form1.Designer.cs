@@ -47,6 +47,8 @@
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.tbxAppKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -183,13 +185,13 @@
             this.webBrowser.Location = new System.Drawing.Point(540, 25);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(587, 527);
+            this.webBrowser.Size = new System.Drawing.Size(587, 571);
             this.webBrowser.TabIndex = 15;
             // 
             // tbxAppKey
             // 
             this.tbxAppKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbxAppKey.Location = new System.Drawing.Point(15, 535);
+            this.tbxAppKey.Location = new System.Drawing.Point(15, 579);
             this.tbxAppKey.Name = "tbxAppKey";
             this.tbxAppKey.Size = new System.Drawing.Size(294, 20);
             this.tbxAppKey.TabIndex = 17;
@@ -198,17 +200,26 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 519);
+            this.label7.Location = new System.Drawing.Point(12, 563);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "AppKey";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 299);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(509, 230);
+            this.dataGridView1.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 564);
+            this.ClientSize = new System.Drawing.Size(1130, 608);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tbxAppKey);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.webBrowser);
@@ -230,6 +241,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Go Our Car - Obliczanie dystansu i czasu podróży";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +267,7 @@
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.TextBox tbxAppKey;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
