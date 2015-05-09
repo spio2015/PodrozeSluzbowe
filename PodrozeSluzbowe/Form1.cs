@@ -61,6 +61,12 @@ namespace PodrozeSluzbowe
             tbx.Text = _kalendarz.data;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = BusinessClasses.MenageContext.GetTravelsList(DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
+                                                         DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture), 10);
+        }
+
 
     }
 }

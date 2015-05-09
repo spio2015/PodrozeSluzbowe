@@ -44,10 +44,12 @@ namespace PodrozeSluzbowe.BusinessClasses
         }
 
 
-        public void getVarList (DateTime DepartureDate, DateTime ArrivalDate, int DayTolerance)
+        public static List<TravelsGrid> GetTravelsList(DateTime DepartureDate, DateTime ArrivalDate, int DayTolerance)
         {
             using (PodrozeEntities context = new PodrozeEntities())
             {
+                List<TravelsGrid> TravelsGridList = new List<TravelsGrid>();
+
                 var travelListQuery = (from BusinessTrip in context.BusinessTrips
                                        where BusinessTrip.DepartureDate >= DepartureDate.AddDays(DayTolerance * (-1))
                                            && BusinessTrip.DepartureDate <= DepartureDate.AddDays(DayTolerance)
@@ -57,17 +59,22 @@ namespace PodrozeSluzbowe.BusinessClasses
                                       .Include(x => x.Users)
                                       .Include(x => x.Destinations.Address)
                                       .Include(x => x.Cars.RegistrationNumber);
-                                      
-                //new TravelsGrid()
-                //                      {
-                //                          BusinessTrip.Id,
-                //                          BusinessTrip.Users.SurName,
-                //                          BusinessTrip.Destinations.Address,
-                //                          BusinessTrip.Cars.RegistrationNumber,
-                //                          BusinessTrip.DepartureDate,
-                //                          BusinessTrip.ArrivalDate
-                //                      };
+                                                     
                 List<BusinessTrips> BusinessTripsList = travelListQuery.ToList();
+
+                foreach (BusinessTrips businessTrip in BusinessTripsList)
+                {
+                    TravelsGrid travel = new TravelsGrid();
+                    travel.TripId = businessTrip.Id;
+                    travel.UserName = businessTrip.Users.SurName + " " + businessTrip.Users.FirstName;
+                    travel.Address = businessTrip.Destinations.Address;
+                    travel.RegistrationNumber = businessTrip.Cars.RegistrationNumber;
+                    travel.DepartureDate = businessTrip.DepartureDate;
+                    travel.ArrivalDate = businessTrip.ArrivalDate;
+                    TravelsGridList.Add(travel);
+                }
+
+                return TravelsGridList;
             }
         }
     }
