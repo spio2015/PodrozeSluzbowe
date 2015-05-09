@@ -33,6 +33,8 @@ namespace PodrozeSluzbowe
                 tbxEndLocation.Text = result["end_location_lat"] + "," + result["end_location_lng"];
             if (result.ContainsKey("distance")) tbxDistance.Text = result["distance"];
             if (result.ContainsKey("duration")) tbxDuration.Text = result["duration"];
+
+            webBrowser.Navigate("https://www.google.pl/maps/dir/" + result["start_location_lat"] + "," + result["start_location_lng"] + "/" + result["end_location_lat"] + "," + result["end_location_lng"]);
         }
 
         
