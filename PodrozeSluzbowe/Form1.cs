@@ -21,20 +21,20 @@ namespace PodrozeSluzbowe
 
         private void btnGenerateRoute_Click(object sender, EventArgs e)
         {
-            string key = tbxAppKey.Text;
-            tbxDistance.Text = "";
-            tbxDuration.Text = "";
-            Dictionary<string, string> result = GenerateRoute.GetDistance(tbxStartAddress.Text, tbxEndAddress.Text, key);
-            if (result.ContainsKey("start_address")) tbxStartAddress.Text = result["start_address"];
-            if (result.ContainsKey("start_location_lat") && result.ContainsKey("start_location_lng"))
-                tbxStartLocation.Text = result["start_location_lat"] + "," + result["start_location_lng"];
-            if (result.ContainsKey("end_address")) tbxEndAddress.Text = result["end_address"];
-            if (result.ContainsKey("end_location_lat") && result.ContainsKey("end_location_lng"))
-                tbxEndLocation.Text = result["end_location_lat"] + "," + result["end_location_lng"];
-            if (result.ContainsKey("distance")) tbxDistance.Text = result["distance"];
-            if (result.ContainsKey("duration")) tbxDuration.Text = result["duration"];
+            //string key = tbxAppKey.Text;
+            //tbxDistance.Text = "";
+            //tbxDuration.Text = "";
+            //Dictionary<string, string> result = GenerateRoute.GetDistance(tbxStartAddress.Text, tbxEndAddress.Text, key);
+            //if (result.ContainsKey("start_address")) tbxStartAddress.Text = result["start_address"];
+            //if (result.ContainsKey("start_location_lat") && result.ContainsKey("start_location_lng"))
+            //    tbxStartLocation.Text = result["start_location_lat"] + "," + result["start_location_lng"];
+            //if (result.ContainsKey("end_address")) tbxEndAddress.Text = result["end_address"];
+            //if (result.ContainsKey("end_location_lat") && result.ContainsKey("end_location_lng"))
+            //    tbxEndLocation.Text = result["end_location_lat"] + "," + result["end_location_lng"];
+            //if (result.ContainsKey("distance")) tbxDistance.Text = result["distance"];
+            //if (result.ContainsKey("duration")) tbxDuration.Text = result["duration"];
 
-            webBrowser.Navigate("https://www.google.pl/maps/dir/" + result["start_location_lat"] + "," + result["start_location_lng"] + "/" + result["end_location_lat"] + "," + result["end_location_lng"]);
+            //webBrowser.Navigate("https://www.google.pl/maps/dir/" + result["start_location_lat"] + "," + result["start_location_lng"] + "/" + result["end_location_lat"] + "," + result["end_location_lng"]);
         }
 
         
@@ -46,13 +46,6 @@ namespace PodrozeSluzbowe
             //Process.Start(sInfo);
         }
 
-        private void btnOpenEndLocation_Click(object sender, EventArgs e)
-        {
-            webBrowser.Navigate("http://maps.google.com/maps?q=loc:" + tbxEndLocation.Text);
-            //ProcessStartInfo sInfo = new ProcessStartInfo("http://maps.google.com/maps?q=loc:" + tbxEndLocation.Text);
-            //Process.Start(sInfo);
-        }
-
         private void calendar_DoubleClick(object sender, EventArgs e)
         {
             kalendarz _kalendarz = new kalendarz();
@@ -61,9 +54,10 @@ namespace PodrozeSluzbowe
             tbx.Text = _kalendarz.data;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnSearchTravels_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = BusinessClasses.MenageContext.GetTravelsList(DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null),
+                DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null), int.Parse(tbxTolerance.Text));
         }
 
 

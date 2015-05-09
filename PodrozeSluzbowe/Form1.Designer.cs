@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbxStartLocation = new System.Windows.Forms.TextBox();
-            this.btnOpenStartLocation = new System.Windows.Forms.Button();
+            this.btnSearchTravels = new System.Windows.Forms.Button();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.tbxAppKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.tbxDeparture = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxTolerance = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -125,15 +125,15 @@
             this.tbxStartLocation.Size = new System.Drawing.Size(294, 20);
             this.tbxStartLocation.TabIndex = 10;
             // 
-            // btnOpenStartLocation
+            // btnSearchTravels
             // 
-            this.btnOpenStartLocation.Location = new System.Drawing.Point(9, 100);
-            this.btnOpenStartLocation.Name = "btnOpenStartLocation";
-            this.btnOpenStartLocation.Size = new System.Drawing.Size(113, 24);
-            this.btnOpenStartLocation.TabIndex = 13;
-            this.btnOpenStartLocation.Text = "Wyszukaj podróż";
-            this.btnOpenStartLocation.UseVisualStyleBackColor = true;
-            this.btnOpenStartLocation.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearchTravels.Location = new System.Drawing.Point(9, 100);
+            this.btnSearchTravels.Name = "btnSearchTravels";
+            this.btnSearchTravels.Size = new System.Drawing.Size(113, 24);
+            this.btnSearchTravels.TabIndex = 13;
+            this.btnSearchTravels.Text = "Wyszukaj podróż";
+            this.btnSearchTravels.UseVisualStyleBackColor = true;
+            this.btnSearchTravels.Click += new System.EventHandler(this.btnSearchTravels_Click);
             // 
             // webBrowser
             // 
@@ -171,6 +171,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 130);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(639, 487);
             this.dataGridView1.TabIndex = 18;
             // 
@@ -221,12 +222,12 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "+/- dni";
             // 
-            // textBox1
+            // tbxTolerance
             // 
-            this.textBox1.Location = new System.Drawing.Point(261, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(35, 20);
-            this.textBox1.TabIndex = 24;
+            this.tbxTolerance.Location = new System.Drawing.Point(261, 70);
+            this.tbxTolerance.Name = "tbxTolerance";
+            this.tbxTolerance.Size = new System.Drawing.Size(35, 20);
+            this.tbxTolerance.TabIndex = 24;
             // 
             // button1
             // 
@@ -236,7 +237,6 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Dodaj podróż";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // listBox1
             // 
@@ -294,7 +294,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxTolerance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxArrival);
             this.Controls.Add(this.label8);
@@ -304,7 +304,7 @@
             this.Controls.Add(this.tbxAppKey);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.webBrowser);
-            this.Controls.Add(this.btnOpenStartLocation);
+            this.Controls.Add(this.btnSearchTravels);
             this.Controls.Add(this.tbxStartLocation);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbxDuration);
@@ -332,7 +332,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbxStartLocation;
-        private System.Windows.Forms.Button btnOpenStartLocation;
+        private System.Windows.Forms.Button btnSearchTravels;
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.TextBox tbxAppKey;
         private System.Windows.Forms.Label label7;
@@ -342,7 +342,7 @@
         private System.Windows.Forms.TextBox tbxDeparture;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxTolerance;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label6;
