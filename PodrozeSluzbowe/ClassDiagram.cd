@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GoogleApi.Northeast">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Southwest">
+    <Position X="20.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Bounds">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Distance">
+    <Position X="15.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Duration">
+    <Position X="19" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.EndLocation">
+    <Position X="13.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.StartLocation">
+    <Position X="13.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Distance2">
+    <Position X="17.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Duration2">
+    <Position X="20.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.EndLocation2">
+    <Position X="15.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Polyline">
+    <Position X="15.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.StartLocation2">
+    <Position X="15.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Step">
+    <Position X="17.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Leg">
+    <Position X="19" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.OverviewPolyline">
+    <Position X="13.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.Route">
+    <Position X="19" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.RootObject">
+    <Position X="17.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GoogleApi.GenerateRoute">
+    <Position X="17.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Database.PodrozeEntities">
+    <Position X="4.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Database.BusinessTrips">
+    <Position X="3" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Database.Cars">
+    <Position X="4.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Database.Departments">
+    <Position X="6.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Database.Destinations">
+    <Position X="3" Y="13.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Database.Users">
+    <Position X="6.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PodrozeSluzbowe.BusinessClasses.MenageContext">
+    <Position X="6.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAABAAAIAAAAAAgAAAAAAA=</HashCode>
+      <FileName>BusinessClasses\MenageDestinations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PodrozeSluzbowe.BusinessClasses.TravelsGrid">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAgACAAIAAAAAAAIACEACAQhAAAEAAAA=</HashCode>
+      <FileName>BusinessClasses\TravelsGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PodrozeSluzbowe.Form1">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAEIADAIADAEAACBAAAKAEh4AAAQAFAAgAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PodrozeSluzbowe.kalendarz">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAAAAAAAACAAAACAAAAAAAAAAAQCAAAAAA=</HashCode>
+      <FileName>kalendarz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
