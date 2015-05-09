@@ -31,19 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.tbxStartAddress = new System.Windows.Forms.TextBox();
-            this.tbxEndAddress = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnGenerateRoute = new System.Windows.Forms.Button();
             this.tbxDuration = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxDistance = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbxStartLocation = new System.Windows.Forms.TextBox();
-            this.tbxEndLocation = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnOpenStartLocation = new System.Windows.Forms.Button();
-            this.btnOpenEndLocation = new System.Windows.Forms.Button();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.tbxAppKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,6 +46,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbxDeparture = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,45 +62,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Miejsce początkowe";
+            this.label1.Text = "Cel podróży";
             // 
             // tbxStartAddress
             // 
             this.tbxStartAddress.Location = new System.Drawing.Point(15, 25);
             this.tbxStartAddress.Name = "tbxStartAddress";
-            this.tbxStartAddress.Size = new System.Drawing.Size(509, 20);
+            this.tbxStartAddress.Size = new System.Drawing.Size(390, 20);
             this.tbxStartAddress.TabIndex = 1;
-            // 
-            // tbxEndAddress
-            // 
-            this.tbxEndAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbxEndAddress.Location = new System.Drawing.Point(15, 651);
-            this.tbxEndAddress.Name = "tbxEndAddress";
-            this.tbxEndAddress.Size = new System.Drawing.Size(509, 20);
-            this.tbxEndAddress.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 635);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Miejsce docelowe";
-            // 
-            // btnGenerateRoute
-            // 
-            this.btnGenerateRoute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGenerateRoute.Location = new System.Drawing.Point(407, 724);
-            this.btnGenerateRoute.Name = "btnGenerateRoute";
-            this.btnGenerateRoute.Size = new System.Drawing.Size(117, 36);
-            this.btnGenerateRoute.TabIndex = 4;
-            this.btnGenerateRoute.Text = "Oblicz";
-            this.btnGenerateRoute.UseVisualStyleBackColor = true;
-            this.btnGenerateRoute.Click += new System.EventHandler(this.btnGenerateRoute_Click);
             // 
             // tbxDuration
             // 
@@ -139,7 +112,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 48);
+            this.label5.Location = new System.Drawing.Point(12, 664);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 9;
@@ -147,56 +120,27 @@
             // 
             // tbxStartLocation
             // 
-            this.tbxStartLocation.Location = new System.Drawing.Point(15, 64);
+            this.tbxStartLocation.Location = new System.Drawing.Point(15, 680);
             this.tbxStartLocation.Name = "tbxStartLocation";
             this.tbxStartLocation.Size = new System.Drawing.Size(294, 20);
             this.tbxStartLocation.TabIndex = 10;
             // 
-            // tbxEndLocation
-            // 
-            this.tbxEndLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbxEndLocation.Location = new System.Drawing.Point(15, 690);
-            this.tbxEndLocation.Name = "tbxEndLocation";
-            this.tbxEndLocation.Size = new System.Drawing.Size(294, 20);
-            this.tbxEndLocation.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 674);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Współrzędne";
-            // 
             // btnOpenStartLocation
             // 
-            this.btnOpenStartLocation.Location = new System.Drawing.Point(324, 51);
+            this.btnOpenStartLocation.Location = new System.Drawing.Point(9, 100);
             this.btnOpenStartLocation.Name = "btnOpenStartLocation";
-            this.btnOpenStartLocation.Size = new System.Drawing.Size(200, 44);
+            this.btnOpenStartLocation.Size = new System.Drawing.Size(113, 24);
             this.btnOpenStartLocation.TabIndex = 13;
-            this.btnOpenStartLocation.Text = "Otwórz lokalizację w przeglądarce";
+            this.btnOpenStartLocation.Text = "Wyszukaj podróż";
             this.btnOpenStartLocation.UseVisualStyleBackColor = true;
             this.btnOpenStartLocation.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnOpenEndLocation
-            // 
-            this.btnOpenEndLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOpenEndLocation.Location = new System.Drawing.Point(324, 674);
-            this.btnOpenEndLocation.Name = "btnOpenEndLocation";
-            this.btnOpenEndLocation.Size = new System.Drawing.Size(200, 44);
-            this.btnOpenEndLocation.TabIndex = 14;
-            this.btnOpenEndLocation.Text = "Otwórz lokalizację w przeglądarce";
-            this.btnOpenEndLocation.UseVisualStyleBackColor = true;
-            this.btnOpenEndLocation.Click += new System.EventHandler(this.btnOpenEndLocation_Click);
             // 
             // webBrowser
             // 
             this.webBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser.Location = new System.Drawing.Point(672, 25);
+            this.webBrowser.Location = new System.Drawing.Point(676, 25);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(455, 764);
@@ -225,7 +169,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 129);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 130);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(639, 487);
             this.dataGridView1.TabIndex = 18;
@@ -233,17 +177,17 @@
             // tbxArrival
             // 
             this.tbxArrival.BackColor = System.Drawing.Color.White;
-            this.tbxArrival.Location = new System.Drawing.Point(176, 103);
+            this.tbxArrival.Location = new System.Drawing.Point(138, 70);
             this.tbxArrival.Name = "tbxArrival";
             this.tbxArrival.ReadOnly = true;
-            this.tbxArrival.Size = new System.Drawing.Size(133, 20);
+            this.tbxArrival.Size = new System.Drawing.Size(105, 20);
             this.tbxArrival.TabIndex = 22;
             this.tbxArrival.Click += new System.EventHandler(this.calendar_DoubleClick);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(173, 87);
+            this.label8.Location = new System.Drawing.Point(135, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 21;
@@ -252,27 +196,106 @@
             // tbxDeparture
             // 
             this.tbxDeparture.BackColor = System.Drawing.Color.White;
-            this.tbxDeparture.Location = new System.Drawing.Point(15, 103);
+            this.tbxDeparture.Location = new System.Drawing.Point(15, 69);
             this.tbxDeparture.Name = "tbxDeparture";
             this.tbxDeparture.ReadOnly = true;
-            this.tbxDeparture.Size = new System.Drawing.Size(133, 20);
+            this.tbxDeparture.Size = new System.Drawing.Size(107, 20);
             this.tbxDeparture.TabIndex = 20;
             this.tbxDeparture.Click += new System.EventHandler(this.calendar_DoubleClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 87);
+            this.label9.Location = new System.Drawing.Point(12, 53);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Data wyjazdu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(258, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "+/- dni";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(261, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(35, 20);
+            this.textBox1.TabIndex = 24;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(425, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Dodaj podróż";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(425, 28);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 17);
+            this.listBox1.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(422, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Samochód";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(12, 628);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(181, 24);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Informacje o trasie";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(425, 81);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Edytuj podróż";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(334, 731);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 23);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "Usuń podróż";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 801);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxArrival);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbxDeparture);
@@ -281,19 +304,13 @@
             this.Controls.Add(this.tbxAppKey);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.webBrowser);
-            this.Controls.Add(this.btnOpenEndLocation);
             this.Controls.Add(this.btnOpenStartLocation);
-            this.Controls.Add(this.tbxEndLocation);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.tbxStartLocation);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbxDuration);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxDistance);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnGenerateRoute);
-            this.Controls.Add(this.tbxEndAddress);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxStartAddress);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -309,19 +326,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxStartAddress;
-        private System.Windows.Forms.TextBox tbxEndAddress;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnGenerateRoute;
         private System.Windows.Forms.TextBox tbxDuration;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxDistance;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbxStartLocation;
-        private System.Windows.Forms.TextBox tbxEndLocation;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnOpenStartLocation;
-        private System.Windows.Forms.Button btnOpenEndLocation;
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.TextBox tbxAppKey;
         private System.Windows.Forms.Label label7;
@@ -330,6 +341,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbxDeparture;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

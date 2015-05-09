@@ -61,6 +61,11 @@ namespace PodrozeSluzbowe
             tbx.Text = _kalendarz.data;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
