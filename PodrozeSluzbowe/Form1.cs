@@ -60,6 +60,11 @@ namespace PodrozeSluzbowe
 
         private void btnSearchTravels_Click(object sender, EventArgs e)
         {
+            LoadTravels();
+        }
+
+        private void LoadTravels()
+        {
             int tolerance = 0;
             int.TryParse(tbxTolerance.Text, out tolerance);
             if (tbxDeparture.Text != "" && tbxArrival.Text != "" && !string.IsNullOrEmpty(lat) && !string.IsNullOrEmpty(lng))
@@ -111,7 +116,6 @@ namespace PodrozeSluzbowe
         private void panelAdministracyjnyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PanelAdministracyjny panelAdm = new PanelAdministracyjny();
-
             panelAdm.Show();
         }
 
@@ -119,14 +123,29 @@ namespace PodrozeSluzbowe
         {
             BusinessClasses.TravelsGrid travelsGrid = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
             BusinessClasses.MenageContext.RemoveTrip(travelsGrid.TripId);
+            LoadTravels();
         }
 
         private void btnAddTrip_Click(object sender, EventArgs e)
         {
+            AddJoinTrip((int)cmbCars.SelectedValue, DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null), DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null));
+        }
+
+        private void AddJoinTrip(int CarsId, DateTime Departure, DateTime Arrival)
+        {
             int idDestination = BusinessClasses.MenageContext.AddDestination(tbxStartAddress.Text, lat, lng);
             int idUser = BusinessClasses.MenageContext.GetUserId(tbxLogin.Text);
-            BusinessClasses.MenageContext.AddBusinessTrip((int)cmbCars.SelectedValue, idDestination,
-               idUser, DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null), DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null));
+            if (idUser != -1)
+            {
+                BusinessClasses.MenageContext.AddBusinessTrip(CarsId, idDestination, idUser, Departure, Arrival);
+                LoadTravels();
+            }
+        }
+
+        private void btnJoinToTravel_Click(object sender, EventArgs e)
+        {
+            BusinessClasses.TravelsGrid tg = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
+            AddJoinTrip(BusinessClasses.MenageContext.GetCarIdByRegistration(tg.RegistrationNumber), tg.DepartureDate, tg.ArrivalDate);
         }
     }
 }

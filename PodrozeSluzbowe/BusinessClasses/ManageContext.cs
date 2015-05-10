@@ -93,9 +93,17 @@ namespace PodrozeSluzbowe.BusinessClasses
                     travel.Lng = businessTrip.Destinations.Longitude;
                     string startGeolocation = travel.Lat.ToString().Replace(',', '.') + ',' + travel.Lng.ToString().Replace(',', '.');
                     string endGeolocation = Lat.Replace(',', '.') + ',' + Lng.Replace(',', '.');
-                    Dictionary<string, string> result = GoogleApi.GenerateRoute.GetDistance(startGeolocation, endGeolocation, "");
-                    travel.Distance = result["distance"];
-                    travel.Duration = result["duration"];
+                    if (startGeolocation == endGeolocation)
+                    {
+                        travel.Distance = "0";
+                        travel.Duration = "0";
+                    }
+                    else
+                    {
+                        Dictionary<string, string> result = GoogleApi.GenerateRoute.GetDistance(startGeolocation, endGeolocation, "");
+                        travel.Distance = result["distance"];
+                        travel.Duration = result["duration"];
+                    }
                     TravelsGridList.Add(travel);
                 }
             }
@@ -114,6 +122,16 @@ namespace PodrozeSluzbowe.BusinessClasses
                 }
             }
             return cars;
+        }
+
+        public static int GetCarIdByRegistration(string registration)
+        {
+            int car;
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                car = context.Cars.Where(c => c.RegistrationNumber == registration).Select(c => c.Id).First();
+            }
+            return car;
         }
 
         public static int GetUserId(string Login)

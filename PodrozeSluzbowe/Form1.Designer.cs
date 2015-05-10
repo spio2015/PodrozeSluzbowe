@@ -288,6 +288,7 @@
             this.btnJoinToTravel.TabIndex = 33;
             this.btnJoinToTravel.Text = "Dołącz do podróży";
             this.btnJoinToTravel.UseVisualStyleBackColor = true;
+            this.btnJoinToTravel.Click += new System.EventHandler(this.btnJoinToTravel_Click);
             // 
             // tbxLogin
             // 
