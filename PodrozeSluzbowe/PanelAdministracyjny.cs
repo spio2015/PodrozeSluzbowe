@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using Database;
 using System.Data.Entity;
+using PodrozeSluzbowe.Supervisor;
 
 namespace PodrozeSluzbowe
 {
@@ -23,6 +24,28 @@ namespace PodrozeSluzbowe
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; int DepartmentId = 1;
+            try
+            {
+                Login = txtLogin.Text;
+                Password = txtPassword.Text;
+                FirstName = txtLogin.Text;
+                SurName = txtNazwisko.Text;
+                DepartmentId =Convert.ToInt16 ( txtDział.Text);
+            }
+            catch
+            {
+
+            }
+
+
+            SuperVisor superV = new SuperVisor();
+            superV.AddUser(Login, Password, FirstName, SurName, DepartmentId);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+          
 
         }
     }
