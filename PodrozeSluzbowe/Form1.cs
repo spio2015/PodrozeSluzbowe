@@ -99,5 +99,12 @@ namespace PodrozeSluzbowe
                 }
             }            
         }
+
+        private void panelAdministracyjnyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PanelAdministracyjny panelAdm = new PanelAdministracyjny();
+
+            panelAdm.Show();
+        }
     }
 }
