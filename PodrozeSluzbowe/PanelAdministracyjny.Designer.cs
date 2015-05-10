@@ -49,6 +49,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewCars = new System.Windows.Forms.DataGridView();
             this.lblNumberOfSeats = new System.Windows.Forms.Label();
             this.lblRegistrationNumber = new System.Windows.Forms.Label();
             this.lblModel = new System.Windows.Forms.Label();
@@ -57,11 +58,12 @@
             this.txtModel = new System.Windows.Forms.TextBox();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
-            this.dataGridViewCars = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.gbAddUser.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddUser
@@ -83,6 +85,7 @@
             // 
             // removeUser
             // 
+            this.removeUser.Enabled = false;
             this.removeUser.Location = new System.Drawing.Point(6, 48);
             this.removeUser.Name = "removeUser";
             this.removeUser.Size = new System.Drawing.Size(142, 23);
@@ -93,6 +96,7 @@
             // 
             // gbAddUser
             // 
+            this.gbAddUser.Controls.Add(this.dataGridViewUsers);
             this.gbAddUser.Controls.Add(this.lblDepartment);
             this.gbAddUser.Controls.Add(this.removeUser);
             this.gbAddUser.Controls.Add(this.txtDział);
@@ -109,7 +113,7 @@
             this.gbAddUser.Controls.Add(this.txtLogin);
             this.gbAddUser.Location = new System.Drawing.Point(12, 27);
             this.gbAddUser.Name = "gbAddUser";
-            this.gbAddUser.Size = new System.Drawing.Size(440, 465);
+            this.gbAddUser.Size = new System.Drawing.Size(657, 465);
             this.gbAddUser.TabIndex = 3;
             this.gbAddUser.TabStop = false;
             this.gbAddUser.Text = "użytkownik";
@@ -209,7 +213,7 @@
             this.oknoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(985, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1294, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -230,6 +234,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(6, 48);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 23);
@@ -261,12 +266,20 @@
             this.groupBox1.Controls.Add(this.txtModel);
             this.groupBox1.Controls.Add(this.lblBrand);
             this.groupBox1.Controls.Add(this.txtBrand);
-            this.groupBox1.Location = new System.Drawing.Point(458, 27);
+            this.groupBox1.Location = new System.Drawing.Point(675, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(476, 465);
+            this.groupBox1.Size = new System.Drawing.Size(607, 465);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Flota samochodów";
+            // 
+            // dataGridViewCars
+            // 
+            this.dataGridViewCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCars.Location = new System.Drawing.Point(11, 194);
+            this.dataGridViewCars.Name = "dataGridViewCars";
+            this.dataGridViewCars.Size = new System.Drawing.Size(590, 265);
+            this.dataGridViewCars.TabIndex = 10;
             // 
             // lblNumberOfSeats
             // 
@@ -332,19 +345,19 @@
             this.txtBrand.Size = new System.Drawing.Size(100, 20);
             this.txtBrand.TabIndex = 1;
             // 
-            // dataGridViewCars
+            // dataGridViewUsers
             // 
-            this.dataGridViewCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCars.Location = new System.Drawing.Point(11, 136);
-            this.dataGridViewCars.Name = "dataGridViewCars";
-            this.dataGridViewCars.Size = new System.Drawing.Size(459, 242);
-            this.dataGridViewCars.TabIndex = 10;
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Location = new System.Drawing.Point(7, 194);
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.Size = new System.Drawing.Size(644, 265);
+            this.dataGridViewUsers.TabIndex = 13;
             // 
             // PanelAdministracyjny
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 523);
+            this.ClientSize = new System.Drawing.Size(1294, 663);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbAddUser);
             this.Controls.Add(this.menuStrip1);
@@ -358,6 +371,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,5 +409,6 @@
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.TextBox txtBrand;
         private System.Windows.Forms.DataGridView dataGridViewCars;
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
     }
 }

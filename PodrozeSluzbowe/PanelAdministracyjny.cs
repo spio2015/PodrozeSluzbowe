@@ -20,6 +20,10 @@ namespace PodrozeSluzbowe
         public PanelAdministracyjny()
         {
             InitializeComponent();
+            removeUser.Visible = false;
+            button1.Visible = false;
+            dataGridViewCars.Visible = false;
+            dataGridViewUsers.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,7 +98,7 @@ namespace PodrozeSluzbowe
             List<string> lista = new List<string>();
            
           //  dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
-            dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
+            //dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
 
         }
     }
