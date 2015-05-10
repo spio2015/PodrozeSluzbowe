@@ -228,6 +228,7 @@
             this.btnEditTravels.TabIndex = 29;
             this.btnEditTravels.Text = "Edytuj podróż";
             this.btnEditTravels.UseVisualStyleBackColor = true;
+            this.btnEditTravels.Visible = false;
             // 
             // btnRemoveTravels
             // 

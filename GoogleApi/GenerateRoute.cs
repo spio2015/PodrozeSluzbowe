@@ -12,13 +12,13 @@ namespace GoogleApi
 {    
     public static class GenerateRoute
     {
-        public static Dictionary<string, string> GetDistance(string origin, string destination, string key)
+        public static Dictionary<string, string> GetDistance(string origin, string destination, string key, string waipoint = "")
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
             try
             {
-                string apiUrl = "https://maps.googleapis.com/maps/api/directions/json?origin={0}&destination={1}&mode=driving&sensor=false&key={2}";
-                apiUrl = string.Format(apiUrl, origin, destination, key);
+                string apiUrl = "https://maps.googleapis.com/maps/api/directions/json?origin={0}&destination={1}{2}&mode=driving&sensor=false&key={3}";
+                apiUrl = string.Format(apiUrl, origin, destination, waipoint, key);
                 WebRequest request = HttpWebRequest.Create(apiUrl);
                 WebResponse response = request.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -35,6 +35,7 @@ namespace GoogleApi
                     result.Add("end_location_lat", leg.end_location.lat.ToString().Replace(',', '.'));
                     result.Add("end_location_lng", leg.end_location.lng.ToString().Replace(',', '.'));
                     result.Add("distance", leg.distance.text);
+                    result.Add("distance2", leg.distance.value.ToString());
                     result.Add("duration", leg.duration.text);                    
                     double distance = responseData.routes.Sum(r => r.legs.Sum(l => l.distance.value));
                     if (distance == 0)

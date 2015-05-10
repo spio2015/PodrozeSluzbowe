@@ -108,7 +108,22 @@ namespace PodrozeSluzbowe
             {
                 BusinessClasses.TravelsGrid travel = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
                 {
-                    webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1},{2}+to:{3},{4}&dirflg=d", Properties.Settings.Default.CompanyLatLng, lat, lng, travel.Lat, travel.Lng));
+                    string latlng1 = lat + "," + lng;
+                    string latlng2 = travel.Lat + "," + travel.Lng;
+                    Dictionary<string, string> result1 = GoogleApi.GenerateRoute.GetDistance(Properties.Settings.Default.CompanyLatLng, latlng1, "", "&waipoints=" + latlng2);
+                    double distance1 = 0;
+                    double.TryParse(result1["distance2"], out distance1);
+                    Dictionary<string, string> result2 = GoogleApi.GenerateRoute.GetDistance(Properties.Settings.Default.CompanyLatLng, latlng2, "", "&waipoints=" + latlng1);
+                    double distance2 = 0;
+                    double.TryParse(result2["distance2"], out distance2);
+                    if (distance1 < distance2)
+                    {
+                        webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}+to:{2}&dirflg=d", Properties.Settings.Default.CompanyLatLng, latlng1, latlng2));
+                    }
+                    else
+                    {
+                        webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}+to:{2}&dirflg=d", Properties.Settings.Default.CompanyLatLng, latlng2, latlng1));
+                    }
                 }
             }            
         }
