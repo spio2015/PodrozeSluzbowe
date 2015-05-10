@@ -67,6 +67,7 @@ namespace PodrozeSluzbowe
                 dataGridView1.DataSource = BusinessClasses.MenageContext.GetTravelsList(DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null),
                                                                                         DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null), tolerance, lat, lng);
             }
+            LoadCarsToCombox();
         }
 
         private void tbxStartAddress_KeyPress(object sender, KeyPressEventArgs e)
@@ -84,7 +85,14 @@ namespace PodrozeSluzbowe
 
         private void LoadCarsToCombox()
         {
-            cmbCars.DataSource = BusinessClasses.MenageContext.GetCars();
+            List<string> registrations = new List<string>();
+            foreach (DataGridViewRow dgrv in dataGridView1.Rows)
+            {
+                BusinessClasses.TravelsGrid tg = (BusinessClasses.TravelsGrid)dgrv.DataBoundItem;
+                registrations.Add(tg.RegistrationNumber);
+            }
+
+            cmbCars.DataSource = BusinessClasses.MenageContext.GetCars(registrations);
             cmbCars.DisplayMember = "CmbCars";
             cmbCars.ValueMember = "Id";
         }
@@ -115,7 +123,10 @@ namespace PodrozeSluzbowe
 
         private void btnAddTrip_Click(object sender, EventArgs e)
         {
-
+            int idDestination = BusinessClasses.MenageContext.AddDestination(tbxStartAddress.Text, lat, lng);
+            int idUser = BusinessClasses.MenageContext.GetUserId(tbxLogin.Text);
+            BusinessClasses.MenageContext.AddBusinessTrip((int)cmbCars.SelectedValue, idDestination,
+               idUser, DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null), DateTime.ParseExact(tbxArrival.Text, "yyyy-MM-dd", null));
         }
     }
 }

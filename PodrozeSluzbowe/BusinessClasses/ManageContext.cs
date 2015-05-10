@@ -14,7 +14,7 @@ namespace PodrozeSluzbowe.BusinessClasses
     {
         PodrozeEntities context = new PodrozeEntities();
         
-        public int AddDestination(string Address, string Latitude, string Longitude)
+        public static int AddDestination(string Address, string Latitude, string Longitude)
         {
             using (PodrozeEntities context = new PodrozeEntities())
             {
@@ -22,13 +22,14 @@ namespace PodrozeSluzbowe.BusinessClasses
                 destination.Address = Address;
                 destination.Latitude = Latitude;
                 destination.Longitude = Longitude;
+                destination.Active = true;
                 context.Destinations.Add(destination);
                 context.SaveChanges();
                 return destination.Id;
             }
         }
 
-        public int AddBusinessTrip(int CarId, int DestinationId, int UserId, DateTime DepartureDate, DateTime ArrivalDate)
+        public static int AddBusinessTrip(int CarId, int DestinationId, int UserId, DateTime DepartureDate, DateTime ArrivalDate)
         {
             using (PodrozeEntities context = new PodrozeEntities())
             {
@@ -38,8 +39,9 @@ namespace PodrozeSluzbowe.BusinessClasses
                 businessTrip.UserId = UserId;
                 businessTrip.DepartureDate = DepartureDate;
                 businessTrip.ArrivalDate = ArrivalDate;
+                businessTrip.Active = true;
                 context.BusinessTrips.Add(businessTrip);
-                context.SaveChanges();
+                int savesDate = context.SaveChanges();
                 return businessTrip.Id;
             }
         }
@@ -100,12 +102,16 @@ namespace PodrozeSluzbowe.BusinessClasses
             return TravelsGridList;  
         }
 
-        public static List<Cars> GetCars()
+        public static List<Cars> GetCars(List<string> reservedCars)
         {
             List<Cars> cars = new List<Cars>();
             using (PodrozeEntities context = new PodrozeEntities())
             {
-                cars = context.Cars.ToList();
+                cars = context.Cars.Where(c => c.Active == true).ToList();
+                foreach (string registration in reservedCars)
+                {
+                    cars.RemoveAll(c => c.RegistrationNumber == registration);
+                }
             }
             return cars;
         }
@@ -115,7 +121,7 @@ namespace PodrozeSluzbowe.BusinessClasses
             int userId = -1;
             using (PodrozeEntities context = new PodrozeEntities())
             {
-                List<int> users = new List<int>();
+                List<int> users = context.Users.Where(c => c.Login == Login.ToLower()).Select(c => c.Id).ToList();
                 if (users.Count > 0)
                 {
                     userId = users[0];
