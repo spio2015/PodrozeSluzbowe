@@ -162,5 +162,11 @@ namespace PodrozeSluzbowe
             BusinessClasses.TravelsGrid tg = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
             AddJoinTrip(BusinessClasses.MenageContext.GetCarIdByRegistration(tg.RegistrationNumber), tg.DepartureDate, tg.ArrivalDate);
         }
+
+        private void raportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormRaport raportForm = new FormRaport();
+            raportForm.Show();
+        }
     }
 }

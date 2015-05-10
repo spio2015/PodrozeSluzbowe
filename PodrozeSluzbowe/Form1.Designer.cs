@@ -56,6 +56,7 @@
             this.btnJoinToTravel = new System.Windows.Forms.Button();
             this.tbxLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.raportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -268,7 +269,8 @@
             // aplikacjaToolStripMenuItem
             // 
             this.aplikacjaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.panelAdministracyjnyToolStripMenuItem});
+            this.panelAdministracyjnyToolStripMenuItem,
+            this.raportToolStripMenuItem});
             this.aplikacjaToolStripMenuItem.Name = "aplikacjaToolStripMenuItem";
             this.aplikacjaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.aplikacjaToolStripMenuItem.Text = "Aplikacja";
@@ -308,6 +310,13 @@
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 35;
             this.label3.Text = "Login";
+            // 
+            // raportToolStripMenuItem
+            // 
+            this.raportToolStripMenuItem.Name = "raportToolStripMenuItem";
+            this.raportToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.raportToolStripMenuItem.Text = "Raport";
+            this.raportToolStripMenuItem.Click += new System.EventHandler(this.raportToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -379,6 +388,7 @@
         private System.Windows.Forms.Button btnJoinToTravel;
         private System.Windows.Forms.TextBox tbxLogin;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem raportToolStripMenuItem;
     }
 }
 

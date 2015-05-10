@@ -71,26 +71,38 @@ namespace PodrozeSluzbowe.Supervisor
             }
             return isUserInDatabase;
         }
-        /*
-        public void AddCar(string Brand,string Model,string RegistrationNumber, short NumberOfSeats, bool Active)
+    
+        
+        public void AddCar(string Brand,string Model,string RegistrationNumber, short NumberOfSeats)
         {
-            using (PodrozeEntities context = new PodrozeEntities())
+            if (checkCarInDatabase(RegistrationNumber) == false)
+            {
+                using (PodrozeEntities context = new PodrozeEntities())
                 {
                     Cars cars = new Cars();
-                cars.Brand = Brand;
-                cars.Model = Model;
-                cars.RegistrationNumber = RegistrationNumber;
-                cars.NumberOfSeats = NumberOfSeats;
-                cars.Active = true;
-                 //   context.Users.Add(cars);
-                    context.SaveChanges();
-                //    System.Windows.Forms.MessageBox.Show("Pojazd " + Brand+" "+Model+" " + " został utworzony");
-                }
-            
-         
+                    cars.Brand = Brand;
+                    cars.Model = Model;
+                    cars.RegistrationNumber = RegistrationNumber;
+                    cars.NumberOfSeats = NumberOfSeats;
+                    cars.Active = true;
+                    context.Cars.Add(cars);
 
+                    context.SaveChanges();
+                        System.Windows.Forms.MessageBox.Show("Pojazd " + Brand+" "+Model+" " + RegistrationNumber+ " został utworzony");
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+            }
         }
-        */
+        
+
+
+
+
+
+
         public bool checkCarInDatabase(string registrationNumber)
         {
             bool isCarInDatabase = false;
@@ -108,11 +120,11 @@ namespace PodrozeSluzbowe.Supervisor
                 {
                     isCarInDatabase = true;
 
-                    System.Windows.Forms.MessageBox.Show("w bazie jest "+ carList.Count.ToString() + " samochodów o rejestracji " + registrationNumber);
+                  //  System.Windows.Forms.MessageBox.Show("w bazie jest "+ carList.Count.ToString() + " samochodów o rejestracji " + registrationNumber);
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Brak w bazie samochodu o rejestracji " + registrationNumber);
+                  //  System.Windows.Forms.MessageBox.Show("Brak w bazie samochodu o rejestracji " + registrationNumber);
 
                 }
 
