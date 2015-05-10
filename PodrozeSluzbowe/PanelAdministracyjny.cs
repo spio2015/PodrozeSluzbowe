@@ -21,8 +21,8 @@ namespace PodrozeSluzbowe
         {
             InitializeComponent();
             removeUser.Visible = false;
-            button1.Visible = false;
-            dataGridViewCars.Visible = false;
+          //  button1.Visible = false;
+          //  dataGridViewCars.Visible = false;
             dataGridViewUsers.Visible = false;
         }
 
@@ -90,14 +90,30 @@ namespace PodrozeSluzbowe
             SuperVisor superV = new SuperVisor();
 
             superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);
+            refreshCarList();
+        }
+
+        public void refreshCarList()
+        {
+            List<Cars> cars = new List<Cars>();
+            PodrozeEntities context1 = new PodrozeEntities();
+
+            cars = context1.Cars.Where(c => c.Active == true).ToList();
+            dataGridViewCars.DataSource = cars;
 
         }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            List<string> lista = new List<string>();
+         //   List<string> lista = new List<string>();
+          //  lista.Add("PO 12345");
            
-          //  dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
+             // dataGridViewCars.Enabled = false;
+              //  cars.Clear();
+
+            refreshCarList();
+         
+           // dataGridViewCars.DataSource = "";
             //dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
 
         }
