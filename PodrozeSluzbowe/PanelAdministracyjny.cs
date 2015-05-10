@@ -24,6 +24,8 @@ namespace PodrozeSluzbowe
           //  button1.Visible = false;
           //  dataGridViewCars.Visible = false;
         //    dataGridViewUsers.Visible = false;
+            refreshCarList();
+            refreshUserList();
         }
 
         private void button1_Click(object sender, EventArgs e)
