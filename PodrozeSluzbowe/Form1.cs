@@ -111,5 +111,10 @@ namespace PodrozeSluzbowe
         {
 
         }
+
+        private void btnAddTrip_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

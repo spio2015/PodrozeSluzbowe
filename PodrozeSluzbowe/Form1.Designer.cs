@@ -208,6 +208,7 @@
             this.btnAddTrip.TabIndex = 25;
             this.btnAddTrip.Text = "Dodaj podróż";
             this.btnAddTrip.UseVisualStyleBackColor = true;
+            this.btnAddTrip.Click += new System.EventHandler(this.btnAddTrip_Click);
             // 
             // label6
             // 
