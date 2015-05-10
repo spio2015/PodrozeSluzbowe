@@ -45,7 +45,29 @@ namespace PodrozeSluzbowe
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-          
+
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                int Id = 1;
+               Users user = context.Users.Where(c => c.Id == Id).First();
+                user.Active = false;
+                context.SaveChanges();
+            }
+
+        }
+
+        private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string registrationNumber; 
+                registrationNumber= "PO12345";
+        //    registrationNumber = txtRegistrationNumber.Text;
+            SuperVisor superV = new SuperVisor();
+            superV.checkCarInDatabase(registrationNumber);
 
         }
     }

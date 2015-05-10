@@ -37,6 +37,7 @@ namespace PodrozeSluzbowe.Supervisor
                     users.FirstName = FirstName;
                     users.SurName = SurName;
                     users.DepartmentId = DepartmentId;
+                    users.Active = true;
                     context.Users.Add(users);
                     context.SaveChanges();
                     System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " został utworzony");
@@ -55,30 +56,71 @@ namespace PodrozeSluzbowe.Supervisor
             bool isUserInDatabase = false;
             using (PodrozeEntities context = new PodrozeEntities())
             {
-                /*
-                 var travelListQuery = (from BusinessTrip in context.BusinessTrips
-                                       where BusinessTrip.DepartureDate >= departureDateFrom
-                                           && BusinessTrip.DepartureDate <= departureDateTo
-                                           && BusinessTrip.ArrivalDate >= arrivalDateFrom
-                                           && BusinessTrip.ArrivalDate <= arrivalDateTo
-                                       select BusinessTrip)
-                                      .Include(x => x.Users)
-                                      .Include(x => x.Destinations)
-                                      .Include(x => x.Cars);
-                */
+               
                 var userInDatabase = (from user in context.Users 
                                         where user.Login == checkedUser                    
                     select user
                     );
                 List<Users> userList = userInDatabase.ToList();
-               // System.Windows.Forms.MessageBox.Show(userList.Count.ToString());
+       
                 if (userList.Count != 0)
                 {
                     isUserInDatabase = true;
                 }
+                
             }
             return isUserInDatabase;
         }
+        /*
+        public void AddCar(string Brand,string Model,string RegistrationNumber, short NumberOfSeats, bool Active)
+        {
+            using (PodrozeEntities context = new PodrozeEntities())
+                {
+                    Cars cars = new Cars();
+                cars.Brand = Brand;
+                cars.Model = Model;
+                cars.RegistrationNumber = RegistrationNumber;
+                cars.NumberOfSeats = NumberOfSeats;
+                cars.Active = true;
+                 //   context.Users.Add(cars);
+                    context.SaveChanges();
+                //    System.Windows.Forms.MessageBox.Show("Pojazd " + Brand+" "+Model+" " + " został utworzony");
+                }
+            
+         
+
+        }
+        */
+        public bool checkCarInDatabase(string registrationNumber)
+        {
+            bool isCarInDatabase = false;
+
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+
+                var carInDatabase = (from car in context.Cars
+                                      where car.RegistrationNumber == registrationNumber
+                                      select car
+                    );
+                List<Cars> carList = carInDatabase.ToList();
+
+                if (carList.Count != 0)
+                {
+                    isCarInDatabase = true;
+
+                    System.Windows.Forms.MessageBox.Show("w bazie jest "+ carList.Count.ToString() + " samochodów o rejestracji " + registrationNumber);
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Brak w bazie samochodu o rejestracji " + registrationNumber);
+
+                }
+
+            }
+
+            return isCarInDatabase;
+        }
+
 
     }
 }
