@@ -106,5 +106,10 @@ namespace PodrozeSluzbowe
 
             panelAdm.Show();
         }
+
+        private void btnRemoveTrip_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
