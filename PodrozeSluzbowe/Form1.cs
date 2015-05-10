@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GoogleApi;
 
+using PodrozeSluzbowe.Supervisor;
+
 namespace PodrozeSluzbowe
 {
     public partial class Form1 : Form
@@ -21,6 +23,7 @@ namespace PodrozeSluzbowe
         {
             InitializeComponent();
             LoadCarsToCombox();
+            LoadUsersToCombox();
         }
 
         private void btnGenerateRoute_Click(object sender, EventArgs e)
@@ -88,6 +91,14 @@ namespace PodrozeSluzbowe
             }
         }
 
+      void  LoadUsersToCombox()
+        {SuperVisorUsers superV = new SuperVisorUsers();
+        cmbBoxUsers.DataSource = superV.getUsersLogins();
+
+
+        }
+
+
         private void LoadCarsToCombox()
         {
             List<string> registrations = new List<string>();
@@ -149,7 +160,9 @@ namespace PodrozeSluzbowe
         private void AddJoinTrip(int CarsId, DateTime Departure, DateTime Arrival)
         {
             int idDestination = BusinessClasses.MenageContext.AddDestination(tbxStartAddress.Text, lat, lng);
-            int idUser = BusinessClasses.MenageContext.GetUserId(tbxLogin.Text);
+            
+//            int idUser = BusinessClasses.MenageContext.GetUserId(tbxLogin.Text);
+            int idUser = BusinessClasses.MenageContext.GetUserId(cmbBoxUsers.SelectedItem.ToString());        
             if (idUser != -1)
             {
                 BusinessClasses.MenageContext.AddBusinessTrip(CarsId, idDestination, idUser, Departure, Arrival);

@@ -53,10 +53,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aplikacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAdministracyjnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnJoinToTravel = new System.Windows.Forms.Button();
             this.tbxLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.raportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbBoxUsers = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -282,6 +283,13 @@
             this.panelAdministracyjnyToolStripMenuItem.Text = "Panel Administracyjny";
             this.panelAdministracyjnyToolStripMenuItem.Click += new System.EventHandler(this.panelAdministracyjnyToolStripMenuItem_Click);
             // 
+            // raportToolStripMenuItem
+            // 
+            this.raportToolStripMenuItem.Name = "raportToolStripMenuItem";
+            this.raportToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.raportToolStripMenuItem.Text = "Raport";
+            this.raportToolStripMenuItem.Click += new System.EventHandler(this.raportToolStripMenuItem_Click);
+            // 
             // btnJoinToTravel
             // 
             this.btnJoinToTravel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -311,18 +319,20 @@
             this.label3.TabIndex = 35;
             this.label3.Text = "Login";
             // 
-            // raportToolStripMenuItem
+            // cmbBoxUsers
             // 
-            this.raportToolStripMenuItem.Name = "raportToolStripMenuItem";
-            this.raportToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.raportToolStripMenuItem.Text = "Raport";
-            this.raportToolStripMenuItem.Click += new System.EventHandler(this.raportToolStripMenuItem_Click);
+            this.cmbBoxUsers.FormattingEnabled = true;
+            this.cmbBoxUsers.Location = new System.Drawing.Point(874, 39);
+            this.cmbBoxUsers.Name = "cmbBoxUsers";
+            this.cmbBoxUsers.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxUsers.TabIndex = 36;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 867);
+            this.Controls.Add(this.cmbBoxUsers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxLogin);
             this.Controls.Add(this.btnJoinToTravel);
@@ -389,6 +399,7 @@
         private System.Windows.Forms.TextBox tbxLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem raportToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cmbBoxUsers;
     }
 }
 

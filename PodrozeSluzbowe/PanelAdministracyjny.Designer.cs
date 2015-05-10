@@ -34,7 +34,6 @@
             this.gbAddUser = new System.Windows.Forms.GroupBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.lblDepartment = new System.Windows.Forms.Label();
-            this.txtDział = new System.Windows.Forms.TextBox();
             this.lblSurName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblPasswordAgain = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@
             this.txtModel = new System.Windows.Forms.TextBox();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
+            this.cmbBoxUsersDepartment = new System.Windows.Forms.ComboBox();
             this.gbAddUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -71,7 +71,7 @@
             this.btnAddUser.Location = new System.Drawing.Point(6, 19);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(142, 23);
-            this.btnAddUser.TabIndex = 0;
+            this.btnAddUser.TabIndex = 7;
             this.btnAddUser.Text = "Dodaj użytkownika";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.button1_Click);
@@ -80,7 +80,7 @@
             // 
             this.txtLogin.Location = new System.Drawing.Point(240, 13);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtLogin.Size = new System.Drawing.Size(121, 20);
             this.txtLogin.TabIndex = 1;
             // 
             // removeUser
@@ -88,17 +88,17 @@
             this.removeUser.Location = new System.Drawing.Point(6, 48);
             this.removeUser.Name = "removeUser";
             this.removeUser.Size = new System.Drawing.Size(142, 23);
-            this.removeUser.TabIndex = 2;
+            this.removeUser.TabIndex = 8;
             this.removeUser.Text = "Odśwież listę";
             this.removeUser.UseVisualStyleBackColor = true;
             this.removeUser.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // gbAddUser
             // 
+            this.gbAddUser.Controls.Add(this.cmbBoxUsersDepartment);
             this.gbAddUser.Controls.Add(this.dataGridViewUsers);
             this.gbAddUser.Controls.Add(this.lblDepartment);
             this.gbAddUser.Controls.Add(this.removeUser);
-            this.gbAddUser.Controls.Add(this.txtDział);
             this.gbAddUser.Controls.Add(this.btnAddUser);
             this.gbAddUser.Controls.Add(this.lblSurName);
             this.gbAddUser.Controls.Add(this.lblFirstName);
@@ -133,13 +133,6 @@
             this.lblDepartment.Size = new System.Drawing.Size(32, 13);
             this.lblDepartment.TabIndex = 12;
             this.lblDepartment.Text = "Dział";
-            // 
-            // txtDział
-            // 
-            this.txtDział.Location = new System.Drawing.Point(240, 143);
-            this.txtDział.Name = "txtDział";
-            this.txtDział.Size = new System.Drawing.Size(100, 20);
-            this.txtDział.TabIndex = 11;
             // 
             // lblSurName
             // 
@@ -181,29 +174,29 @@
             // 
             this.txtNazwisko.Location = new System.Drawing.Point(240, 117);
             this.txtNazwisko.Name = "txtNazwisko";
-            this.txtNazwisko.Size = new System.Drawing.Size(100, 20);
-            this.txtNazwisko.TabIndex = 6;
+            this.txtNazwisko.Size = new System.Drawing.Size(121, 20);
+            this.txtNazwisko.TabIndex = 5;
             // 
             // txtImie
             // 
             this.txtImie.Location = new System.Drawing.Point(240, 91);
             this.txtImie.Name = "txtImie";
-            this.txtImie.Size = new System.Drawing.Size(100, 20);
-            this.txtImie.TabIndex = 5;
+            this.txtImie.Size = new System.Drawing.Size(121, 20);
+            this.txtImie.TabIndex = 4;
             // 
             // txtPassword2
             // 
             this.txtPassword2.Location = new System.Drawing.Point(240, 65);
             this.txtPassword2.Name = "txtPassword2";
-            this.txtPassword2.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword2.TabIndex = 4;
+            this.txtPassword2.Size = new System.Drawing.Size(121, 20);
+            this.txtPassword2.TabIndex = 3;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(240, 39);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.Size = new System.Drawing.Size(121, 20);
+            this.txtPassword.TabIndex = 2;
             // 
             // lblLogin
             // 
@@ -244,7 +237,7 @@
             this.removeCar.Location = new System.Drawing.Point(6, 48);
             this.removeCar.Name = "removeCar";
             this.removeCar.Size = new System.Drawing.Size(142, 23);
-            this.removeCar.TabIndex = 2;
+            this.removeCar.TabIndex = 6;
             this.removeCar.Text = "Odśwież listę";
             this.removeCar.UseVisualStyleBackColor = true;
             this.removeCar.Click += new System.EventHandler(this.button1_Click_2);
@@ -254,7 +247,7 @@
             this.button2.Location = new System.Drawing.Point(6, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 23);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Dodaj samochód";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -320,6 +313,7 @@
             this.txtNumberOfSeats.Name = "txtNumberOfSeats";
             this.txtNumberOfSeats.Size = new System.Drawing.Size(100, 20);
             this.txtNumberOfSeats.TabIndex = 5;
+            this.txtNumberOfSeats.Text = "5";
             // 
             // txtRegistrationNumber
             // 
@@ -327,13 +321,14 @@
             this.txtRegistrationNumber.Name = "txtRegistrationNumber";
             this.txtRegistrationNumber.Size = new System.Drawing.Size(100, 20);
             this.txtRegistrationNumber.TabIndex = 4;
+            this.txtRegistrationNumber.TextChanged += new System.EventHandler(this.txtRegistrationNumber_TextChanged);
             // 
             // txtModel
             // 
             this.txtModel.Location = new System.Drawing.Point(269, 42);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(100, 20);
-            this.txtModel.TabIndex = 3;
+            this.txtModel.TabIndex = 2;
             // 
             // lblBrand
             // 
@@ -350,6 +345,14 @@
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(100, 20);
             this.txtBrand.TabIndex = 1;
+            // 
+            // cmbBoxUsersDepartment
+            // 
+            this.cmbBoxUsersDepartment.FormattingEnabled = true;
+            this.cmbBoxUsersDepartment.Location = new System.Drawing.Point(240, 143);
+            this.cmbBoxUsersDepartment.Name = "cmbBoxUsersDepartment";
+            this.cmbBoxUsersDepartment.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxUsersDepartment.TabIndex = 6;
             // 
             // PanelAdministracyjny
             // 
@@ -391,7 +394,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label lblDepartment;
-        private System.Windows.Forms.TextBox txtDział;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem oknoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
@@ -408,5 +410,6 @@
         private System.Windows.Forms.TextBox txtBrand;
         private System.Windows.Forms.DataGridView dataGridViewCars;
         private System.Windows.Forms.DataGridView dataGridViewUsers;
+        private System.Windows.Forms.ComboBox cmbBoxUsersDepartment;
     }
 }

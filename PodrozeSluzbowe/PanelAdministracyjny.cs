@@ -26,18 +26,28 @@ namespace PodrozeSluzbowe
         //    dataGridViewUsers.Visible = false;
             refreshCarList();
             refreshUserList();
+            LoadDepartmentsToCombox();
+        }
+
+
+        private void LoadDepartmentsToCombox()
+        {
+            SuperVisorUsers superV = new SuperVisorUsers();
+            cmbBoxUsersDepartment.DataSource = superV.getDepartments();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; int DepartmentId = 1;
+            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; int DepartmentId = 1; string DepartmentName="";
             try
             {
                 Login = txtLogin.Text;
                 Password = txtPassword.Text;
                 FirstName = txtLogin.Text;
                 SurName = txtNazwisko.Text;
-                DepartmentId =Convert.ToInt16 ( txtDział.Text);
+             //   DepartmentId =Convert.ToInt16 ( txtDział.Text);
+                DepartmentName = cmbBoxUsersDepartment.SelectedItem.ToString();
+            
             }
             catch
             {
@@ -45,8 +55,8 @@ namespace PodrozeSluzbowe
             }
 
 
-            SuperVisor superV = new SuperVisor();
-            superV.AddUser(Login, Password, FirstName, SurName, DepartmentId);
+            SuperVisorUsers superV = new SuperVisorUsers();
+            superV.AddUser(Login, Password, FirstName, SurName, DepartmentName);
             refreshUserList();
         }
 
@@ -61,7 +71,6 @@ namespace PodrozeSluzbowe
                 context.SaveChanges();
             }
             */
-
             refreshUserList();
         }
 
@@ -92,7 +101,7 @@ namespace PodrozeSluzbowe
             {
 
             }
-            SuperVisor superV = new SuperVisor();
+            SuperVisorCar superV = new SuperVisorCar();
 
             superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);
             refreshCarList();
@@ -128,6 +137,11 @@ namespace PodrozeSluzbowe
          
            // dataGridViewCars.DataSource = "";
             //dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
+
+        }
+
+        private void txtRegistrationNumber_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
