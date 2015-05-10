@@ -37,6 +37,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="DepartureDate" Type="datetime" Nullable="false" />
     <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Cars">
     <Key>
@@ -47,6 +48,7 @@
     <Property Name="Model" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="RegistrationNumber" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="NumberOfSeats" Type="smallint" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Departments">
     <Key>
@@ -54,6 +56,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DepartmentName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Destinations">
     <Key>
@@ -63,6 +66,7 @@
     <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="1024" />
     <Property Name="Latitude" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Longitude" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -74,6 +78,7 @@
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="SurName" Type="nvarchar" Nullable="false" MaxLength="40" />
     <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_BusinessTripsCar">
     <End Role="Cars" Type="PodrozeModel.Store.Cars" Multiplicity="1" />
@@ -161,6 +166,7 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="DepartureDate" Type="DateTime" Nullable="false" />
     <Property Name="ArrivalDate" Type="DateTime" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Cars" Relationship="PodrozeModel.FK_BusinessTripsCar" FromRole="BusinessTrips" ToRole="Cars" />
     <NavigationProperty Name="Destinations" Relationship="PodrozeModel.FK_BusinessTripsDestination" FromRole="BusinessTrips" ToRole="Destinations" />
     <NavigationProperty Name="Users" Relationship="PodrozeModel.FK_BusinessTripsUser" FromRole="BusinessTrips" ToRole="Users" />
@@ -174,6 +180,7 @@
     <Property Name="Model" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="RegistrationNumber" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
     <Property Name="NumberOfSeats" Type="Int16" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="BusinessTrips" Relationship="PodrozeModel.FK_BusinessTripsCar" FromRole="Cars" ToRole="BusinessTrips" />
   </EntityType>
   <EntityType Name="Departments">
@@ -182,6 +189,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Users" Relationship="PodrozeModel.FK_UsersDepartment" FromRole="Departments" ToRole="Users" />
   </EntityType>
   <EntityType Name="Destinations">
@@ -192,6 +200,7 @@
     <Property Name="Address" Type="String" Nullable="false" MaxLength="1024" Unicode="true" FixedLength="false" />
     <Property Name="Latitude" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Longitude" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="BusinessTrips" Relationship="PodrozeModel.FK_BusinessTripsDestination" FromRole="Destinations" ToRole="BusinessTrips" />
   </EntityType>
   <EntityType Name="Users">
@@ -204,6 +213,7 @@
     <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="SurName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
     <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="BusinessTrips" Relationship="PodrozeModel.FK_BusinessTripsUser" FromRole="Users" ToRole="BusinessTrips" />
     <NavigationProperty Name="Departments" Relationship="PodrozeModel.FK_UsersDepartment" FromRole="Users" ToRole="Departments" />
   </EntityType>
@@ -270,6 +280,7 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
           <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -281,6 +292,7 @@
           <ScalarProperty Name="Model" ColumnName="Model" />
           <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
           <ScalarProperty Name="NumberOfSeats" ColumnName="NumberOfSeats" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -289,6 +301,7 @@
         <MappingFragment StoreEntitySet="Departments">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -299,6 +312,7 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -311,6 +325,7 @@
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="SurName" ColumnName="SurName" />
           <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

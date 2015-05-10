@@ -20,6 +20,7 @@ namespace Database
         public int UserId { get; set; }
         public System.DateTime DepartureDate { get; set; }
         public System.DateTime ArrivalDate { get; set; }
+        public bool Active { get; set; }
     
         public virtual Cars Cars { get; set; }
         public virtual Destinations Destinations { get; set; }

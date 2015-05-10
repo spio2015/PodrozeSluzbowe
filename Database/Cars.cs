@@ -24,6 +24,7 @@ namespace Database
         public string Model { get; set; }
         public string RegistrationNumber { get; set; }
         public short NumberOfSeats { get; set; }
+        public bool Active { get; set; }
     
         public virtual ICollection<BusinessTrips> BusinessTrips { get; set; }
     }

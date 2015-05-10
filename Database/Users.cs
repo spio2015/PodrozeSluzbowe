@@ -25,6 +25,7 @@ namespace Database
         public string FirstName { get; set; }
         public string SurName { get; set; }
         public int DepartmentId { get; set; }
+        public bool Active { get; set; }
     
         public virtual ICollection<BusinessTrips> BusinessTrips { get; set; }
         public virtual Departments Departments { get; set; }
