@@ -45,7 +45,7 @@ namespace PodrozeSluzbowe
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            /*
             using (PodrozeEntities context = new PodrozeEntities())
             {
                 int Id = 1;
@@ -53,7 +53,7 @@ namespace PodrozeSluzbowe
                 user.Active = false;
                 context.SaveChanges();
             }
-
+            */
         }
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,11 +63,38 @@ namespace PodrozeSluzbowe
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string registrationNumber; 
-                registrationNumber= "PO12345";
-        //    registrationNumber = txtRegistrationNumber.Text;
+           
+            string Brand=""; string Model=""; string RegistrationNumber=""; short NumberOfSeats=1;
+            //string registrationNumber;
+            try
+            {
+
+                Brand = txtBrand.Text;
+                Model = txtModel.Text;
+                RegistrationNumber = txtRegistrationNumber.Text;
+                NumberOfSeats = Convert.ToInt16(txtNumberOfSeats.Text);
+
+
+                //    registrationNumber = txtRegistrationNumber.Text;
+               
+
+            }
+            catch
+            {
+
+            }
             SuperVisor superV = new SuperVisor();
-            superV.checkCarInDatabase(registrationNumber);
+
+            superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            List<string> lista = new List<string>();
+           
+          //  dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
+            dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
 
         }
     }
