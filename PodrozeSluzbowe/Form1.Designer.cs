@@ -54,6 +54,8 @@
             this.aplikacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAdministracyjnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnJoinToTravel = new System.Windows.Forms.Button();
+            this.tbxLogin = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -106,10 +108,10 @@
             this.webBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser.Location = new System.Drawing.Point(663, 53);
+            this.webBrowser.Location = new System.Drawing.Point(663, 71);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(455, 782);
+            this.webBrowser.Size = new System.Drawing.Size(455, 764);
             this.webBrowser.TabIndex = 15;
             // 
             // tbxAppKey
@@ -286,11 +288,31 @@
             this.btnJoinToTravel.Text = "Dołącz do podróży";
             this.btnJoinToTravel.UseVisualStyleBackColor = true;
             // 
+            // tbxLogin
+            // 
+            this.tbxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxLogin.Location = new System.Drawing.Point(1004, 40);
+            this.tbxLogin.Name = "tbxLogin";
+            this.tbxLogin.Size = new System.Drawing.Size(100, 20);
+            this.tbxLogin.TabIndex = 34;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1001, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Login";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 867);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbxLogin);
             this.Controls.Add(this.btnJoinToTravel);
             this.Controls.Add(this.cmbCars);
             this.Controls.Add(this.btnRemoveTravels);
@@ -352,6 +374,8 @@
         private System.Windows.Forms.ToolStripMenuItem aplikacjaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem panelAdministracyjnyToolStripMenuItem;
         private System.Windows.Forms.Button btnJoinToTravel;
+        private System.Windows.Forms.TextBox tbxLogin;
+        private System.Windows.Forms.Label label3;
     }
 }
 

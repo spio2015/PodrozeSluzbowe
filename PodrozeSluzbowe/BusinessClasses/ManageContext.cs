@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Database;
 using System.Data.Entity;
+using System.Windows.Forms;
 
 namespace PodrozeSluzbowe.BusinessClasses
 {
@@ -97,6 +98,24 @@ namespace PodrozeSluzbowe.BusinessClasses
                 cars = context.Cars.ToList();
             }
             return cars;
+        }
+
+        public static int GetUserId(string Login)
+        {
+            int userId = -1;
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                List<int> users = new List<int>();
+                if (users.Count > 0)
+                {
+                    userId = users[0];
+                }
+                else
+                {
+                    MessageBox.Show("Nie znaleziono użytkownika");
+                }
+            }
+            return userId;
         }
     }
 }
