@@ -11,7 +11,7 @@ namespace PodrozeSluzbowe.Supervisor
 {
     class Supervisor
     {
-        public int AddUser(string Address, string Latitude, string Longitude)
+        public int AddUser(int Id, string Login, string Password, string FirstName, string SurName, int DepartmentId)
         {
             /*
             using (PodrozeEntities context = new PodrozeEntities())
@@ -29,10 +29,18 @@ namespace PodrozeSluzbowe.Supervisor
             using (PodrozeEntities context = new PodrozeEntities())
             {
                 Users users = new Users();
-
-
-
+                users.Id = Id;
+                users.Login = Login;
+                users.Password = Password;
+                users.FirstName = FirstName;
+                users.SurName = SurName;
+                users.DepartmentId = DepartmentId;
+                context.Users.Add(users);
+                context.SaveChanges();
             }
+
+
+
 
             return 0;
         }

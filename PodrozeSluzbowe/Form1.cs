@@ -112,5 +112,10 @@ namespace PodrozeSluzbowe
             BusinessClasses.TravelsGrid travelsGrid = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
             BusinessClasses.MenageContext.RemoveTrip(travelsGrid.TripId);
         }
+
+        private void btnAddTrip_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
