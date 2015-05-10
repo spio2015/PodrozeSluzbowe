@@ -20,10 +20,10 @@ namespace PodrozeSluzbowe
         public PanelAdministracyjny()
         {
             InitializeComponent();
-            removeUser.Visible = false;
+          //  removeUser.Visible = false;
           //  button1.Visible = false;
           //  dataGridViewCars.Visible = false;
-            dataGridViewUsers.Visible = false;
+        //    dataGridViewUsers.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,6 +45,7 @@ namespace PodrozeSluzbowe
 
             SuperVisor superV = new SuperVisor();
             superV.AddUser(Login, Password, FirstName, SurName, DepartmentId);
+            refreshUserList();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -58,6 +59,8 @@ namespace PodrozeSluzbowe
                 context.SaveChanges();
             }
             */
+
+            refreshUserList();
         }
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,7 +105,15 @@ namespace PodrozeSluzbowe
             dataGridViewCars.DataSource = cars;
 
         }
+        public void refreshUserList()
+        {
+            List<Users> user = new List<Users>();
+            PodrozeEntities context1 = new PodrozeEntities();
 
+            user = context1.Users.Where(c => c.Active == true).ToList();
+            dataGridViewUsers.DataSource = user;
+
+        }
         private void button1_Click_2(object sender, EventArgs e)
         {
          //   List<string> lista = new List<string>();

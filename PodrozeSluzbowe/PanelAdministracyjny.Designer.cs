@@ -85,7 +85,6 @@
             // 
             // removeUser
             // 
-            this.removeUser.Enabled = false;
             this.removeUser.Location = new System.Drawing.Point(6, 48);
             this.removeUser.Name = "removeUser";
             this.removeUser.Size = new System.Drawing.Size(142, 23);
@@ -113,7 +112,7 @@
             this.gbAddUser.Controls.Add(this.txtLogin);
             this.gbAddUser.Location = new System.Drawing.Point(12, 27);
             this.gbAddUser.Name = "gbAddUser";
-            this.gbAddUser.Size = new System.Drawing.Size(368, 465);
+            this.gbAddUser.Size = new System.Drawing.Size(730, 465);
             this.gbAddUser.TabIndex = 3;
             this.gbAddUser.TabStop = false;
             this.gbAddUser.Text = "użytkownik";
@@ -123,7 +122,7 @@
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.Location = new System.Drawing.Point(7, 194);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
-            this.dataGridViewUsers.Size = new System.Drawing.Size(333, 265);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(717, 265);
             this.dataGridViewUsers.TabIndex = 13;
             // 
             // lblDepartment
@@ -221,7 +220,7 @@
             this.oknoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1102, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1464, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -273,7 +272,7 @@
             this.groupBox1.Controls.Add(this.txtModel);
             this.groupBox1.Controls.Add(this.lblBrand);
             this.groupBox1.Controls.Add(this.txtBrand);
-            this.groupBox1.Location = new System.Drawing.Point(410, 27);
+            this.groupBox1.Location = new System.Drawing.Point(748, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(678, 465);
             this.groupBox1.TabIndex = 13;
@@ -356,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 663);
+            this.ClientSize = new System.Drawing.Size(1464, 663);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbAddUser);
             this.Controls.Add(this.menuStrip1);
