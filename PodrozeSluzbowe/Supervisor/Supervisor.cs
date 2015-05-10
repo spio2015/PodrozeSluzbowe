@@ -9,9 +9,9 @@ using System.Data.Entity;
 
 namespace PodrozeSluzbowe.Supervisor
 {
-    class Supervisor
+    class SuperVisor
     {
-        public int AddUser(int Id, string Login, string Password, string FirstName, string SurName, int DepartmentId)
+        public void AddUser(string Login, string Password, string FirstName, string SurName, int DepartmentId)
         {
             /*
             using (PodrozeEntities context = new PodrozeEntities())
@@ -26,25 +26,59 @@ namespace PodrozeSluzbowe.Supervisor
             }
              */
 
-            using (PodrozeEntities context = new PodrozeEntities())
+            if (checkUserInDatabase(Login) == false)
             {
-                Users users = new Users();
-                users.Id = Id;
-                users.Login = Login;
-                users.Password = Password;
-                users.FirstName = FirstName;
-                users.SurName = SurName;
-                users.DepartmentId = DepartmentId;
-                context.Users.Add(users);
-                context.SaveChanges();
+                using (PodrozeEntities context = new PodrozeEntities())
+                {
+                    Users users = new Users();
+                  //  users.Id = Id;
+                    users.Login = Login;
+                    users.Password = Password;
+                    users.FirstName = FirstName;
+                    users.SurName = SurName;
+                    users.DepartmentId = DepartmentId;
+                    context.Users.Add(users);
+                    context.SaveChanges();
+                    System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " został utworzony");
+                }
             }
-
-
-
-
-            return 0;
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się już w bazie danych");
+            }
         }
 
+
+
+        public bool checkUserInDatabase(string checkedUser)
+        {
+            bool isUserInDatabase = false;
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                /*
+                 var travelListQuery = (from BusinessTrip in context.BusinessTrips
+                                       where BusinessTrip.DepartureDate >= departureDateFrom
+                                           && BusinessTrip.DepartureDate <= departureDateTo
+                                           && BusinessTrip.ArrivalDate >= arrivalDateFrom
+                                           && BusinessTrip.ArrivalDate <= arrivalDateTo
+                                       select BusinessTrip)
+                                      .Include(x => x.Users)
+                                      .Include(x => x.Destinations)
+                                      .Include(x => x.Cars);
+                */
+                var userInDatabase = (from user in context.Users 
+                                        where user.Login == checkedUser                    
+                    select user
+                    );
+                List<Users> userList = userInDatabase.ToList();
+               // System.Windows.Forms.MessageBox.Show(userList.Count.ToString());
+                if (userList.Count != 0)
+                {
+                    isUserInDatabase = true;
+                }
+            }
+            return isUserInDatabase;
+        }
 
     }
 }
