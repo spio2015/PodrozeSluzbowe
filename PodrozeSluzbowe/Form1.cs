@@ -109,7 +109,8 @@ namespace PodrozeSluzbowe
 
         private void btnRemoveTrip_Click(object sender, EventArgs e)
         {
-
+            BusinessClasses.TravelsGrid travelsGrid = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
+            BusinessClasses.MenageContext.RemoveTrip(travelsGrid.TripId);
         }
     }
 }

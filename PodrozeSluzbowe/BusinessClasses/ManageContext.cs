@@ -44,6 +44,15 @@ namespace PodrozeSluzbowe.BusinessClasses
             }
         }
 
+        public static void RemoveTrip(int TripId)
+        {
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                BusinessTrips businessTrip = context.BusinessTrips.Where(c => c.Id == TripId).First();
+                businessTrip.Active = false;
+                context.SaveChanges();
+            }
+        }
 
         public static List<TravelsGrid> GetTravelsList(DateTime DepartureDate, DateTime ArrivalDate, int DayTolerance, string Lat, string Lng)
         {
@@ -61,6 +70,7 @@ namespace PodrozeSluzbowe.BusinessClasses
                                            && BusinessTrip.DepartureDate <= departureDateTo
                                            && BusinessTrip.ArrivalDate >= arrivalDateFrom
                                            && BusinessTrip.ArrivalDate <= arrivalDateTo
+                                           && BusinessTrip.Active == true
                                        select BusinessTrip)
                                       .Include(x => x.Users)
                                       .Include(x => x.Destinations)
