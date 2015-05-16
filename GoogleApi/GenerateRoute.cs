@@ -27,33 +27,41 @@ namespace GoogleApi
                 RootObject responseData = parser.Deserialize<RootObject>(responseStringData);
                 if (responseData != null)
                 {
-                    Leg leg = responseData.routes[0].legs[0];
-                    result.Add("start_address", leg.start_address);
-                    result.Add("start_location_lat", leg.start_location.lat.ToString().Replace(',', '.'));
-                    result.Add("start_location_lng", leg.start_location.lng.ToString().Replace(',', '.'));
-                    result.Add("end_address", leg.end_address);
-                    result.Add("end_location_lat", leg.end_location.lat.ToString().Replace(',', '.'));
-                    result.Add("end_location_lng", leg.end_location.lng.ToString().Replace(',', '.'));
-                    result.Add("distance", leg.distance.text);
-                    result.Add("distance2", leg.distance.value.ToString());
-                    result.Add("duration", leg.duration.text);                    
-                    double distance = responseData.routes.Sum(r => r.legs.Sum(l => l.distance.value));
-                    if (distance == 0)
+                    if (responseData.routes.Count > 0)
                     {
-                        throw new Exception("Google cannot find road route");
+                        Leg leg = responseData.routes[0].legs[0];
+                        result.Add("start_address", leg.start_address);
+                        result.Add("start_location_lat", leg.start_location.lat.ToString().Replace(',', '.'));
+                        result.Add("start_location_lng", leg.start_location.lng.ToString().Replace(',', '.'));
+                        result.Add("end_address", leg.end_address);
+                        result.Add("end_location_lat", leg.end_location.lat.ToString().Replace(',', '.'));
+                        result.Add("end_location_lng", leg.end_location.lng.ToString().Replace(',', '.'));
+                        result.Add("distance", leg.distance.text);
+                        result.Add("distance2", leg.distance.value.ToString());
+                        result.Add("duration", leg.duration.text);                    
+                        double distance = responseData.routes.Sum(r => r.legs.Sum(l => l.distance.value));
+                        if (distance == 0)
+                        {
+                            throw new Exception("Google cannot find road route");
+                        }
                     }
-                    return result;
+                    result.Add("distance", "0");
+                    result.Add("duration", "0"); 
+                    throw new Exception("Google cannot find road route");                    
                 }
                 else
                 {
+                    result.Add("distance", "0");
+                    result.Add("duration", "0"); 
                     throw new Exception("Unable to get location from google");                    
                 }
-
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
             }
-        }        
+            return result;
+        }    
+    
     }
 }
