@@ -19,16 +19,18 @@ namespace PodrozeSluzbowe
 
         private void FormRaport_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'PodrozeDataSet.BusinessTrips' table. You can move, or remove it, as needed.
-           // this.BusinessTripsTableAdapter.Fill(this.PodrozeDataSet.BusinessTrips);
+           
+            this.ViewerRaportTableAdapter.Fill(this.PodrozeDataSet.ViewerRaport);
+          
+          
 
-           // this.reportViewer1.RefreshReport();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.BusinessTripsTableAdapter.Fill(this.PodrozeDataSet.BusinessTrips);
-
+          
             this.reportViewer1.RefreshReport();
         }
     }

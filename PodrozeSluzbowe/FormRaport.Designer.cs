@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRaport));
-            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -40,28 +38,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.BusinessTripsTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.BusinessTripsTableAdapter();
+            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ViewerRaportTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.ViewerRaportTableAdapter();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BusinessTripsBindingSource
-            // 
-            this.BusinessTripsBindingSource.DataMember = "BusinessTrips";
-            this.BusinessTripsBindingSource.DataSource = this.PodrozeDataSet;
-            // 
-            // PodrozeDataSet
-            // 
-            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
-            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.BusinessTripsBindingSource;
+            reportDataSource1.Value = this.ViewerRaportBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PodrozeSluzbowe.Report1.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PodrozeSluzbowe.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 118);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(833, 324);
@@ -126,9 +119,28 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // BusinessTripsBindingSource
+            // 
+            this.BusinessTripsBindingSource.DataMember = "BusinessTrips";
+            this.BusinessTripsBindingSource.DataSource = this.PodrozeDataSet;
+            // 
+            // PodrozeDataSet
+            // 
+            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
+            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // BusinessTripsTableAdapter
             // 
             this.BusinessTripsTableAdapter.ClearBeforeFill = true;
+            // 
+            // ViewerRaportBindingSource
+            // 
+            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
+            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
+            // 
+            // ViewerRaportTableAdapter
+            // 
+            this.ViewerRaportTableAdapter.ClearBeforeFill = true;
             // 
             // FormRaport
             // 
@@ -141,10 +153,11 @@
             this.Name = "FormRaport";
             this.Text = "Raport";
             this.Load += new System.EventHandler(this.FormRaport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +174,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource ViewerRaportBindingSource;
+        private PodrozeDataSetTableAdapters.ViewerRaportTableAdapter ViewerRaportTableAdapter;
     }
 }
