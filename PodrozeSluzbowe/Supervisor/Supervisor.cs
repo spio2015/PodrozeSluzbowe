@@ -84,43 +84,59 @@ namespace PodrozeSluzbowe.Supervisor
     class SuperVisorUsers
     {
 
-
-        public void AddUser(string Login, string Password, string FirstName, string SurName, string Department)
+        public void AddUser(string Login, string Password, string Password2, string FirstName, string SurName, string Department)
         {
             int DepartmentId=1;
             
-            if (checkUserInDatabase(Login) == false)
+            if (checkUserInDatabase(Login) == false)            
+            {
+                if (Password == Password2)
+                {
+                    using (PodrozeEntities context = new PodrozeEntities())
+                    {
+                        var depart = (from department in context.Departments
+                                      where department.DepartmentName == Department
+                                      select department.Id
+                                          );
+                        DepartmentId = depart.ToList()[0];
+
+                        Users users = new Users();
+                        //  users.Id = Id;
+                        users.Login = Login;
+                        users.Password = Password;
+                        users.FirstName = FirstName;
+                        users.SurName = SurName;
+                        users.DepartmentId = DepartmentId;
+                        users.Active = true;
+                        context.Users.Add(users);
+                        context.SaveChanges();
+                        System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " został utworzony");
+                    }
+                }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("wpisane hasła nie są jednakowe");
+                    }        
+            }            
+            else
             {
                 using (PodrozeEntities context = new PodrozeEntities())
                 {
-                    var depart = (from department in context.Departments
-                                  where department.DepartmentName == Department
-                                  select department.Id
-                                      );                    
-                    DepartmentId = depart.ToList()[0];
+                    Users user = new Users();                   
+                    user = context.Users.Where(c => c.Login == Login).First();
+                    if (user.Active == true)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się już w bazie danych");
+                    }
+                    else
+                    {
+                        user.Active = true;
+                        context.SaveChanges();
+                    }
 
-                    Users users = new Users();
-                    //  users.Id = Id;
-                    users.Login = Login;
-                    users.Password = Password;
-                    users.FirstName = FirstName;
-                    users.SurName = SurName;
-                    users.DepartmentId = DepartmentId;
-                    users.Active = true;
-                    context.Users.Add(users);
-                    context.SaveChanges();
-                    System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " został utworzony");
-                }
+                }             
             }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się już w bazie danych");
-            }
-
-
         }
-
-
 
 
         public void AddUser(string Login, string Password, string FirstName, string SurName, int DepartmentId)

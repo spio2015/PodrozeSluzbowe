@@ -38,13 +38,14 @@ namespace PodrozeSluzbowe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; int DepartmentId = 1; string DepartmentName="";
+            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; int DepartmentId = 1; string DepartmentName = ""; string password2 = "";
             try
             {
                 Login = txtLogin.Text;
                 Password = txtPassword.Text;
                 FirstName = txtLogin.Text;
                 SurName = txtNazwisko.Text;
+                password2 = txtPassword2.Text;
              //   DepartmentId =Convert.ToInt16 ( txtDział.Text);
                 DepartmentName = cmbBoxUsersDepartment.SelectedItem.ToString();
             
@@ -53,10 +54,8 @@ namespace PodrozeSluzbowe
             {
 
             }
-
-
             SuperVisorUsers superV = new SuperVisorUsers();
-            superV.AddUser(Login, Password, FirstName, SurName, DepartmentName);
+            superV.AddUser(Login, Password,password2, FirstName, SurName, DepartmentName);
             refreshUserList();
         }
 
@@ -94,7 +93,7 @@ namespace PodrozeSluzbowe
         {
            
             string Brand=""; string Model=""; string RegistrationNumber=""; short NumberOfSeats=1;
-            //string registrationNumber;
+          
             try
             {
 
@@ -102,43 +101,28 @@ namespace PodrozeSluzbowe
                 Model = txtModel.Text;
                 RegistrationNumber = txtRegistrationNumber.Text;
                 NumberOfSeats = Convert.ToInt16(txtNumberOfSeats.Text);
-
-
-                //    registrationNumber = txtRegistrationNumber.Text;
-               
-
             }
             catch
             {
-
             }
-
             SuperVisorCar superV = new SuperVisorCar();
-
-            superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);
-            
-            
-            refreshCarList();
-   
+            superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);                        
+            refreshCarList();  
         }
 
         public void refreshCarList()
         {
             List<Cars> cars = new List<Cars>();
             PodrozeEntities context1 = new PodrozeEntities();
-
             cars = context1.Cars.Where(c => c.Active == true).ToList();
             dataGridViewCars.DataSource = cars;
-
         }
         public void refreshUserList()
         {
             List<Users> user = new List<Users>();
             PodrozeEntities context1 = new PodrozeEntities();
-
             user = context1.Users.Where(c => c.Active == true).ToList();
             dataGridViewUsers.DataSource = user;
-
         }
         private void button1_Click_2(object sender, EventArgs e)
         {
@@ -152,10 +136,7 @@ namespace PodrozeSluzbowe
             {
                 MessageBox.Show("Zaznacz wiersz na liście poniżej w celu usunięcia samochodu");
             }
-
-
-            refreshCarList();
-         
+            refreshCarList();         
         }
 
         private void txtRegistrationNumber_TextChanged(object sender, EventArgs e)
