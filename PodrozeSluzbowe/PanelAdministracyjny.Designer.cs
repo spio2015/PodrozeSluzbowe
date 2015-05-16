@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdministracyjny));
             this.btnAddUser = new System.Windows.Forms.Button();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.btnRemoveUser = new System.Windows.Forms.Button();
@@ -68,11 +69,14 @@
             // 
             // btnAddUser
             // 
+            this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
+            this.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddUser.Location = new System.Drawing.Point(6, 19);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(142, 23);
             this.btnAddUser.TabIndex = 7;
             this.btnAddUser.Text = "Dodaj użytkownika";
+            this.btnAddUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -85,11 +89,14 @@
             // 
             // btnRemoveUser
             // 
+            this.btnRemoveUser.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveUser.Image")));
+            this.btnRemoveUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemoveUser.Location = new System.Drawing.Point(6, 48);
             this.btnRemoveUser.Name = "btnRemoveUser";
             this.btnRemoveUser.Size = new System.Drawing.Size(142, 23);
             this.btnRemoveUser.TabIndex = 8;
             this.btnRemoveUser.Text = "Usuń użytkownika";
+            this.btnRemoveUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemoveUser.UseVisualStyleBackColor = true;
             this.btnRemoveUser.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -224,7 +231,7 @@
             this.oknoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1464, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -232,34 +239,42 @@
             // 
             this.oknoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zakończToolStripMenuItem});
+            this.oknoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("oknoToolStripMenuItem.Image")));
             this.oknoToolStripMenuItem.Name = "oknoToolStripMenuItem";
-            this.oknoToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.oknoToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.oknoToolStripMenuItem.Text = "Okno";
             // 
             // zakończToolStripMenuItem
             // 
+            this.zakończToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zakończToolStripMenuItem.Image")));
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
             // btnRemoveCar
             // 
+            this.btnRemoveCar.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveCar.Image")));
+            this.btnRemoveCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemoveCar.Location = new System.Drawing.Point(6, 48);
             this.btnRemoveCar.Name = "btnRemoveCar";
             this.btnRemoveCar.Size = new System.Drawing.Size(142, 23);
             this.btnRemoveCar.TabIndex = 6;
             this.btnRemoveCar.Text = "Usuń samochód";
+            this.btnRemoveCar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemoveCar.UseVisualStyleBackColor = true;
             this.btnRemoveCar.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // button2
             // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(6, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Dodaj samochód";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -361,10 +376,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1464, 663);
+            this.ClientSize = new System.Drawing.Size(1370, 663);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbAddUser);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PanelAdministracyjny";
             this.Text = "PanelAdministracyjny";
