@@ -158,12 +158,14 @@
             // 
             // tbxArrival
             // 
-            this.tbxArrival.BackColor = System.Drawing.Color.White;
+            this.tbxArrival.BackColor = System.Drawing.Color.DarkGray;
+            this.tbxArrival.Enabled = false;
             this.tbxArrival.Location = new System.Drawing.Point(139, 104);
             this.tbxArrival.Name = "tbxArrival";
             this.tbxArrival.ReadOnly = true;
             this.tbxArrival.Size = new System.Drawing.Size(105, 20);
             this.tbxArrival.TabIndex = 22;
+            this.tbxArrival.Click += new System.EventHandler(this.tbxArrival_Click);
             // 
             // label8
             // 
@@ -182,6 +184,8 @@
             this.tbxDeparture.ReadOnly = true;
             this.tbxDeparture.Size = new System.Drawing.Size(107, 20);
             this.tbxDeparture.TabIndex = 20;
+            this.tbxDeparture.Click += new System.EventHandler(this.tbxDeparture_Click);
+            this.tbxDeparture.TextChanged += new System.EventHandler(this.tbxDeparture_TextChanged);
             // 
             // label9
             // 
@@ -207,6 +211,7 @@
             this.tbxTolerance.Name = "tbxTolerance";
             this.tbxTolerance.Size = new System.Drawing.Size(35, 20);
             this.tbxTolerance.TabIndex = 24;
+            this.tbxTolerance.Validating += new System.ComponentModel.CancelEventHandler(this.tbxTolerance_Validating);
             // 
             // btnAddTrip
             // 

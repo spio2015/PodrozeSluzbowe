@@ -53,12 +53,16 @@ namespace PodrozeSluzbowe
             //Process.Start(sInfo);
         }
 
-        private void calendar_Click(object sender, EventArgs e)
+        private void calendar_Click(TextBox textBox, DateTime MinDate)
         {
-            kalendarz _kalendarz = new kalendarz(DateTime.Today);
+            kalendarz _kalendarz = new kalendarz(MinDate);
             _kalendarz.ShowDialog();
-            TextBox tbx = (TextBox)sender;
-            tbx.Text = _kalendarz.data;
+            if (_kalendarz.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                textBox.Text = _kalendarz.data;
+                tbxArrival.Enabled = true;
+                tbxArrival.BackColor = Color.White;
+            }            
         }
 
         private void btnSearchTravels_Click(object sender, EventArgs e)
@@ -192,6 +196,33 @@ namespace PodrozeSluzbowe
             {
                 //do something else
             }
+        }
+
+        private void tbxDeparture_Click(object sender, EventArgs e)
+        {
+            calendar_Click(tbxDeparture, DateTime.Today);
+        }
+
+        private void tbxArrival_Click(object sender, EventArgs e)
+        {
+            DateTime minDate = DateTime.ParseExact(tbxDeparture.Text, "yyyy-MM-dd", null);
+            calendar_Click(tbxArrival, minDate);
+        }
+
+        private void tbxDeparture_TextChanged(object sender, EventArgs e)
+        {
+            tbxArrival.Text = "";
+        }
+
+        private void tbxTolerance_Validating(object sender, CancelEventArgs e)
+        {
+            int tolerance = 0;
+            if (!(int.TryParse(tbxTolerance.Text, out tolerance) || tbxTolerance.Text == ""))
+            {
+                MessageBox.Show("W polu powinna znaleźć się wartość liczbowa, lub pole powinno pozostać puste.");
+                e.Cancel = true;
+            }
+
         }
     }
 }
