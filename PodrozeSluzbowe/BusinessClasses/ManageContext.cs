@@ -124,6 +124,16 @@ namespace PodrozeSluzbowe.BusinessClasses
             return cars;
         }
 
+        public static List<string> GetUsers()
+        {
+            List<string> users = new List<string>();
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                users = context.Users.Where(c => c.Active == true).Select(c => c.Login).ToList();
+            }
+            return users;
+        }
+
         public static int GetCarIdByRegistration(string registration)
         {
             int car;
@@ -152,8 +162,9 @@ namespace PodrozeSluzbowe.BusinessClasses
             return userId;
         }
 
-        public static bool Login(string UserLogin, string Password)
+        public static Users Login(string UserLogin, string Password)
         {
+            Users user = new Users();
             using (PodrozeEntities context = new PodrozeEntities())
             {
                 List<Users> users = context.Users.Where(c => c.Login == UserLogin.ToLower()).ToList();
@@ -162,7 +173,7 @@ namespace PodrozeSluzbowe.BusinessClasses
                     string _password = users[0].Password;
                     if (_password == Password)
                     {
-                        return true;
+                        return users[0];
                     }
                     else
                     {
@@ -174,7 +185,7 @@ namespace PodrozeSluzbowe.BusinessClasses
                     MessageBox.Show("Nie znaleziono użytkownika");
                 }
             }
-            return false;
+            return user;
         }
     }
 }
