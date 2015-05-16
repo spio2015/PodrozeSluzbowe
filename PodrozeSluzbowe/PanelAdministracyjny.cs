@@ -69,12 +69,18 @@ namespace PodrozeSluzbowe
          
             using (PodrozeEntities context = new PodrozeEntities())
             {
-                 Users user = (Users)dataGridViewUsers.SelectedRows[0].DataBoundItem;
-                int Id = user.Id;
-                user = context.Users.Where(c => c.Id == Id).First();
-                user.Active = false;
-                context.SaveChanges();
-            }
+                if(dataGridViewUsers.SelectedRows.Count>0)
+                {
+                Users user = (Users)dataGridViewUsers.SelectedRows[0].DataBoundItem;
+                SuperVisorUsers superV = new SuperVisorUsers();
+                superV.deleteUser(user);             
+                }
+                else
+                {
+                    MessageBox.Show("Zaznacz wiersz na liście poniżej w celu usunięcia użytkownika");
+                }
+
+           }
             
             refreshUserList();
         }
@@ -106,10 +112,14 @@ namespace PodrozeSluzbowe
             {
 
             }
+
             SuperVisorCar superV = new SuperVisorCar();
 
             superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);
+            
+            
             refreshCarList();
+   
         }
 
         public void refreshCarList()
@@ -132,22 +142,30 @@ namespace PodrozeSluzbowe
         }
         private void button1_Click_2(object sender, EventArgs e)
         {
-         //   List<string> lista = new List<string>();
-          //  lista.Add("PO 12345");
-           
-             // dataGridViewCars.Enabled = false;
-              //  cars.Clear();
+            if (dataGridViewCars.SelectedRows.Count > 0)
+            {
+                    Cars cars = (Cars)dataGridViewCars.SelectedRows[0].DataBoundItem;
+                    SuperVisorCar sVisor = new SuperVisorCar();
+                    sVisor.deleteCar(cars);                
+            }
+            else
+            {
+                MessageBox.Show("Zaznacz wiersz na liście poniżej w celu usunięcia samochodu");
+            }
+
 
             refreshCarList();
          
-           // dataGridViewCars.DataSource = "";
-            //dataGridViewCars.DataSource = BusinessClasses.MenageContext.GetCars(lista);
-
         }
 
         private void txtRegistrationNumber_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+           
         }
     }
 }
