@@ -394,8 +394,13 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+<<<<<<< HEAD
             this.Name = "MainScreen";
             this.Text = "Go Our Car - Obliczanie dystansu i czasu podróży";
+=======
+            this.Name = "Form1";
+            this.Text = "Go Our Car - Obliczanie dystansu i czasu podróży - Zalogowany użytkownik: " + this.loggedUser.SurName + " " + this.loggedUser.FirstName;
+>>>>>>> 14fff1515a8c90de5aea5deaabbe52f7fe9964e8
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -15,12 +15,12 @@ namespace PodrozeSluzbowe
     public partial class LoginWindow : Form
     {
         private int counter = 1;
+        public Database.Users User = new Database.Users();
 
         public LoginWindow()
         {
             InitializeComponent();
-            Supervisor.SuperVisorUsers superV = new Supervisor.SuperVisorUsers();
-            cmbLogin.DataSource = superV.getUsersLogins();
+            cmbLogin.DataSource = BusinessClasses.MenageContext.GetUsers();
             this.DialogResult = System.Windows.Forms.DialogResult.Abort;
         }
 
@@ -34,8 +34,10 @@ namespace PodrozeSluzbowe
      
         private void Login()
         {
-            if (BusinessClasses.MenageContext.Login(cmbLogin.SelectedValue.ToString(), tbxPassword.Text))
+            Database.Users user = BusinessClasses.MenageContext.Login(cmbLogin.SelectedValue.ToString(), tbxPassword.Text);
+            if (user.Id > 0)
             {
+                User = user;
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
             else
