@@ -106,18 +106,7 @@ namespace PodrozeSluzbowe.Supervisor
 
         public void AddUser(string Login, string Password, string FirstName, string SurName, int DepartmentId)
         {
-            /*
-            using (PodrozeEntities context = new PodrozeEntities())
-            {
-                Destinations destination = new Destinations();
-                destination.Address = Address;
-                destination.Latitude = Latitude;
-                destination.Longitude = Longitude;
-                context.Destinations.Add(destination);
-                context.SaveChanges();
-                return destination.Id;
-            }
-             */
+    
 
             if (checkUserInDatabase(Login) == false)
             {
@@ -125,7 +114,7 @@ namespace PodrozeSluzbowe.Supervisor
                 {
                     Users users = new Users();
                     //  users.Id = Id;
-                    users.Login = Login;
+                    users.Login = Login.ToLower();
                     users.Password = Password;
                     users.FirstName = FirstName;
                     users.SurName = SurName;

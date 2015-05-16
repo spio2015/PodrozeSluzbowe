@@ -16,7 +16,12 @@ namespace PodrozeSluzbowe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            LoginWindow lw = new LoginWindow();
+            DialogResult dr = lw.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }

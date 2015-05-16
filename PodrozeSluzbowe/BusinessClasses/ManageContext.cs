@@ -151,5 +151,30 @@ namespace PodrozeSluzbowe.BusinessClasses
             }
             return userId;
         }
+
+        public static bool Login(string UserLogin, string Password)
+        {
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                List<Users> users = context.Users.Where(c => c.Login == UserLogin.ToLower()).ToList();
+                if (users.Count > 0)
+                {
+                    string _password = users[0].Password;
+                    if (_password == Password)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nieprawidłowe hasło");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nie znaleziono użytkownika");
+                }
+            }
+            return false;
+        }
     }
 }

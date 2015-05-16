@@ -91,6 +91,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="kalendarz.Designer.cs" />
+    <Compile Include="LoginWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginWindow.Designer.cs">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelAdministracyjny.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <EmbeddedResource Include="kalendarz.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>kalendarz1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelAdministracyjny.resx">
       <DependentUpon>PanelAdministracyjny.cs</DependentUpon>

@@ -62,15 +62,20 @@ namespace PodrozeSluzbowe
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            /*
+           // int id;
+            
+           
+            
+         
             using (PodrozeEntities context = new PodrozeEntities())
             {
-                int Id = 1;
-               Users user = context.Users.Where(c => c.Id == Id).First();
+                 Users user = (Users)dataGridViewUsers.SelectedRows[0].DataBoundItem;
+                int Id = user.Id;
+                user = context.Users.Where(c => c.Id == Id).First();
                 user.Active = false;
                 context.SaveChanges();
             }
-            */
+            
             refreshUserList();
         }
 

@@ -91,11 +91,10 @@ namespace PodrozeSluzbowe
             }
         }
 
-      void  LoadUsersToCombox()
-        {SuperVisorUsers superV = new SuperVisorUsers();
-        cmbBoxUsers.DataSource = superV.getUsersLogins();
-
-
+        void  LoadUsersToCombox()
+        {
+            SuperVisorUsers superV = new SuperVisorUsers();
+            cmbBoxUsers.DataSource = superV.getUsersLogins();
         }
 
 
