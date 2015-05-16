@@ -11,6 +11,25 @@ namespace PodrozeSluzbowe.Supervisor
 {
     class SuperVisorCar
     {            
+
+        public void deleteCar(Cars cars)
+        {
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+               
+                 
+                    int Id = cars.Id;
+                    cars = context.Cars.Where(c => c.Id == Id).First();
+                    cars.Active = false;
+                    context.SaveChanges();
+               
+
+            }
+
+        }
+
+
+
         public void AddCar(string Brand,string Model,string RegistrationNumber, short NumberOfSeats)
         {
             if (checkCarInDatabase(RegistrationNumber) == false)
@@ -130,6 +149,24 @@ namespace PodrozeSluzbowe.Supervisor
                 System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się już w bazie danych");
             }
         }
+
+        public void deleteUser(Users user)
+        {
+
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+               
+                   
+                    int Id = user.Id;
+                    user = context.Users.Where(c => c.Id == Id).First();
+                    user.Active = false;
+                    context.SaveChanges();
+                
+
+            }
+
+        }
+
 
         public bool checkUserInDatabase(string checkedUser)
         {
