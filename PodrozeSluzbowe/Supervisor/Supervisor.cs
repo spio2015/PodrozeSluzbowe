@@ -15,20 +15,13 @@ namespace PodrozeSluzbowe.Supervisor
         public void deleteCar(Cars cars)
         {
             using (PodrozeEntities context = new PodrozeEntities())
-            {
-               
-                 
+            {                                
                     int Id = cars.Id;
                     cars = context.Cars.Where(c => c.Id == Id).First();
                     cars.Active = false;
-                    context.SaveChanges();
-               
-
+                    context.SaveChanges();              
             }
-
         }
-
-
 
         public void AddCar(string Brand,string Model,string RegistrationNumber, short NumberOfSeats)
         {
@@ -50,7 +43,32 @@ namespace PodrozeSluzbowe.Supervisor
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+               // System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+                using (PodrozeEntities context = new PodrozeEntities())
+                {
+                    Cars carar = new Cars();
+                    carar = context.Cars.Where(c => c.RegistrationNumber == RegistrationNumber).First();
+                    if (carar.Active == true)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+                    }
+                    else
+                    {
+                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie pojazdów jako nieaktywny. Czy chcesz przywrócić samochód? Pojazd zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
+                        {
+
+                            carar.Active = true;
+                            context.SaveChanges();
+
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show("Zaniechano dodawania pojazdu");
+
+                        }
+                    }
+
+                } 
             }
         }
         
@@ -130,12 +148,16 @@ namespace PodrozeSluzbowe.Supervisor
                     }
                     else
                     {
-                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się w bazie użytkowników jako nieaktywny. Czy chcesz przywrócić użytkownika? Użytkownik zostanie przywrócony z poprzednimi danymi", "Info", System.Windows.Forms.MessageBoxButtons.YesNo)) ;
-
+                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się w bazie użytkowników jako nieaktywny. Czy chcesz przywrócić użytkownika? Użytkownik zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
                         {
 
                             user.Active = true;
                             context.SaveChanges();
+
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show("Zaniechano dodawania użytkownika");
 
                         }
                     }

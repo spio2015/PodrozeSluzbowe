@@ -116,14 +116,28 @@ namespace PodrozeSluzbowe
             PodrozeEntities context1 = new PodrozeEntities();
             cars = context1.Cars.Where(c => c.Active == true).ToList();
             dataGridViewCars.DataSource = cars;
+            dataGridViewCars.Columns[5].Visible = false;
+            dataGridViewCars.Columns[6].Visible = false;
         }
+
+
+
         public void refreshUserList()
         {
             List<Users> user = new List<Users>();
+            
+            
             PodrozeEntities context1 = new PodrozeEntities();
-            user = context1.Users.Where(c => c.Active == true).ToList();
+            user = context1.Users.Where(c => c.Active == true).ToList();            
             dataGridViewUsers.DataSource = user;
+            dataGridViewUsers.Columns[5].Visible = false;
+            dataGridViewUsers.Columns[6].Visible = false;
+            dataGridViewUsers.Columns[7].Visible = false;
+            dataGridViewUsers.Columns[8].Visible = false;
         }
+
+
+
         private void button1_Click_2(object sender, EventArgs e)
         {
             if (dataGridViewCars.SelectedRows.Count > 0)

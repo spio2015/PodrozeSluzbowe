@@ -119,7 +119,7 @@
             this.gbAddUser.Controls.Add(this.txtLogin);
             this.gbAddUser.Location = new System.Drawing.Point(12, 27);
             this.gbAddUser.Name = "gbAddUser";
-            this.gbAddUser.Size = new System.Drawing.Size(730, 465);
+            this.gbAddUser.Size = new System.Drawing.Size(655, 465);
             this.gbAddUser.TabIndex = 3;
             this.gbAddUser.TabStop = false;
             this.gbAddUser.Text = "użytkownik";
@@ -138,7 +138,7 @@
             this.dataGridViewUsers.Location = new System.Drawing.Point(7, 194);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(717, 265);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(635, 265);
             this.dataGridViewUsers.TabIndex = 13;
             // 
             // lblDepartment
@@ -248,7 +248,7 @@
             // 
             this.zakończToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zakończToolStripMenuItem.Image")));
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -291,7 +291,7 @@
             this.groupBox1.Controls.Add(this.txtModel);
             this.groupBox1.Controls.Add(this.lblBrand);
             this.groupBox1.Controls.Add(this.txtBrand);
-            this.groupBox1.Location = new System.Drawing.Point(748, 27);
+            this.groupBox1.Location = new System.Drawing.Point(680, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(678, 465);
             this.groupBox1.TabIndex = 13;
