@@ -53,9 +53,9 @@ namespace PodrozeSluzbowe
             //Process.Start(sInfo);
         }
 
-        private void calendar_DoubleClick(object sender, EventArgs e)
+        private void calendar_Click(object sender, EventArgs e)
         {
-            kalendarz _kalendarz = new kalendarz();
+            kalendarz _kalendarz = new kalendarz(DateTime.Today);
             _kalendarz.ShowDialog();
             TextBox tbx = (TextBox)sender;
             tbx.Text = _kalendarz.data;

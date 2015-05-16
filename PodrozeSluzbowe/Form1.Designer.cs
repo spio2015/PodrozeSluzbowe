@@ -156,7 +156,6 @@
             this.tbxArrival.ReadOnly = true;
             this.tbxArrival.Size = new System.Drawing.Size(105, 20);
             this.tbxArrival.TabIndex = 22;
-            this.tbxArrival.Click += new System.EventHandler(this.calendar_DoubleClick);
             // 
             // label8
             // 
@@ -175,7 +174,6 @@
             this.tbxDeparture.ReadOnly = true;
             this.tbxDeparture.Size = new System.Drawing.Size(107, 20);
             this.tbxDeparture.TabIndex = 20;
-            this.tbxDeparture.Click += new System.EventHandler(this.calendar_DoubleClick);
             // 
             // label9
             // 
