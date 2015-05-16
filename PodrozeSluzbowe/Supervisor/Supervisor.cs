@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace PodrozeSluzbowe.Supervisor
 {
-    class SuperVisorCar
+   public class SuperVisorCar
     {            
 
         public void deleteCar(Cars cars)
@@ -99,7 +99,7 @@ namespace PodrozeSluzbowe.Supervisor
         }
     }
 
-    class SuperVisorUsers
+  public  class SuperVisorUsers
     {
 
         public void AddUser(string Login, string Password, string Password2, string FirstName, string SurName, string Department)
@@ -229,6 +229,9 @@ namespace PodrozeSluzbowe.Supervisor
             }
             return isUserInDatabase;
         }
+
+
+
 
         public List<string> getUsersLogins()
         {
