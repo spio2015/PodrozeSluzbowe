@@ -30,8 +30,9 @@
         {
             this.btnAddUser = new System.Windows.Forms.Button();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.removeUser = new System.Windows.Forms.Button();
+            this.btnRemoveUser = new System.Windows.Forms.Button();
             this.gbAddUser = new System.Windows.Forms.GroupBox();
+            this.cmbBoxUsersDepartment = new System.Windows.Forms.ComboBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblSurName = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.oknoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeCar = new System.Windows.Forms.Button();
+            this.btnRemoveCar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCars = new System.Windows.Forms.DataGridView();
@@ -58,7 +59,6 @@
             this.txtModel = new System.Windows.Forms.TextBox();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
-            this.cmbBoxUsersDepartment = new System.Windows.Forms.ComboBox();
             this.gbAddUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -83,22 +83,22 @@
             this.txtLogin.Size = new System.Drawing.Size(121, 20);
             this.txtLogin.TabIndex = 1;
             // 
-            // removeUser
+            // btnRemoveUser
             // 
-            this.removeUser.Location = new System.Drawing.Point(6, 48);
-            this.removeUser.Name = "removeUser";
-            this.removeUser.Size = new System.Drawing.Size(142, 23);
-            this.removeUser.TabIndex = 8;
-            this.removeUser.Text = "Odśwież listę";
-            this.removeUser.UseVisualStyleBackColor = true;
-            this.removeUser.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnRemoveUser.Location = new System.Drawing.Point(6, 48);
+            this.btnRemoveUser.Name = "btnRemoveUser";
+            this.btnRemoveUser.Size = new System.Drawing.Size(142, 23);
+            this.btnRemoveUser.TabIndex = 8;
+            this.btnRemoveUser.Text = "Usuń użytkownika";
+            this.btnRemoveUser.UseVisualStyleBackColor = true;
+            this.btnRemoveUser.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // gbAddUser
             // 
             this.gbAddUser.Controls.Add(this.cmbBoxUsersDepartment);
             this.gbAddUser.Controls.Add(this.dataGridViewUsers);
             this.gbAddUser.Controls.Add(this.lblDepartment);
-            this.gbAddUser.Controls.Add(this.removeUser);
+            this.gbAddUser.Controls.Add(this.btnRemoveUser);
             this.gbAddUser.Controls.Add(this.btnAddUser);
             this.gbAddUser.Controls.Add(this.lblSurName);
             this.gbAddUser.Controls.Add(this.lblFirstName);
@@ -117,11 +117,20 @@
             this.gbAddUser.TabStop = false;
             this.gbAddUser.Text = "użytkownik";
             // 
+            // cmbBoxUsersDepartment
+            // 
+            this.cmbBoxUsersDepartment.FormattingEnabled = true;
+            this.cmbBoxUsersDepartment.Location = new System.Drawing.Point(240, 143);
+            this.cmbBoxUsersDepartment.Name = "cmbBoxUsersDepartment";
+            this.cmbBoxUsersDepartment.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxUsersDepartment.TabIndex = 6;
+            // 
             // dataGridViewUsers
             // 
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.Location = new System.Drawing.Point(7, 194);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.Size = new System.Drawing.Size(717, 265);
             this.dataGridViewUsers.TabIndex = 13;
             // 
@@ -232,15 +241,15 @@
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
-            // removeCar
+            // btnRemoveCar
             // 
-            this.removeCar.Location = new System.Drawing.Point(6, 48);
-            this.removeCar.Name = "removeCar";
-            this.removeCar.Size = new System.Drawing.Size(142, 23);
-            this.removeCar.TabIndex = 6;
-            this.removeCar.Text = "Odśwież listę";
-            this.removeCar.UseVisualStyleBackColor = true;
-            this.removeCar.Click += new System.EventHandler(this.button1_Click_2);
+            this.btnRemoveCar.Location = new System.Drawing.Point(6, 48);
+            this.btnRemoveCar.Name = "btnRemoveCar";
+            this.btnRemoveCar.Size = new System.Drawing.Size(142, 23);
+            this.btnRemoveCar.TabIndex = 6;
+            this.btnRemoveCar.Text = "Usuń samochód";
+            this.btnRemoveCar.UseVisualStyleBackColor = true;
+            this.btnRemoveCar.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // button2
             // 
@@ -255,7 +264,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridViewCars);
-            this.groupBox1.Controls.Add(this.removeCar);
+            this.groupBox1.Controls.Add(this.btnRemoveCar);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.lblNumberOfSeats);
             this.groupBox1.Controls.Add(this.lblRegistrationNumber);
@@ -346,14 +355,6 @@
             this.txtBrand.Size = new System.Drawing.Size(100, 20);
             this.txtBrand.TabIndex = 1;
             // 
-            // cmbBoxUsersDepartment
-            // 
-            this.cmbBoxUsersDepartment.FormattingEnabled = true;
-            this.cmbBoxUsersDepartment.Location = new System.Drawing.Point(240, 143);
-            this.cmbBoxUsersDepartment.Name = "cmbBoxUsersDepartment";
-            this.cmbBoxUsersDepartment.Size = new System.Drawing.Size(121, 21);
-            this.cmbBoxUsersDepartment.TabIndex = 6;
-            // 
             // PanelAdministracyjny
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,7 +383,7 @@
 
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.Button removeUser;
+        private System.Windows.Forms.Button btnRemoveUser;
         private System.Windows.Forms.GroupBox gbAddUser;
         private System.Windows.Forms.Label lblSurName;
         private System.Windows.Forms.Label lblFirstName;
@@ -397,7 +398,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem oknoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
-        private System.Windows.Forms.Button removeCar;
+        private System.Windows.Forms.Button btnRemoveCar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblNumberOfSeats;
