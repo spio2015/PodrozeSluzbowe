@@ -181,5 +181,18 @@ namespace PodrozeSluzbowe
             FormRaport raportForm = new FormRaport();
             raportForm.Show();
         }
+
+        private void wyjścieToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz wyjść z aplikacji?", "Wyjście", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
     }
 }

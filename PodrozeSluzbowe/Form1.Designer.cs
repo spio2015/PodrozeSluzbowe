@@ -51,9 +51,12 @@
             this.cmbCars = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.wyjścieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aplikacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAdministracyjnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.wyjścieToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnJoinToTravel = new System.Windows.Forms.Button();
             this.tbxLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,7 +68,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 71);
+            this.label1.Location = new System.Drawing.Point(12, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
@@ -73,7 +76,7 @@
             // 
             // tbxStartAddress
             // 
-            this.tbxStartAddress.Location = new System.Drawing.Point(16, 87);
+            this.tbxStartAddress.Location = new System.Drawing.Point(16, 55);
             this.tbxStartAddress.Name = "tbxStartAddress";
             this.tbxStartAddress.Size = new System.Drawing.Size(390, 20);
             this.tbxStartAddress.TabIndex = 1;
@@ -97,11 +100,14 @@
             // 
             // btnSearchTravels
             // 
-            this.btnSearchTravels.Location = new System.Drawing.Point(10, 162);
+            this.btnSearchTravels.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchTravels.Image")));
+            this.btnSearchTravels.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchTravels.Location = new System.Drawing.Point(333, 100);
             this.btnSearchTravels.Name = "btnSearchTravels";
             this.btnSearchTravels.Size = new System.Drawing.Size(113, 24);
             this.btnSearchTravels.TabIndex = 13;
             this.btnSearchTravels.Text = "Wyszukaj podróż";
+            this.btnSearchTravels.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearchTravels.UseVisualStyleBackColor = true;
             this.btnSearchTravels.Click += new System.EventHandler(this.btnSearchTravels_Click);
             // 
@@ -113,26 +119,28 @@
             this.webBrowser.Location = new System.Drawing.Point(663, 71);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(455, 764);
+            this.webBrowser.Size = new System.Drawing.Size(455, 647);
             this.webBrowser.TabIndex = 15;
             // 
             // tbxAppKey
             // 
             this.tbxAppKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbxAppKey.Location = new System.Drawing.Point(15, 838);
+            this.tbxAppKey.Location = new System.Drawing.Point(15, 721);
             this.tbxAppKey.Name = "tbxAppKey";
             this.tbxAppKey.Size = new System.Drawing.Size(294, 20);
             this.tbxAppKey.TabIndex = 17;
+            this.tbxAppKey.Visible = false;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 822);
+            this.label7.Location = new System.Drawing.Point(12, 705);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "AppKey";
+            this.label7.Visible = false;
             // 
             // dataGridView1
             // 
@@ -140,18 +148,18 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 192);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 130);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(639, 553);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 498);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // tbxArrival
             // 
             this.tbxArrival.BackColor = System.Drawing.Color.White;
-            this.tbxArrival.Location = new System.Drawing.Point(139, 132);
+            this.tbxArrival.Location = new System.Drawing.Point(139, 104);
             this.tbxArrival.Name = "tbxArrival";
             this.tbxArrival.ReadOnly = true;
             this.tbxArrival.Size = new System.Drawing.Size(105, 20);
@@ -161,7 +169,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(136, 115);
+            this.label8.Location = new System.Drawing.Point(136, 88);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 21;
@@ -170,7 +178,7 @@
             // tbxDeparture
             // 
             this.tbxDeparture.BackColor = System.Drawing.Color.White;
-            this.tbxDeparture.Location = new System.Drawing.Point(16, 131);
+            this.tbxDeparture.Location = new System.Drawing.Point(16, 104);
             this.tbxDeparture.Name = "tbxDeparture";
             this.tbxDeparture.ReadOnly = true;
             this.tbxDeparture.Size = new System.Drawing.Size(107, 20);
@@ -180,7 +188,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 115);
+            this.label9.Location = new System.Drawing.Point(13, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 13);
             this.label9.TabIndex = 19;
@@ -189,7 +197,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(259, 116);
+            this.label2.Location = new System.Drawing.Point(259, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 23;
@@ -197,25 +205,28 @@
             // 
             // tbxTolerance
             // 
-            this.tbxTolerance.Location = new System.Drawing.Point(262, 132);
+            this.tbxTolerance.Location = new System.Drawing.Point(262, 104);
             this.tbxTolerance.Name = "tbxTolerance";
             this.tbxTolerance.Size = new System.Drawing.Size(35, 20);
             this.tbxTolerance.TabIndex = 24;
             // 
             // btnAddTrip
             // 
-            this.btnAddTrip.Location = new System.Drawing.Point(547, 128);
+            this.btnAddTrip.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTrip.Image")));
+            this.btnAddTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddTrip.Location = new System.Drawing.Point(547, 101);
             this.btnAddTrip.Name = "btnAddTrip";
             this.btnAddTrip.Size = new System.Drawing.Size(106, 23);
             this.btnAddTrip.TabIndex = 25;
             this.btnAddTrip.Text = "Dodaj podróż";
+            this.btnAddTrip.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddTrip.UseVisualStyleBackColor = true;
             this.btnAddTrip.Click += new System.EventHandler(this.btnAddTrip_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(423, 71);
+            this.label6.Location = new System.Drawing.Point(423, 38);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 27;
@@ -224,7 +235,7 @@
             // btnEditTravels
             // 
             this.btnEditTravels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditTravels.Location = new System.Drawing.Point(273, 751);
+            this.btnEditTravels.Location = new System.Drawing.Point(273, 634);
             this.btnEditTravels.Name = "btnEditTravels";
             this.btnEditTravels.Size = new System.Drawing.Size(106, 23);
             this.btnEditTravels.TabIndex = 29;
@@ -235,18 +246,21 @@
             // btnRemoveTravels
             // 
             this.btnRemoveTravels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemoveTravels.Location = new System.Drawing.Point(15, 751);
+            this.btnRemoveTravels.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveTravels.Image")));
+            this.btnRemoveTravels.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveTravels.Location = new System.Drawing.Point(15, 634);
             this.btnRemoveTravels.Name = "btnRemoveTravels";
             this.btnRemoveTravels.Size = new System.Drawing.Size(118, 23);
             this.btnRemoveTravels.TabIndex = 30;
             this.btnRemoveTravels.Text = "Usuń podróż";
+            this.btnRemoveTravels.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemoveTravels.UseVisualStyleBackColor = true;
             this.btnRemoveTravels.Click += new System.EventHandler(this.btnRemoveTrip_Click);
             // 
             // cmbCars
             // 
             this.cmbCars.FormattingEnabled = true;
-            this.cmbCars.Location = new System.Drawing.Point(426, 86);
+            this.cmbCars.Location = new System.Drawing.Point(426, 54);
             this.cmbCars.Name = "cmbCars";
             this.cmbCars.Size = new System.Drawing.Size(227, 21);
             this.cmbCars.TabIndex = 31;
@@ -264,20 +278,32 @@
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wyjścieToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // wyjścieToolStripMenuItem
+            // 
+            this.wyjścieToolStripMenuItem.Name = "wyjścieToolStripMenuItem";
+            this.wyjścieToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.wyjścieToolStripMenuItem.Text = "Wyjście";
             // 
             // aplikacjaToolStripMenuItem
             // 
             this.aplikacjaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.panelAdministracyjnyToolStripMenuItem,
-            this.raportToolStripMenuItem});
+            this.raportToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.wyjścieToolStripMenuItem1});
+            this.aplikacjaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aplikacjaToolStripMenuItem.Image")));
             this.aplikacjaToolStripMenuItem.Name = "aplikacjaToolStripMenuItem";
-            this.aplikacjaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.aplikacjaToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.aplikacjaToolStripMenuItem.Text = "Aplikacja";
             // 
             // panelAdministracyjnyToolStripMenuItem
             // 
+            this.panelAdministracyjnyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("panelAdministracyjnyToolStripMenuItem.Image")));
             this.panelAdministracyjnyToolStripMenuItem.Name = "panelAdministracyjnyToolStripMenuItem";
             this.panelAdministracyjnyToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.panelAdministracyjnyToolStripMenuItem.Text = "Panel Administracyjny";
@@ -285,19 +311,36 @@
             // 
             // raportToolStripMenuItem
             // 
+            this.raportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("raportToolStripMenuItem.Image")));
             this.raportToolStripMenuItem.Name = "raportToolStripMenuItem";
             this.raportToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.raportToolStripMenuItem.Text = "Raport";
             this.raportToolStripMenuItem.Click += new System.EventHandler(this.raportToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(189, 6);
+            // 
+            // wyjścieToolStripMenuItem1
+            // 
+            this.wyjścieToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("wyjścieToolStripMenuItem1.Image")));
+            this.wyjścieToolStripMenuItem1.Name = "wyjścieToolStripMenuItem1";
+            this.wyjścieToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.wyjścieToolStripMenuItem1.Text = "Wyjście";
+            this.wyjścieToolStripMenuItem1.Click += new System.EventHandler(this.wyjścieToolStripMenuItem1_Click);
+            // 
             // btnJoinToTravel
             // 
             this.btnJoinToTravel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnJoinToTravel.Location = new System.Drawing.Point(535, 751);
+            this.btnJoinToTravel.Image = ((System.Drawing.Image)(resources.GetObject("btnJoinToTravel.Image")));
+            this.btnJoinToTravel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnJoinToTravel.Location = new System.Drawing.Point(535, 634);
             this.btnJoinToTravel.Name = "btnJoinToTravel";
             this.btnJoinToTravel.Size = new System.Drawing.Size(118, 23);
             this.btnJoinToTravel.TabIndex = 33;
             this.btnJoinToTravel.Text = "Dołącz do podróży";
+            this.btnJoinToTravel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnJoinToTravel.UseVisualStyleBackColor = true;
             this.btnJoinToTravel.Click += new System.EventHandler(this.btnJoinToTravel_Click);
             // 
@@ -308,6 +351,7 @@
             this.tbxLogin.Name = "tbxLogin";
             this.tbxLogin.Size = new System.Drawing.Size(100, 20);
             this.tbxLogin.TabIndex = 34;
+            this.tbxLogin.Visible = false;
             // 
             // label3
             // 
@@ -318,6 +362,7 @@
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 35;
             this.label3.Text = "Login";
+            this.label3.Visible = false;
             // 
             // cmbBoxUsers
             // 
@@ -326,12 +371,13 @@
             this.cmbBoxUsers.Name = "cmbBoxUsers";
             this.cmbBoxUsers.Size = new System.Drawing.Size(121, 21);
             this.cmbBoxUsers.TabIndex = 36;
+            this.cmbBoxUsers.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 867);
+            this.ClientSize = new System.Drawing.Size(1130, 750);
             this.Controls.Add(this.cmbBoxUsers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxLogin);
@@ -400,6 +446,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem raportToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbBoxUsers;
+        private System.Windows.Forms.ToolStripMenuItem wyjścieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wyjścieToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
