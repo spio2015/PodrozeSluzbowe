@@ -130,15 +130,14 @@ namespace PodrozeSluzbowe.Supervisor
                     }
                     else
                     {
-                       // System.Windows.Forms.DialogResult.Yes  
-            System.Windows.Forms.MessageBox.Show("Info","Użytkownik " + Login + " znajduje się w bazie użytkowników jako nieaktywny. Czy chcesz przywrócić użytkownika? Użytkownik zostanie przywrócony z poprzednimi danymi",System.Windows.Forms.MessageBoxButtons.YesNo);
-                    
-                        
+                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się w bazie użytkowników jako nieaktywny. Czy chcesz przywrócić użytkownika? Użytkownik zostanie przywrócony z poprzednimi danymi", "Info", System.Windows.Forms.MessageBoxButtons.YesNo)) ;
 
-                        user.Active = true;
-                        context.SaveChanges();
-                    
-                    
+                        {
+
+                            user.Active = true;
+                            context.SaveChanges();
+
+                        }
                     }
 
                 }             
