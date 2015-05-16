@@ -54,7 +54,7 @@ namespace PodrozeSluzbowe.Supervisor
                     }
                     else
                     {
-                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie pojazdów jako nieaktywny. Czy chcesz przywrócić samochód? Pojazd zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
+                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Pojazd o numerze rejestracyjnym "+ RegistrationNumber + " istnieje w bazie pojazdów jako nieaktywny. Czy chcesz przywrócić samochód? Pojazd zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
                         {
 
                             carar.Active = true;

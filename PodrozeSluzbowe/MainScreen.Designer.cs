@@ -50,8 +50,6 @@
             this.btnRemoveTravels = new System.Windows.Forms.Button();
             this.cmbCars = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.wyjścieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aplikacjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAdministracyjnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +88,7 @@
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Współrzędne";
+            this.label5.Visible = false;
             // 
             // tbxStartLocation
             // 
@@ -97,6 +96,7 @@
             this.tbxStartLocation.Name = "tbxStartLocation";
             this.tbxStartLocation.Size = new System.Drawing.Size(294, 20);
             this.tbxStartLocation.TabIndex = 10;
+            this.tbxStartLocation.Visible = false;
             // 
             // btnSearchTravels
             // 
@@ -119,13 +119,13 @@
             this.webBrowser.Location = new System.Drawing.Point(663, 71);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(455, 647);
+            this.webBrowser.Size = new System.Drawing.Size(455, 640);
             this.webBrowser.TabIndex = 15;
             // 
             // tbxAppKey
             // 
             this.tbxAppKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbxAppKey.Location = new System.Drawing.Point(15, 721);
+            this.tbxAppKey.Location = new System.Drawing.Point(350, 673);
             this.tbxAppKey.Name = "tbxAppKey";
             this.tbxAppKey.Size = new System.Drawing.Size(294, 20);
             this.tbxAppKey.TabIndex = 17;
@@ -135,7 +135,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 705);
+            this.label7.Location = new System.Drawing.Point(347, 657);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 16;
@@ -152,7 +152,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(639, 498);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 491);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -238,7 +238,7 @@
             // btnEditTravels
             // 
             this.btnEditTravels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditTravels.Location = new System.Drawing.Point(273, 634);
+            this.btnEditTravels.Location = new System.Drawing.Point(273, 627);
             this.btnEditTravels.Name = "btnEditTravels";
             this.btnEditTravels.Size = new System.Drawing.Size(106, 23);
             this.btnEditTravels.TabIndex = 29;
@@ -251,7 +251,7 @@
             this.btnRemoveTravels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoveTravels.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveTravels.Image")));
             this.btnRemoveTravels.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveTravels.Location = new System.Drawing.Point(15, 634);
+            this.btnRemoveTravels.Location = new System.Drawing.Point(15, 627);
             this.btnRemoveTravels.Name = "btnRemoveTravels";
             this.btnRemoveTravels.Size = new System.Drawing.Size(118, 23);
             this.btnRemoveTravels.TabIndex = 30;
@@ -271,26 +271,12 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
             this.aplikacjaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1130, 24);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.wyjścieToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
-            // 
-            // wyjścieToolStripMenuItem
-            // 
-            this.wyjścieToolStripMenuItem.Name = "wyjścieToolStripMenuItem";
-            this.wyjścieToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.wyjścieToolStripMenuItem.Text = "Wyjście";
             // 
             // aplikacjaToolStripMenuItem
             // 
@@ -338,7 +324,7 @@
             this.btnJoinToTravel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnJoinToTravel.Image = ((System.Drawing.Image)(resources.GetObject("btnJoinToTravel.Image")));
             this.btnJoinToTravel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnJoinToTravel.Location = new System.Drawing.Point(535, 634);
+            this.btnJoinToTravel.Location = new System.Drawing.Point(535, 627);
             this.btnJoinToTravel.Name = "btnJoinToTravel";
             this.btnJoinToTravel.Size = new System.Drawing.Size(118, 23);
             this.btnJoinToTravel.TabIndex = 33;
@@ -376,11 +362,11 @@
             this.cmbBoxUsers.TabIndex = 36;
             this.cmbBoxUsers.Visible = false;
             // 
-            // Form1
+            // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 750);
+            this.ClientSize = new System.Drawing.Size(1130, 743);
             this.Controls.Add(this.cmbBoxUsers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxLogin);
@@ -408,6 +394,10 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+<<<<<<< HEAD
+            this.Name = "MainScreen";
+            this.Text = "Go Our Car - Obliczanie dystansu i czasu podróży";
+=======
             this.Name = "Form1";
             this.Text = "Go Our Car - Obliczanie dystansu i czasu podróży - Zalogowany użytkownik: ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -441,7 +431,6 @@
         private System.Windows.Forms.Button btnRemoveTravels;
         private System.Windows.Forms.ComboBox cmbCars;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aplikacjaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem panelAdministracyjnyToolStripMenuItem;
         private System.Windows.Forms.Button btnJoinToTravel;
@@ -449,7 +438,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem raportToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbBoxUsers;
-        private System.Windows.Forms.ToolStripMenuItem wyjścieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wyjścieToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
