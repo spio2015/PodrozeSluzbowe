@@ -20,7 +20,7 @@ namespace PodrozeSluzbowe
             DialogResult dr = lw.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                Application.Run(new Form1());
+                Application.Run(new MainScreen());
             }
         }
     }

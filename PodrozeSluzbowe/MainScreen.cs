@@ -14,12 +14,12 @@ using PodrozeSluzbowe.Supervisor;
 
 namespace PodrozeSluzbowe
 {
-    public partial class Form1 : Form
+    public partial class MainScreen : Form
     {
         private string lat;
         private string lng;
 
-        public Form1()
+        public MainScreen()
         {
             InitializeComponent();
             LoadCarsToCombox();
