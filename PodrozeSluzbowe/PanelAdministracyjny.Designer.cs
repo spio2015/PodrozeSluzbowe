@@ -337,11 +337,11 @@
             // lblModel
             // 
             this.lblModel.AutoSize = true;
-<<<<<<< HEAD
+
             this.lblModel.Location = new System.Drawing.Point(231, 48);
-=======
+
             this.lblModel.Location = new System.Drawing.Point(227, 45);
->>>>>>> dafb67f321902a88711095c25e6a5dd217622383
+
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(36, 13);
             this.lblModel.TabIndex = 7;
@@ -375,11 +375,11 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-<<<<<<< HEAD
+
             this.lblBrand.Location = new System.Drawing.Point(231, 19);
-=======
+
             this.lblBrand.Location = new System.Drawing.Point(226, 19);
->>>>>>> dafb67f321902a88711095c25e6a5dd217622383
+
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(37, 13);
             this.lblBrand.TabIndex = 2;
