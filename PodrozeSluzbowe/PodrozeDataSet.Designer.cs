@@ -5139,7 +5139,7 @@ namespace PodrozeSluzbowe.PodrozeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
-            this._connection.ConnectionString = global::PodrozeSluzbowe.Properties.Settings.Default.PodrozeConnectionString1;
+            this._connection.ConnectionString = global::PodrozeSluzbowe.Properties.Settings.Default.PodrozeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
