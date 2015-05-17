@@ -53,6 +53,7 @@
             this.btnAddCar = new System.Windows.Forms.Button();
             this.gbAddCar = new System.Windows.Forms.GroupBox();
             this.dataGridViewCars = new System.Windows.Forms.DataGridView();
+            this.txtBrand = new System.Windows.Forms.TextBox();
             this.lblNumberOfSeats = new System.Windows.Forms.Label();
             this.lblRegistrationNumber = new System.Windows.Forms.Label();
             this.lblModel = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.txtRegistrationNumber = new System.Windows.Forms.TextBox();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.lblBrand = new System.Windows.Forms.Label();
-            this.txtBrand = new System.Windows.Forms.TextBox();
             this.errorProvAdm = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbAddUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
@@ -72,7 +72,6 @@
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
             this.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddUser.Location = new System.Drawing.Point(6, 19);
             this.btnAddUser.Name = "btnAddUser";
@@ -248,7 +247,6 @@
             // 
             this.oknoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zakończToolStripMenuItem});
-            this.oknoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("oknoToolStripMenuItem.Image")));
             this.oknoToolStripMenuItem.Name = "oknoToolStripMenuItem";
             this.oknoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.oknoToolStripMenuItem.Text = "Menu";
@@ -316,6 +314,14 @@
             this.dataGridViewCars.Size = new System.Drawing.Size(650, 265);
             this.dataGridViewCars.TabIndex = 10;
             // 
+            // txtBrand
+            // 
+            this.txtBrand.Location = new System.Drawing.Point(269, 13);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Size = new System.Drawing.Size(100, 20);
+            this.txtBrand.TabIndex = 1;
+            this.txtBrand.TextChanged += new System.EventHandler(this.txtBrand_TextChanged);
+            // 
             // lblNumberOfSeats
             // 
             this.lblNumberOfSeats.AutoSize = true;
@@ -337,11 +343,7 @@
             // lblModel
             // 
             this.lblModel.AutoSize = true;
-
-            this.lblModel.Location = new System.Drawing.Point(231, 48);
-
             this.lblModel.Location = new System.Drawing.Point(227, 45);
-
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(36, 13);
             this.lblModel.TabIndex = 7;
@@ -375,23 +377,11 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-
-            this.lblBrand.Location = new System.Drawing.Point(231, 19);
-
             this.lblBrand.Location = new System.Drawing.Point(226, 19);
-
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(37, 13);
             this.lblBrand.TabIndex = 2;
             this.lblBrand.Text = "Marka";
-            // 
-            // txtBrand
-            // 
-            this.txtBrand.Location = new System.Drawing.Point(269, 13);
-            this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(100, 20);
-            this.txtBrand.TabIndex = 1;
-            this.txtBrand.TextChanged += new System.EventHandler(this.txtBrand_TextChanged);
             // 
             // errorProvAdm
             // 
