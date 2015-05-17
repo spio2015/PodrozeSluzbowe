@@ -11,7 +11,7 @@ namespace PodrozeSluzbowe.Supervisor
 {
    public class SuperVisorCar
     {            
-
+      const short maxNumberOfSeats = 9;
         public void deleteCar(Cars cars)
         {
             using (PodrozeEntities context = new PodrozeEntities())
@@ -23,55 +23,64 @@ namespace PodrozeSluzbowe.Supervisor
             }
         }
 
-        public void AddCar(string Brand,string Model,string RegistrationNumber, short NumberOfSeats)
+        public void AddCar(string Brand, string Model, string RegistrationNumber, short NumberOfSeats)
         {
-            if (checkCarInDatabase(RegistrationNumber) == false)
-            {
-                using (PodrozeEntities context = new PodrozeEntities())
-                {
-                    Cars cars = new Cars();
-                    cars.Brand = Brand;
-                    cars.Model = Model;
-                    cars.RegistrationNumber = RegistrationNumber;
-                    cars.NumberOfSeats = NumberOfSeats;
-                    cars.Active = true;
-                    context.Cars.Add(cars);
 
-                    context.SaveChanges();
-                        System.Windows.Forms.MessageBox.Show("Pojazd " + Brand+" "+Model+" " + RegistrationNumber+ " został utworzony");
+            if (NumberOfSeats <= maxNumberOfSeats)
+            {
+                if (checkCarInDatabase(RegistrationNumber) == false)
+                {
+                    using (PodrozeEntities context = new PodrozeEntities())
+                    {
+                        Cars cars = new Cars();
+                        cars.Brand = Brand;
+                        cars.Model = Model;
+                        cars.RegistrationNumber = RegistrationNumber;
+                        cars.NumberOfSeats = NumberOfSeats;
+                        cars.Active = true;
+                        context.Cars.Add(cars);
+
+                        context.SaveChanges();
+                        System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " został utworzony");
+                    }
+                }
+                else
+                {
+                    // System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+
+                    using (PodrozeEntities context = new PodrozeEntities())
+                    {
+                        Cars carar = new Cars();
+                        carar = context.Cars.Where(c => c.RegistrationNumber == RegistrationNumber).First();
+                        if (carar.Active == true)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+                        }
+                        else
+                        {
+                            if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Pojazd o numerze rejestracyjnym " + RegistrationNumber + " istnieje w bazie pojazdów jako nieaktywny. Czy chcesz przywrócić samochód? Pojazd zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
+                            {
+
+                                carar.Active = true;
+                                context.SaveChanges();
+
+                            }
+                            else
+                            {
+                                System.Windows.Forms.MessageBox.Show("Zaniechano dodawania pojazdu");
+
+                            }
+                        }
+
+                    }
                 }
             }
             else
             {
-               // System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
-                using (PodrozeEntities context = new PodrozeEntities())
-                {
-                    Cars carar = new Cars();
-                    carar = context.Cars.Where(c => c.RegistrationNumber == RegistrationNumber).First();
-                    if (carar.Active == true)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
-                    }
-                    else
-                    {
-                        if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Pojazd o numerze rejestracyjnym "+ RegistrationNumber + " istnieje w bazie pojazdów jako nieaktywny. Czy chcesz przywrócić samochód? Pojazd zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
-                        {
+                System.Windows.Forms.MessageBox.Show("liczba miejsc w samochodze nie może być większa niż " + maxNumberOfSeats.ToString());
 
-                            carar.Active = true;
-                            context.SaveChanges();
-
-                        }
-                        else
-                        {
-                            System.Windows.Forms.MessageBox.Show("Zaniechano dodawania pojazdu");
-
-                        }
-                    }
-
-                } 
             }
         }
-        
         public bool checkCarInDatabase(string registrationNumber)
         {
             bool isCarInDatabase = false;
@@ -96,6 +105,14 @@ namespace PodrozeSluzbowe.Supervisor
                 }
             }
             return isCarInDatabase;
+        }
+
+       public bool checkNumberOfSeatsValue(short nmbOfSeats)
+        {
+           bool isThatGoodValue = false;
+           if (nmbOfSeats < maxNumberOfSeats) { isThatGoodValue = true; }
+
+           return isThatGoodValue;
         }
     }
 

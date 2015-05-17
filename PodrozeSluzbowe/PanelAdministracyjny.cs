@@ -27,6 +27,10 @@ namespace PodrozeSluzbowe
             refreshCarList();
             refreshUserList();
             LoadDepartmentsToCombox();
+            textboxCarErrors();
+            textboxUserErrors();
+            btnAddCar.Enabled = false;
+            btnAddUser.Enabled = false;
         }
 
 
@@ -61,10 +65,6 @@ namespace PodrozeSluzbowe
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-           // int id;
-            
-           
-            
          
             using (PodrozeEntities context = new PodrozeEntities())
             {
@@ -93,7 +93,7 @@ namespace PodrozeSluzbowe
         {
            
             string Brand=""; string Model=""; string RegistrationNumber=""; short NumberOfSeats=1;
-          
+           
             try
             {
 
@@ -101,13 +101,27 @@ namespace PodrozeSluzbowe
                 Model = txtModel.Text;
                 RegistrationNumber = txtRegistrationNumber.Text;
                 NumberOfSeats = Convert.ToInt16(txtNumberOfSeats.Text);
+                SuperVisorCar superV = new SuperVisorCar();
+                superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);
+                refreshCarList();  
             }
+             catch (FormatException ee)
+            {
+                 /*
+                var boxes = gbAddCar.Controls.OfType<TextBox>();
+                foreach (var box in boxes)
+                {
+                    errorProvAdm.SetError(box, "błąd danych");
+                }
+                 */
+                MessageBox.Show("błędne dane");
+             }
             catch
             {
+               
             }
-            SuperVisorCar superV = new SuperVisorCar();
-            superV.AddCar(Brand, Model, RegistrationNumber, NumberOfSeats);                        
-            refreshCarList();  
+
+           
         }
 
         public void refreshCarList()
@@ -155,12 +169,117 @@ namespace PodrozeSluzbowe
 
         private void txtRegistrationNumber_TextChanged(object sender, EventArgs e)
         {
-
+            textboxCarErrors();
         }
 
         private void button1_Click_3(object sender, EventArgs e)
         {
            
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textboxCarErrors();
+        }
+
+        private void txtNumberOfSeats_TextChanged(object sender, EventArgs e)
+        {
+            textboxCarErrors();
+        }
+
+        void textboxCarErrors()
+        {
+            var boxes = gbAddCar.Controls.OfType<TextBox>();
+            int numberOfError;
+            int numberOfControls;
+            numberOfControls = gbAddCar.Controls.OfType<TextBox>().Count();
+            numberOfError = 0;
+            bool isOnError = false;
+            foreach (var box in boxes)
+            {
+                isOnError = false;
+
+                if (string.IsNullOrWhiteSpace(box.Text))
+                {
+                    errorProvAdm.SetError(box, "Proszę uzupełnić pola");
+                    isOnError = true;
+                }
+                else
+                {
+                    errorProvAdm.SetError(box,"");
+
+                }
+                if (isOnError == true) numberOfError++;
+            }
+            if (numberOfError == 0) { btnAddCar.Enabled = true; } else { btnAddCar.Enabled = false; }
+        }
+        void textboxUserErrors()
+        {
+            var boxes = gbAddUser.Controls.OfType<TextBox>();
+            int numberOfError;
+            int numberOfControls;
+            numberOfControls = gbAddUser.Controls.OfType<TextBox>().Count();
+            numberOfError = 0;
+            bool isOnError = false;
+            foreach (var box in boxes)
+            {
+                isOnError = false;
+
+                if (string.IsNullOrWhiteSpace(box.Text))
+                {
+                    errorProvAdm.SetError(box, "Proszę uzupełnić pola");
+                    isOnError = true;
+                }
+                else
+                {
+                    errorProvAdm.SetError(box, "");
+
+                }
+                if (isOnError == true) numberOfError++;
+            }
+            if (numberOfError == 0) { btnAddUser.Enabled = true; } else { btnAddUser.Enabled = false; }
+        }
+
+
+
+
+
+
+
+        private void txtBrand_TextChanged(object sender, EventArgs e)
+        {
+            textboxCarErrors();
+        }
+
+        private void txtModel_TextChanged(object sender, EventArgs e)
+        {
+            textboxCarErrors();
+        }
+
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+            textboxUserErrors();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            textboxUserErrors();
+        }
+
+        private void txtPassword2_TextChanged(object sender, EventArgs e)
+        {
+            textboxUserErrors();
+        }
+
+        private void txtImie_TextChanged(object sender, EventArgs e)
+        {
+            textboxUserErrors();
+        }
+
+        private void txtNazwisko_TextChanged(object sender, EventArgs e)
+        {
+            textboxUserErrors();
+        }
+
     }
 }

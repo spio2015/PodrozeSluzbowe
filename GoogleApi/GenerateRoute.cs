@@ -42,18 +42,23 @@ namespace GoogleApi
                         double distance = responseData.routes.Sum(r => r.legs.Sum(l => l.distance.value));
                         if (distance == 0)
                         {
-                            throw new Exception("Google cannot find road route");
+                            result.Add("distance", "0");
+                            result.Add("distance2", "0");
+                            result.Add("duration", "0"); 
+                            //throw new Exception("Google cannot find road route");
                         }
                     }
                     result.Add("distance", "0");
+                    result.Add("distance2", "0");
                     result.Add("duration", "0"); 
-                    throw new Exception("Google cannot find road route");                    
+                    //throw new Exception("Google cannot find road route");                    
                 }
                 else
                 {
                     result.Add("distance", "0");
+                    result.Add("distance2", "0");
                     result.Add("duration", "0"); 
-                    throw new Exception("Unable to get location from google");                    
+                    //throw new Exception("Unable to get location from google");                    
                 }
             }
             catch (Exception ex)

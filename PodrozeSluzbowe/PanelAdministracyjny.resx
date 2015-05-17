@@ -139,7 +139,7 @@
   <data name="btnRemoveUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsFJREFUOE9tkt1L
+        vwAADr8BOAVTJAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsFJREFUOE9tkt1L
         k1Ecx5+iG6FQNKJSpAvzlXIqRWkmkb1RRipidGGhkJiIL5gXbrQIAv+EvOiqiyBo891ZpuVbTh2mzjWn
         U+eeuU23+Wzuced55vp25lsqfeED53fO9/c953AOc0DAEfkCwuQ6IfWVfrPwjUEols+QPLmWJFYP/QnZ
         cf1f0mlftmxGaJEZxOX6OVGonxX90jmRyGZF4+tZoVE+I0h2rAdVN+m9X68nthq9EKjUi6g6RK1B8EsN
@@ -157,15 +157,6 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="oknoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAHVJREFUSEvtktEJ
-        gDAMBaMTOKFWJ3Qo99AX0gqloR81gpU8uL9ykHLk+8wGsE77cVrArui8ZyZPwBlELQvaoyfAOYtaxucs
-        2sMW4GJ59kX9bwSbdm4LcBUVmckTcGYVvZFpUZFZqnB5RXXg8orqwPXDinod0QXz2WJbVnYgDwAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
   <data name="zakończToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAABYJJREFUSEut
@@ -198,7 +189,7 @@
   <data name="btnRemoveCar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsFJREFUOE9tkt1L
+        vwAADr8BOAVTJAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsFJREFUOE9tkt1L
         k1Ecx5+iG6FQNKJSpAvzlXIqRWkmkb1RRipidGGhkJiIL5gXbrQIAv+EvOiqiyBo891ZpuVbTh2mzjWn
         U+eeuU23+Wzuced55vp25lsqfeED53fO9/c953AOc0DAEfkCwuQ6IfWVfrPwjUEols+QPLmWJFYP/QnZ
         cf1f0mlftmxGaJEZxOX6OVGonxX90jmRyGZF4+tZoVE+I0h2rAdVN+m9X68nthq9EKjUi6g6RK1B8EsN
@@ -213,10 +204,10 @@
         Xjq842Fl0Z+TqOLCUxQLCYnKBclFhTE27ZMxlNm9454Y5i/LPST5DOuRAAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAddCar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsVJREFUOE9tkklM
+        vwAADr8BOAVTJAAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsVJREFUOE9tkklM
         U1EUhp/GDYkGBEMiNCwUCpQgRaJRkRDiEIliBFGMxiGQWEGJYJAFEGtYuHRpgsPWhYsODG1RQ6VNCUUa
         oEDtaOfXlg50pG8oHO8rxQjxT76cnP+cc899eRfbJYB9fCvk8HXkyVf6VNuwkWznG4gW/grB6Z3Zysp0
         /V+Dq8mLQwZydMhI4QNmihwwUfSgmSKGTJTltYkc4RtIbqZ1t/q18asDesL7wkBu9ugp+JdeRJ+RpAeN
@@ -231,8 +222,11 @@
         CspEjuZTezfuVT16ORxZOLdaYC3nCK3cEwILu+aLJRvb+ca/wrA/eKMaXDlpH34AAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="errorProvAdm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>39</value>
+    <value>70</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
