@@ -104,7 +104,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>3.0575cm</Size>
+                <Size>1.86687cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox11">
                     <CanGrow>true</CanGrow>
@@ -143,7 +143,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>4.16688cm</Size>
+                    <Size>2.60584cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox9">
                         <CanGrow>true</CanGrow>
@@ -182,16 +182,16 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>3.16146cm</Size>
+                        <Size>3.55834cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox7">
+                          <Textbox Name="RegistrationNumber">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Adres</Value>
+                                    <Value>Nr rejestracyjny</Value>
                                     <Style>
                                       <FontFamily>Tahoma</FontFamily>
                                       <FontSize>11pt</FontSize>
@@ -203,7 +203,7 @@
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox7</rd:DefaultName>
+                            <rd:DefaultName>RegistrationNumber</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>#949ca4</Color>
@@ -221,16 +221,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>3.16146cm</Size>
                             <CellContents>
-                              <Textbox Name="Textbox5">
+                              <Textbox Name="Textbox7">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>Użytkownik</Value>
+                                        <Value>Adres</Value>
                                         <Style>
                                           <FontFamily>Tahoma</FontFamily>
                                           <FontSize>11pt</FontSize>
@@ -242,7 +242,7 @@
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Textbox5</rd:DefaultName>
+                                <rd:DefaultName>Textbox7</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>#949ca4</Color>
@@ -260,21 +260,20 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>4.03458cm</Size>
+                                <Size>2.5cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Textbox3">
+                                  <Textbox Name="Textbox5">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>Data odjazu</Value>
+                                            <Value>Użytkownik</Value>
                                             <Style>
                                               <FontFamily>Tahoma</FontFamily>
                                               <FontSize>11pt</FontSize>
                                               <FontWeight>Bold</FontWeight>
-                                              <Format>D</Format>
                                               <Color>White</Color>
                                             </Style>
                                           </TextRun>
@@ -282,7 +281,7 @@
                                         <Style />
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Textbox3</rd:DefaultName>
+                                    <rd:DefaultName>Textbox5</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>#949ca4</Color>
@@ -300,16 +299,16 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>3.74354cm</Size>
+                                    <Size>4.03458cm</Size>
                                     <CellContents>
-                                      <Textbox Name="DepartureDate1">
+                                      <Textbox Name="Textbox3">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>Data przyjazdu</Value>
+                                                <Value>Data odjazu</Value>
                                                 <Style>
                                                   <FontFamily>Tahoma</FontFamily>
                                                   <FontSize>11pt</FontSize>
@@ -322,7 +321,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>DepartureDate1</rd:DefaultName>
+                                        <rd:DefaultName>Textbox3</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>#949ca4</Color>
@@ -338,7 +337,49 @@
                                     </CellContents>
                                   </TablixHeader>
                                   <TablixMembers>
-                                    <TablixMember />
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>3.74354cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="DepartureDate1">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Data przyjazdu</Value>
+                                                    <Style>
+                                                      <FontFamily>Tahoma</FontFamily>
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Format>D</Format>
+                                                      <Color>White</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>DepartureDate1</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>#949ca4</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <BackgroundColor>#7c8692</BackgroundColor>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
                                   </TablixMembers>
                                 </TablixMember>
                               </TablixMembers>
@@ -363,7 +404,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>3.0575cm</Size>
+                <Size>1.86687cm</Size>
                 <CellContents>
                   <Textbox Name="Brand">
                     <CanGrow>true</CanGrow>
@@ -411,7 +452,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>4.16688cm</Size>
+                    <Size>2.60584cm</Size>
                     <CellContents>
                       <Textbox Name="Model">
                         <CanGrow>true</CanGrow>
@@ -448,27 +489,17 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Address">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Address.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Address.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
-                        <Size>3.16146cm</Size>
+                        <Size>3.55834cm</Size>
                         <CellContents>
-                          <Textbox Name="Address">
+                          <Textbox Name="Textbox8">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!Address.Value</Value>
+                                    <Value>=Fields!RegistrationNumber.Value</Value>
                                     <Style>
                                       <FontFamily>Tahoma</FontFamily>
                                       <FontWeight>Normal</FontWeight>
@@ -479,13 +510,13 @@
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Address</rd:DefaultName>
+                            <rd:DefaultName>Textbox8</rd:DefaultName>
                             <Style>
                               <Border>
-                                <Color>#c8d8e4</Color>
+                                <Color>#bec8ce</Color>
                                 <Style>Solid</Style>
                               </Border>
-                              <BackgroundColor>#bec8ce</BackgroundColor>
+                              <BackgroundColor>#aab6c4</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -496,27 +527,27 @@
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
-                          <Group Name="Login">
+                          <Group Name="Address">
                             <GroupExpressions>
-                              <GroupExpression>=Fields!Login.Value</GroupExpression>
+                              <GroupExpression>=Fields!Address.Value</GroupExpression>
                             </GroupExpressions>
                           </Group>
                           <SortExpressions>
                             <SortExpression>
-                              <Value>=Fields!Login.Value</Value>
+                              <Value>=Fields!Address.Value</Value>
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>3.16146cm</Size>
                             <CellContents>
-                              <Textbox Name="Login">
+                              <Textbox Name="Address">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!Login.Value</Value>
+                                        <Value>=Fields!Address.Value</Value>
                                         <Style>
                                           <FontFamily>Tahoma</FontFamily>
                                           <FontWeight>Normal</FontWeight>
@@ -527,7 +558,7 @@
                                     <Style />
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Login</rd:DefaultName>
+                                <rd:DefaultName>Address</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>#c8d8e4</Color>
@@ -544,68 +575,77 @@
                           </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
-                              <Group Name="ArrivalDate">
+                              <Group Name="Login">
                                 <GroupExpressions>
-                                  <GroupExpression>=Fields!ArrivalDate.Value</GroupExpression>
+                                  <GroupExpression>=Fields!Login.Value</GroupExpression>
                                 </GroupExpressions>
                               </Group>
                               <SortExpressions>
                                 <SortExpression>
-                                  <Value>=Fields!ArrivalDate.Value</Value>
+                                  <Value>=Fields!Login.Value</Value>
                                 </SortExpression>
                               </SortExpressions>
+                              <TablixHeader>
+                                <Size>2.5cm</Size>
+                                <CellContents>
+                                  <Textbox Name="Login">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!Login.Value</Value>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                              <FontWeight>Normal</FontWeight>
+                                              <Color>#333333</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Login</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>#c8d8e4</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>#bec8ce</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
                               <TablixMembers>
                                 <TablixMember>
-                                  <TablixHeader>
-                                    <Size>4.03458cm</Size>
-                                    <CellContents>
-                                      <Textbox Name="ArrivalDate">
-                                        <CanGrow>true</CanGrow>
-                                        <KeepTogether>true</KeepTogether>
-                                        <Paragraphs>
-                                          <Paragraph>
-                                            <TextRuns>
-                                              <TextRun>
-                                                <Value>=Fields!ArrivalDate.Value</Value>
-                                                <Style>
-                                                  <FontFamily>Tahoma</FontFamily>
-                                                  <FontWeight>Normal</FontWeight>
-                                                  <Format>D</Format>
-                                                  <Color>#333333</Color>
-                                                </Style>
-                                              </TextRun>
-                                            </TextRuns>
-                                            <Style />
-                                          </Paragraph>
-                                        </Paragraphs>
-                                        <rd:DefaultName>ArrivalDate</rd:DefaultName>
-                                        <Style>
-                                          <Border>
-                                            <Color>#c8d8e4</Color>
-                                            <Style>Solid</Style>
-                                          </Border>
-                                          <BackgroundColor>#bec8ce</BackgroundColor>
-                                          <PaddingLeft>2pt</PaddingLeft>
-                                          <PaddingRight>2pt</PaddingRight>
-                                          <PaddingTop>2pt</PaddingTop>
-                                          <PaddingBottom>2pt</PaddingBottom>
-                                        </Style>
-                                      </Textbox>
-                                    </CellContents>
-                                  </TablixHeader>
+                                  <Group Name="ArrivalDate">
+                                    <GroupExpressions>
+                                      <GroupExpression>=Fields!ArrivalDate.Value</GroupExpression>
+                                    </GroupExpressions>
+                                  </Group>
+                                  <SortExpressions>
+                                    <SortExpression>
+                                      <Value>=Fields!ArrivalDate.Value</Value>
+                                    </SortExpression>
+                                  </SortExpressions>
                                   <TablixMembers>
                                     <TablixMember>
                                       <TablixHeader>
-                                        <Size>3.74354cm</Size>
+                                        <Size>4.03458cm</Size>
                                         <CellContents>
-                                          <Textbox Name="DepartureDate2">
+                                          <Textbox Name="ArrivalDate">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!DepartureDate.Value</Value>
+                                                    <Value>=Fields!ArrivalDate.Value</Value>
                                                     <Style>
                                                       <FontFamily>Tahoma</FontFamily>
                                                       <FontWeight>Normal</FontWeight>
@@ -617,7 +657,7 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>DepartureDate2</rd:DefaultName>
+                                            <rd:DefaultName>ArrivalDate</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Color>#c8d8e4</Color>
@@ -633,7 +673,49 @@
                                         </CellContents>
                                       </TablixHeader>
                                       <TablixMembers>
-                                        <TablixMember />
+                                        <TablixMember>
+                                          <TablixHeader>
+                                            <Size>3.74354cm</Size>
+                                            <CellContents>
+                                              <Textbox Name="DepartureDate2">
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Fields!DepartureDate.Value</Value>
+                                                        <Style>
+                                                          <FontFamily>Tahoma</FontFamily>
+                                                          <FontWeight>Normal</FontWeight>
+                                                          <Format>D</Format>
+                                                          <Color>#333333</Color>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style />
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <rd:DefaultName>DepartureDate2</rd:DefaultName>
+                                                <Style>
+                                                  <Border>
+                                                    <Color>#c8d8e4</Color>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <BackgroundColor>#bec8ce</BackgroundColor>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                              <rd:Selected>true</rd:Selected>
+                                            </CellContents>
+                                          </TablixHeader>
+                                          <TablixMembers>
+                                            <TablixMember />
+                                          </TablixMembers>
+                                        </TablixMember>
                                       </TablixMembers>
                                     </TablixMember>
                                   </TablixMembers>
@@ -652,7 +734,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>1.2cm</Height>
-        <Width>23.16396cm</Width>
+        <Width>23.97063cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -663,7 +745,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>9.49467in</Width>
+  <Width>10.80184in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -714,6 +796,10 @@
         <Field Name="ArrivalDate">
           <DataField>ArrivalDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="RegistrationNumber">
+          <DataField>RegistrationNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

@@ -91,10 +91,22 @@ namespace PodrozeSluzbowe
                 refreshCarList();  
             }
              catch (FormatException ee)
+<<<<<<< HEAD
              {
                  ee.ToString();
     
                 MessageBox.Show("błędne dane");
+=======
+            {
+                 /*
+                var boxes = gbAddCar.Controls.OfType<TextBox>();
+                foreach (var box in boxes)
+                {
+                    errorProvAdm.SetError(box, "błąd danych");
+                }
+                 */
+                MessageBox.Show("błędne dane " + ee.Message);
+>>>>>>> origin/master
              }
             catch
             { 

@@ -56,47 +56,45 @@ namespace PodrozeSluzbowe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //sprawdzenie zakresu dat
-            if (textBoxOD.Text.Length > 0 && textBoxDO.Text.Length > 0)
+           
+            //jeśli jest data to sprawdzam według daty
+            if (textBoxOD.Text.Length > 0 )
                 {
-                    String s = "SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate "
-                                +" FROM            BusinessTrips AS bt INNER JOIN "
-                         +" Cars AS c ON bt.CarId = c.Id INNER JOIN "
-                         +" Destinations AS d ON bt.DestinationId = d.Id INNER JOIN "
-                         +" Users AS u ON bt.UserId = u.Id ";
+                DateTime DateOd = DateTime.ParseExact(textBoxOD.Text, "yyyy-MM-dd", null);
+                DateTime DateDo;
 
-                    //this.PodrozeDataSet.ViewerRaport.Select(s);
+                this.ViewerRaportTableAdapter.ClearBeforeFill = true;
+                if(rbOdjazd.Checked)
+                    {
+                    if(textBoxDO.Text.Length == 0)
+                        {
+                        this.ViewerRaportTableAdapter.FillByOdjazd1(this.PodrozeDataSet.ViewerRaport, DateOd);
+                        }
+                    else
+                        {
+                        DateDo = DateTime.ParseExact(textBoxDO.Text, "yyyy-MM-dd", null);
+                        this.ViewerRaportTableAdapter.FillByOdjazd2(this.PodrozeDataSet.ViewerRaport, DateOd, DateDo);
+                        }
+                    }
+                else
+                    {
+                    if(textBoxDO.Text.Length == 0)
+                        {
+                        this.ViewerRaportTableAdapter.FillByPrzyjazdy1(this.PodrozeDataSet.ViewerRaport, DateOd);
+                        }
+                    else
+                        {
+                        DateDo = DateTime.ParseExact(textBoxDO.Text, "yyyy-MM-dd", null);
+                        this.ViewerRaportTableAdapter.FillByPrzyjazdy2(this.PodrozeDataSet.ViewerRaport, DateOd, DateDo);
+                        }
+                    }
 
-                   DateTime DateOd = DateTime.ParseExact(textBoxOD.Text, "yyyy-MM-dd", null);
-                   DateTime DateDo = DateTime.ParseExact(textBoxDO.Text, "yyyy-MM-dd", null);
-
-                   this.ViewerRaportTableAdapter.ClearBeforeFill = true;
-                   this.ViewerRaportTableAdapter.GetDataByOdjazd(DateOd,DateDo);
-                   this.ViewerRaportTableAdapter.FillBy1(this.PodrozeDataSet.ViewerRaport, DateOd, DateDo);
-
-               // this.ViewerRaportTableAdapter.Fill(this.ViewerRaportTableAdapter.GetDataByOdjazd(DateOd,DateDo));
-               
-
-                    //this.PodrozeDataSet.ViewerRaport.
-
-
-                
-
-                  //  this.BusinessTripsTableAdapter.Fill(this.PodrozeDataSet.BusinessTrips);
-                    
-                    this.reportViewer1.RefreshReport();
+                   this.reportViewer1.RefreshReport();
 
                 }
             else
-                {
-                    
-                this.ViewerRaportTableAdapter.Fill(this.PodrozeDataSet.ViewerRaport);
-
-
-
-
-               // this.BusinessTripsTableAdapter.Fill(this.PodrozeDataSet.BusinessTrips);
-                
+                {                    
+                this.ViewerRaportTableAdapter.Fill(this.PodrozeDataSet.ViewerRaport);                
                 this.reportViewer1.RefreshReport();
                 }
         }
