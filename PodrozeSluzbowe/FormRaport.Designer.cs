@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRaport));
+            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxDO = new System.Windows.Forms.TextBox();
@@ -38,16 +40,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BusinessTripsTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.BusinessTripsTableAdapter();
             this.ViewerRaportTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.ViewerRaportTableAdapter();
-            this.groupBox1.SuspendLayout();
+            this.rbOdjazd = new System.Windows.Forms.RadioButton();
+            this.rbPrzyjazd = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ViewerRaportBindingSource
+            // 
+            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
+            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
+            // 
+            // PodrozeDataSet
+            // 
+            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
+            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -57,11 +69,13 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "PodrozeSluzbowe.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 118);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(833, 324);
+            this.reportViewer1.Size = new System.Drawing.Size(882, 433);
             this.reportViewer1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbPrzyjazd);
+            this.groupBox1.Controls.Add(this.rbOdjazd);
             this.groupBox1.Controls.Add(this.textBoxDO);
             this.groupBox1.Controls.Add(this.textBoxOD);
             this.groupBox1.Controls.Add(this.label2);
@@ -69,7 +83,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(833, 78);
+            this.groupBox1.Size = new System.Drawing.Size(617, 78);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opcje filtrowania";
@@ -113,7 +127,7 @@
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(714, 21);
+            this.button1.Location = new System.Drawing.Point(510, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -121,16 +135,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ViewerRaportBindingSource
-            // 
-            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
-            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
-            // 
-            // PodrozeDataSet
-            // 
-            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
-            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // BusinessTripsBindingSource
             // 
@@ -145,21 +149,43 @@
             // 
             this.ViewerRaportTableAdapter.ClearBeforeFill = true;
             // 
+            // rbOdjazd
+            // 
+            this.rbOdjazd.AutoSize = true;
+            this.rbOdjazd.Checked = true;
+            this.rbOdjazd.Location = new System.Drawing.Point(409, 19);
+            this.rbOdjazd.Name = "rbOdjazd";
+            this.rbOdjazd.Size = new System.Drawing.Size(88, 17);
+            this.rbOdjazd.TabIndex = 5;
+            this.rbOdjazd.TabStop = true;
+            this.rbOdjazd.Text = "Data odjazdu";
+            this.rbOdjazd.UseVisualStyleBackColor = true;
+            // 
+            // rbPrzyjazd
+            // 
+            this.rbPrzyjazd.AutoSize = true;
+            this.rbPrzyjazd.Location = new System.Drawing.Point(409, 42);
+            this.rbPrzyjazd.Name = "rbPrzyjazd";
+            this.rbPrzyjazd.Size = new System.Drawing.Size(95, 17);
+            this.rbPrzyjazd.TabIndex = 6;
+            this.rbPrzyjazd.Text = "Data przyjazdu";
+            this.rbPrzyjazd.UseVisualStyleBackColor = true;
+            // 
             // FormRaport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 476);
+            this.ClientSize = new System.Drawing.Size(906, 579);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRaport";
             this.Text = "Raport";
             this.Load += new System.EventHandler(this.FormRaport_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -179,5 +205,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource ViewerRaportBindingSource;
         private PodrozeDataSetTableAdapters.ViewerRaportTableAdapter ViewerRaportTableAdapter;
+        private System.Windows.Forms.RadioButton rbPrzyjazd;
+        private System.Windows.Forms.RadioButton rbOdjazd;
     }
 }

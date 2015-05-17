@@ -114,7 +114,7 @@ namespace PodrozeSluzbowe
                     errorProvAdm.SetError(box, "błąd danych");
                 }
                  */
-                MessageBox.Show("błędne dane");
+                MessageBox.Show("błędne dane " + ee.Message);
              }
             catch
             {
