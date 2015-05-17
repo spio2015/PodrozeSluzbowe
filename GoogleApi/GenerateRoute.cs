@@ -7,6 +7,7 @@ using System.IO;
 using System.Web.Script.Serialization;
 
 using GoogleApi.DataTypesDistance;
+using System.Windows.Forms;
 
 namespace GoogleApi
 {    
@@ -38,34 +39,35 @@ namespace GoogleApi
                         result.Add("end_location_lng", leg.end_location.lng.ToString().Replace(',', '.'));
                         result.Add("distance", leg.distance.text);
                         result.Add("distance2", leg.distance.value.ToString());
-                        result.Add("duration", leg.duration.text);                    
+                        result.Add("duration", leg.duration.text);
                         double distance = responseData.routes.Sum(r => r.legs.Sum(l => l.distance.value));
                         if (distance == 0)
                         {
-                            result.Add("distance", "0");
-                            result.Add("distance2", "0");
-                            result.Add("duration", "0"); 
-                            //throw new Exception("Google cannot find road route");
+                            DistanceZero(result);
                         }
                     }
-                    result.Add("distance", "0");
-                    result.Add("distance2", "0");
-                    result.Add("duration", "0"); 
-                    //throw new Exception("Google cannot find road route");                    
+                    else
+                    {
+                        DistanceZero(result);
+                    }
                 }
                 else
                 {
-                    result.Add("distance", "0");
-                    result.Add("distance2", "0");
-                    result.Add("duration", "0"); 
-                    //throw new Exception("Unable to get location from google");                    
+                    DistanceZero(result);                   
                 }
             }
             catch (Exception ex)
             {
-                //throw ex;
+                MessageBox.Show(ex.Message);
             }
             return result;
+        }
+
+        private static void DistanceZero(Dictionary<string, string> result)
+        {
+            result.Add("distance", "0");
+            result.Add("distance2", "0");
+            result.Add("duration", "0");
         }    
     
     }

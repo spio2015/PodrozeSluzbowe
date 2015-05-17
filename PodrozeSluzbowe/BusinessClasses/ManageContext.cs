@@ -187,5 +187,16 @@ namespace PodrozeSluzbowe.BusinessClasses
             }
             return user;
         }
+
+        public static int GetNotReservedPlaces (BusinessClasses.TravelsGrid tg)
+        {
+            using (PodrozeEntities context = new PodrozeEntities())
+            {
+                int carId = context.Cars.Where(c => c.RegistrationNumber == tg.RegistrationNumber).Select(c => c.Id).First();
+                int reservedPlaces = context.BusinessTrips.Where(c => c.ArrivalDate == tg.ArrivalDate && c.DepartureDate == tg.DepartureDate && c.CarId == carId).Count();
+                int carPlaces = context.Cars.Where(c => c.Id == carId).Select(c => c.NumberOfSeats).First();
+                return carPlaces - reservedPlaces;
+            }
+        }
     }
 }

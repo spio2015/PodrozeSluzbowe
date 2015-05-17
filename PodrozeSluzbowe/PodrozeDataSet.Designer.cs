@@ -2172,6 +2172,8 @@ namespace PodrozeSluzbowe {
             
             private global::System.Data.DataColumn columnArrivalDate;
             
+            private global::System.Data.DataColumn columnRegistrationNumber;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ViewerRaportDataTable() {
@@ -2255,6 +2257,14 @@ namespace PodrozeSluzbowe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RegistrationNumberColumn {
+                get {
+                    return this.columnRegistrationNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2290,7 +2300,7 @@ namespace PodrozeSluzbowe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewerRaportRow AddViewerRaportRow(string Brand, string Model, string Address, string Login, System.DateTime DepartureDate, System.DateTime ArrivalDate) {
+            public ViewerRaportRow AddViewerRaportRow(string Brand, string Model, string Address, string Login, System.DateTime DepartureDate, System.DateTime ArrivalDate, string RegistrationNumber) {
                 ViewerRaportRow rowViewerRaportRow = ((ViewerRaportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Brand,
@@ -2298,7 +2308,8 @@ namespace PodrozeSluzbowe {
                         Address,
                         Login,
                         DepartureDate,
-                        ArrivalDate};
+                        ArrivalDate,
+                        RegistrationNumber};
                 rowViewerRaportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowViewerRaportRow);
                 return rowViewerRaportRow;
@@ -2327,6 +2338,7 @@ namespace PodrozeSluzbowe {
                 this.columnLogin = base.Columns["Login"];
                 this.columnDepartureDate = base.Columns["DepartureDate"];
                 this.columnArrivalDate = base.Columns["ArrivalDate"];
+                this.columnRegistrationNumber = base.Columns["RegistrationNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2344,6 +2356,8 @@ namespace PodrozeSluzbowe {
                 base.Columns.Add(this.columnDepartureDate);
                 this.columnArrivalDate = new global::System.Data.DataColumn("ArrivalDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArrivalDate);
+                this.columnRegistrationNumber = new global::System.Data.DataColumn("RegistrationNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistrationNumber);
                 this.columnBrand.ReadOnly = true;
                 this.columnBrand.MaxLength = 20;
                 this.columnModel.ReadOnly = true;
@@ -2354,6 +2368,8 @@ namespace PodrozeSluzbowe {
                 this.columnLogin.MaxLength = 16;
                 this.columnDepartureDate.ReadOnly = true;
                 this.columnArrivalDate.ReadOnly = true;
+                this.columnRegistrationNumber.ReadOnly = true;
+                this.columnRegistrationNumber.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3063,6 +3079,22 @@ namespace PodrozeSluzbowe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RegistrationNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableViewerRaport.RegistrationNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegistrationNumber\' in table \'ViewerRaport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableViewerRaport.RegistrationNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBrandNull() {
                 return this.IsNull(this.tableViewerRaport.BrandColumn);
             }
@@ -3131,6 +3163,18 @@ namespace PodrozeSluzbowe {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetArrivalDateNull() {
                 this[this.tableViewerRaport.ArrivalDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRegistrationNumberNull() {
+                return this.IsNull(this.tableViewerRaport.RegistrationNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRegistrationNumberNull() {
+                this[this.tableViewerRaport.RegistrationNumberColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5087,6 +5131,7 @@ namespace PodrozeSluzbowe.PodrozeDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Login", "Login");
             tableMapping.ColumnMappings.Add("DepartureDate", "DepartureDate");
             tableMapping.ColumnMappings.Add("ArrivalDate", "ArrivalDate");
+            tableMapping.ColumnMappings.Add("RegistrationNumber", "RegistrationNumber");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5100,14 +5145,15 @@ namespace PodrozeSluzbowe.PodrozeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[4];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+            this._commandCollection[0].CommandText = @"SELECT        c.Brand, c.Model, c.RegistrationNumber, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
 FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
-                         Users AS u ON bt.UserId = u.Id";
+                         Users AS u ON bt.UserId = u.Id
+ORDER BY bt.DepartureDate DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -5120,15 +5166,15 @@ WHERE                    ";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+            this._commandCollection[2].CommandText = @"SELECT        c.Brand, c.Model,c.RegistrationNumber, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
 FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
                          Users AS u ON bt.UserId = u.Id
-WHERE        (bt.DepartureDate >= @Param1) AND (bt.DepartureDate <= @Param2)";
+WHERE        (c.Brand = @Param1)
+ORDER BY bt.DepartureDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, true, 0, 0, "Brand", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[3] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
@@ -5136,9 +5182,45 @@ FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
                          Users AS u ON bt.UserId = u.Id
-WHERE        (c.Brand = @Param1)";
+WHERE        (bt.DepartureDate >= @Param1) 
+ORDER BY bt.DepartureDate DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, true, 0, 0, "Brand", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[4] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id
+WHERE        (bt.DepartureDate >= @Param1) and  (bt.DepartureDate <= @Param2)
+ORDER BY bt.DepartureDate DESC";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[5] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id
+WHERE        (bt.ArrivalDate >= @Param1) 
+ORDER BY bt.DepartureDate DESC";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ArrivalDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[6] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id
+WHERE        (bt.ArrivalDate >= @Param1) and  (bt.ArrivalDate <= @Param2)
+ORDER BY bt.DepartureDate DESC";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ArrivalDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ArrivalDate", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5193,36 +5275,8 @@ WHERE        (c.Brand = @Param1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(PodrozeDataSet.ViewerRaportDataTable dataTable, System.DateTime Param1, System.DateTime Param2) {
+        public virtual int FillByBrand(PodrozeDataSet.ViewerRaportDataTable dataTable, string Param1) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataByOdjazd(System.DateTime Param1, System.DateTime Param2) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
-            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy2(PodrozeDataSet.ViewerRaportDataTable dataTable, string Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Param1 == null)) {
                 throw new global::System.ArgumentNullException("Param1");
             }
@@ -5241,13 +5295,121 @@ WHERE        (c.Brand = @Param1)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual PodrozeDataSet.ViewerRaportDataTable GetDataByBrand(string Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((Param1 == null)) {
                 throw new global::System.ArgumentNullException("Param1");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
             }
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOdjazd1(PodrozeDataSet.ViewerRaportDataTable dataTable, System.DateTime Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataByOdjazd1(System.DateTime Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOdjazd2(PodrozeDataSet.ViewerRaportDataTable dataTable, System.DateTime Param1, System.DateTime Param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataBy1(System.DateTime Param1, System.DateTime Param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPrzyjazdy1(PodrozeDataSet.ViewerRaportDataTable dataTable, System.DateTime Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataBy2(System.DateTime Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPrzyjazdy2(PodrozeDataSet.ViewerRaportDataTable dataTable, System.DateTime Param1, System.DateTime Param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataBy3(System.DateTime Param1, System.DateTime Param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
             PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

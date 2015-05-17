@@ -192,7 +192,15 @@ namespace PodrozeSluzbowe
         private void btnJoinToTravel_Click(object sender, EventArgs e)
         {
             BusinessClasses.TravelsGrid tg = (BusinessClasses.TravelsGrid)dataGridView1.SelectedRows[0].DataBoundItem;
-            AddJoinTrip(BusinessClasses.MenageContext.GetCarIdByRegistration(tg.RegistrationNumber), tg.DepartureDate, tg.ArrivalDate);
+            int notResrvedPlaces = BusinessClasses.MenageContext.GetNotReservedPlaces(tg);
+            if (notResrvedPlaces > 0)
+            {
+                AddJoinTrip(BusinessClasses.MenageContext.GetCarIdByRegistration(tg.RegistrationNumber), tg.DepartureDate, tg.ArrivalDate);
+            }
+            else
+            {
+                MessageBox.Show("Brak wolnych miejsc");
+            }
         }
 
         private void raportToolStripMenuItem_Click(object sender, EventArgs e)

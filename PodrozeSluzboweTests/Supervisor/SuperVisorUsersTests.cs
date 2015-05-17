@@ -11,7 +11,7 @@ namespace PodrozeSluzbowe.Supervisor.Tests
     public class SuperVisorUsersTests
     {
         [TestMethod()]
-        public void checkUserInDatabaseTest()
+        public void checkUserInDatabaseTestAnowak()
         {
             SuperVisorUsers superV = new SuperVisorUsers();
             string userInDatabase = "anowak";
@@ -21,5 +21,18 @@ namespace PodrozeSluzbowe.Supervisor.Tests
             Assert.AreEqual(expected, actual);
          
         }
+
+        [TestMethod()]
+        public void CheckUserInDatabaseTestCkowalski()
+        {
+            SuperVisorUsers superV = new SuperVisorUsers();
+            string userInDatabase = "ckowalski";
+            bool actual;
+            bool expected = false;
+            actual = superV.checkUserInDatabase(userInDatabase);
+            Assert.AreEqual(expected, actual);
+
+        }
+
     }
 }

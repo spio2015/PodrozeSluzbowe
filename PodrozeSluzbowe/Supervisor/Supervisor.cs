@@ -23,7 +23,7 @@ namespace PodrozeSluzbowe.Supervisor
             }
         }
 
-        public void AddCar(string Brand, string Model, string RegistrationNumber, short NumberOfSeats)
+        public string AddCar(string Brand, string Model, string RegistrationNumber, short NumberOfSeats)
         {
 
             if (NumberOfSeats <= maxNumberOfSeats)
@@ -42,6 +42,7 @@ namespace PodrozeSluzbowe.Supervisor
 
                         context.SaveChanges();
                         System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " został utworzony");
+                        return "CarAdded";
                     }
                 }
                 else
@@ -55,6 +56,7 @@ namespace PodrozeSluzbowe.Supervisor
                         if (carar.Active == true)
                         {
                             System.Windows.Forms.MessageBox.Show("Pojazd " + Brand + " " + Model + " " + RegistrationNumber + " istnieje w bazie");
+                            return "CarExists";
                         }
                         else
                         {
@@ -63,12 +65,12 @@ namespace PodrozeSluzbowe.Supervisor
 
                                 carar.Active = true;
                                 context.SaveChanges();
-
+                                return "CarAdded";
                             }
                             else
                             {
                                 System.Windows.Forms.MessageBox.Show("Zaniechano dodawania pojazdu");
-
+                                return "addAborted";
                             }
                         }
 
@@ -78,7 +80,7 @@ namespace PodrozeSluzbowe.Supervisor
             else
             {
                 System.Windows.Forms.MessageBox.Show("liczba miejsc w samochodze nie może być większa niż " + maxNumberOfSeats.ToString());
-
+                return "toManySeats";
             }
         }
         public bool checkCarInDatabase(string registrationNumber)
@@ -118,11 +120,9 @@ namespace PodrozeSluzbowe.Supervisor
 
   public  class SuperVisorUsers
     {
-
         public void AddUser(string Login, string Password, string Password2, string FirstName, string SurName, string Department)
         {
             int DepartmentId=1;
-            
             if (checkUserInDatabase(Login) == false)            
             {
                 if (Password == Password2)
@@ -134,7 +134,6 @@ namespace PodrozeSluzbowe.Supervisor
                                       select department.Id
                                           );
                         DepartmentId = depart.ToList()[0];
-
                         Users users = new Users();
                         //  users.Id = Id;
                         users.Login = Login;
@@ -167,33 +166,24 @@ namespace PodrozeSluzbowe.Supervisor
                     {
                         if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się w bazie użytkowników jako nieaktywny. Czy chcesz przywrócić użytkownika? Użytkownik zostanie przywrócony z poprzednimi parametrami", "Info", System.Windows.Forms.MessageBoxButtons.YesNo))
                         {
-
                             user.Active = true;
                             context.SaveChanges();
-
                         }
                         else
                         {
                             System.Windows.Forms.MessageBox.Show("Zaniechano dodawania użytkownika");
-
                         }
                     }
-
                 }             
             }
         }
-
-
         public void AddUser(string Login, string Password, string FirstName, string SurName, int DepartmentId)
         {
-    
-
             if (checkUserInDatabase(Login) == false)
             {
                 using (PodrozeEntities context = new PodrozeEntities())
                 {
-                    Users users = new Users();
-                    //  users.Id = Id;
+                    Users users = new Users();                
                     users.Login = Login.ToLower();
                     users.Password = Password;
                     users.FirstName = FirstName;
@@ -210,25 +200,16 @@ namespace PodrozeSluzbowe.Supervisor
                 System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się już w bazie danych");
             }
         }
-
         public void deleteUser(Users user)
         {
-
             using (PodrozeEntities context = new PodrozeEntities())
-            {
-               
-                   
+            {      
                     int Id = user.Id;
                     user = context.Users.Where(c => c.Id == Id).First();
                     user.Active = false;
                     context.SaveChanges();
-                
-
             }
-
         }
-
-
         public bool checkUserInDatabase(string checkedUser)
         {
             bool isUserInDatabase = false;
@@ -246,10 +227,6 @@ namespace PodrozeSluzbowe.Supervisor
             }
             return isUserInDatabase;
         }
-
-
-
-
         public List<string> getUsersLogins()
         {
             List<string> users = new List<string>();
@@ -261,16 +238,11 @@ namespace PodrozeSluzbowe.Supervisor
                                              where user.Active == true
                                              select user.Login);
                 users = usersInDatabase.ToList();
-            }
-             
+            } 
              return users;
-
-
         }
-
         public List<string> getDepartments()
         {
-
             PodrozeEntities context1 = new PodrozeEntities();
             List<string> departments = new List<string>();
             var departmentsInDatabase = (from department in context1.Departments
@@ -279,7 +251,5 @@ namespace PodrozeSluzbowe.Supervisor
             departments = departmentsInDatabase.ToList();
              return departments;
         }
-    
     }
-    
 }

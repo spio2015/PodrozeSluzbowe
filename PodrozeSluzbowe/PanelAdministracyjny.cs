@@ -7,12 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
 using Database;
 using System.Data.Entity;
 using PodrozeSluzbowe.Supervisor;
-
 namespace PodrozeSluzbowe
 {
     public partial class PanelAdministracyjny : Form
@@ -42,7 +39,7 @@ namespace PodrozeSluzbowe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; int DepartmentId = 1; string DepartmentName = ""; string password2 = "";
+            string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; string DepartmentName = ""; string password2 = "";
             try
             {
                 Login = txtLogin.Text;
@@ -51,8 +48,7 @@ namespace PodrozeSluzbowe
                 SurName = txtNazwisko.Text;
                 password2 = txtPassword2.Text;
              //   DepartmentId =Convert.ToInt16 ( txtDział.Text);
-                DepartmentName = cmbBoxUsersDepartment.SelectedItem.ToString();
-            
+                DepartmentName = cmbBoxUsersDepartment.SelectedItem.ToString();            
             }
             catch
             {
@@ -62,7 +58,6 @@ namespace PodrozeSluzbowe
             superV.AddUser(Login, Password,password2, FirstName, SurName, DepartmentName);
             refreshUserList();
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
          
@@ -78,25 +73,18 @@ namespace PodrozeSluzbowe
                 {
                     MessageBox.Show("Zaznacz wiersz na liście poniżej w celu usunięcia użytkownika");
                 }
-
            }
-            
             refreshUserList();
         }
-
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-           
             string Brand=""; string Model=""; string RegistrationNumber=""; short NumberOfSeats=1;
-           
             try
             {
-
                 Brand = txtBrand.Text;
                 Model = txtModel.Text;
                 RegistrationNumber = txtRegistrationNumber.Text;
@@ -106,7 +94,13 @@ namespace PodrozeSluzbowe
                 refreshCarList();  
             }
              catch (FormatException ee)
-            {
+
+             {
+             //    ee.ToString();
+    
+              //  MessageBox.Show("błędne dane");
+
+            
                  /*
                 var boxes = gbAddCar.Controls.OfType<TextBox>();
                 foreach (var box in boxes)
@@ -114,15 +108,17 @@ namespace PodrozeSluzbowe
                     errorProvAdm.SetError(box, "błąd danych");
                 }
                  */
-                MessageBox.Show("błędne dane");
+                MessageBox.Show(ee.Message);
+
              }
             catch
-            {
-               
-            }
-
-           
+            { 
+            }   
         }
+
+
+
+
 
         public void refreshCarList()
         {
@@ -133,14 +129,9 @@ namespace PodrozeSluzbowe
             dataGridViewCars.Columns[5].Visible = false;
             dataGridViewCars.Columns[6].Visible = false;
         }
-
-
-
         public void refreshUserList()
         {
             List<Users> user = new List<Users>();
-            
-            
             PodrozeEntities context1 = new PodrozeEntities();
             user = context1.Users.Where(c => c.Active == true).ToList();            
             dataGridViewUsers.DataSource = user;
@@ -149,9 +140,6 @@ namespace PodrozeSluzbowe
             dataGridViewUsers.Columns[7].Visible = false;
             dataGridViewUsers.Columns[8].Visible = false;
         }
-
-
-
         private void button1_Click_2(object sender, EventArgs e)
         {
             if (dataGridViewCars.SelectedRows.Count > 0)
@@ -166,27 +154,22 @@ namespace PodrozeSluzbowe
             }
             refreshCarList();         
         }
-
         private void txtRegistrationNumber_TextChanged(object sender, EventArgs e)
         {
             textboxCarErrors();
         }
-
         private void button1_Click_3(object sender, EventArgs e)
         {
            
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             textboxCarErrors();
         }
-
         private void txtNumberOfSeats_TextChanged(object sender, EventArgs e)
         {
             textboxCarErrors();
         }
-
         void textboxCarErrors()
         {
             var boxes = gbAddCar.Controls.OfType<TextBox>();
@@ -207,7 +190,6 @@ namespace PodrozeSluzbowe
                 else
                 {
                     errorProvAdm.SetError(box,"");
-
                 }
                 if (isOnError == true) numberOfError++;
             }
@@ -224,7 +206,6 @@ namespace PodrozeSluzbowe
             foreach (var box in boxes)
             {
                 isOnError = false;
-
                 if (string.IsNullOrWhiteSpace(box.Text))
                 {
                     errorProvAdm.SetError(box, "Proszę uzupełnić pola");
@@ -239,47 +220,33 @@ namespace PodrozeSluzbowe
             }
             if (numberOfError == 0) { btnAddUser.Enabled = true; } else { btnAddUser.Enabled = false; }
         }
-
-
-
-
-
-
-
         private void txtBrand_TextChanged(object sender, EventArgs e)
         {
             textboxCarErrors();
         }
-
         private void txtModel_TextChanged(object sender, EventArgs e)
         {
             textboxCarErrors();
         }
-
         private void txtLogin_TextChanged(object sender, EventArgs e)
         {
             textboxUserErrors();
         }
-
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             textboxUserErrors();
         }
-
         private void txtPassword2_TextChanged(object sender, EventArgs e)
         {
             textboxUserErrors();
         }
-
         private void txtImie_TextChanged(object sender, EventArgs e)
         {
             textboxUserErrors();
         }
-
         private void txtNazwisko_TextChanged(object sender, EventArgs e)
         {
             textboxUserErrors();
         }
-
     }
 }

@@ -12,10 +12,18 @@ namespace PodrozeSluzbowe
     public partial class kalendarz : Form
     {
         public string data { get; set; }
- 
+        private DateTime _dateMin;
+
         public kalendarz()
         {
             InitializeComponent();
+        }
+
+        public kalendarz(DateTime DateMin)
+        {            
+            InitializeComponent();
+            _dateMin = DateMin;
+            this.monthCalendar1.MinDate = _dateMin;
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)

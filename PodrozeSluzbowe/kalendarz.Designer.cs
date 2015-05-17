@@ -20,8 +20,7 @@ namespace PodrozeSluzbowe
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
-        private DateTime _dateMin;
+        }        
 
         #region Windows Form Designer generated code
 
@@ -30,12 +29,6 @@ namespace PodrozeSluzbowe
         /// the contents of this method with the code editor.
         /// </summary>
         /// 
-
-        public kalendarz(DateTime DateMin)
-        {
-            _dateMin = DateMin;
-            InitializeComponent();
-        }
 
         private void InitializeComponent()
         {
@@ -48,7 +41,6 @@ namespace PodrozeSluzbowe
             this.monthCalendar1.Location = new System.Drawing.Point(0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
-            this.monthCalendar1.MinDate = _dateMin;
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // kalendarz
