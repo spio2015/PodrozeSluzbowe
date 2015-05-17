@@ -12,6 +12,7 @@ namespace PodrozeSluzbowe
     public partial class kalendarz : Form
     {
         public string data { get; set; }
+ 
         public kalendarz()
         {
             InitializeComponent();

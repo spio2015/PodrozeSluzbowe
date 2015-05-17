@@ -2,9 +2,10 @@
 <xs:schema id="PodrozeDataSet" targetNamespace="http://tempuri.org/PodrozeDataSet.xsd" xmlns:mstns="http://tempuri.org/PodrozeDataSet.xsd" xmlns="http://tempuri.org/PodrozeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PodrozeConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PodrozeConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PodrozeSluzbowe.Properties.Settings.GlobalReference.Default.PodrozeConnectionString" Provider="Microsoft.SqlServerCe.Client.4.0" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PodrozeConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PodrozeConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PodrozeSluzbowe.Properties.Settings.GlobalReference.Default.PodrozeConnectionString1" Provider="Microsoft.SqlServerCe.Client.4.0" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BusinessTripsTableAdapter" GeneratorDataComponentClassName="BusinessTripsTableAdapter" Name="BusinessTrips" UserDataComponentName="BusinessTripsTableAdapter">
@@ -271,6 +272,31 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewerRaportTableAdapter" GeneratorDataComponentClassName="ViewerRaportTableAdapter" Name="ViewerRaport" UserDataComponentName="ViewerRaportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PodrozeConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Brand" DataSetColumn="Brand" />
+              <Mapping SourceColumn="Model" DataSetColumn="Model" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Login" DataSetColumn="Login" />
+              <Mapping SourceColumn="DepartureDate" DataSetColumn="DepartureDate" />
+              <Mapping SourceColumn="ArrivalDate" DataSetColumn="ArrivalDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -279,7 +305,7 @@
   <xs:element name="PodrozeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PodrozeDataSet" msprop:Generator_UserDSName="PodrozeDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BusinessTrips" msprop:Generator_TableClassName="BusinessTripsDataTable" msprop:Generator_TableVarName="tableBusinessTrips" msprop:Generator_TablePropName="BusinessTrips" msprop:Generator_RowDeletingName="BusinessTripsRowDeleting" msprop:Generator_RowChangingName="BusinessTripsRowChanging" msprop:Generator_RowEvHandlerName="BusinessTripsRowChangeEventHandler" msprop:Generator_RowDeletedName="BusinessTripsRowDeleted" msprop:Generator_UserTableName="BusinessTrips" msprop:Generator_RowChangedName="BusinessTripsRowChanged" msprop:Generator_RowEvArgName="BusinessTripsRowChangeEvent" msprop:Generator_RowClassName="BusinessTripsRow">
+        <xs:element name="BusinessTrips" msprop:Generator_TableClassName="BusinessTripsDataTable" msprop:Generator_TableVarName="tableBusinessTrips" msprop:Generator_RowChangedName="BusinessTripsRowChanged" msprop:Generator_TablePropName="BusinessTrips" msprop:Generator_RowDeletingName="BusinessTripsRowDeleting" msprop:Generator_RowChangingName="BusinessTripsRowChanging" msprop:Generator_RowEvHandlerName="BusinessTripsRowChangeEventHandler" msprop:Generator_RowDeletedName="BusinessTripsRowDeleted" msprop:Generator_RowClassName="BusinessTripsRow" msprop:Generator_UserTableName="BusinessTrips" msprop:Generator_RowEvArgName="BusinessTripsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -292,7 +318,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cars" msprop:Generator_TableClassName="CarsDataTable" msprop:Generator_TableVarName="tableCars" msprop:Generator_TablePropName="Cars" msprop:Generator_RowDeletingName="CarsRowDeleting" msprop:Generator_RowChangingName="CarsRowChanging" msprop:Generator_RowEvHandlerName="CarsRowChangeEventHandler" msprop:Generator_RowDeletedName="CarsRowDeleted" msprop:Generator_UserTableName="Cars" msprop:Generator_RowChangedName="CarsRowChanged" msprop:Generator_RowEvArgName="CarsRowChangeEvent" msprop:Generator_RowClassName="CarsRow">
+        <xs:element name="Cars" msprop:Generator_TableClassName="CarsDataTable" msprop:Generator_TableVarName="tableCars" msprop:Generator_RowChangedName="CarsRowChanged" msprop:Generator_TablePropName="Cars" msprop:Generator_RowDeletingName="CarsRowDeleting" msprop:Generator_RowChangingName="CarsRowChanging" msprop:Generator_RowEvHandlerName="CarsRowChangeEventHandler" msprop:Generator_RowDeletedName="CarsRowDeleted" msprop:Generator_RowClassName="CarsRow" msprop:Generator_UserTableName="Cars" msprop:Generator_RowEvArgName="CarsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -322,7 +348,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Departments" msprop:Generator_TableClassName="DepartmentsDataTable" msprop:Generator_TableVarName="tableDepartments" msprop:Generator_TablePropName="Departments" msprop:Generator_RowDeletingName="DepartmentsRowDeleting" msprop:Generator_RowChangingName="DepartmentsRowChanging" msprop:Generator_RowEvHandlerName="DepartmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentsRowDeleted" msprop:Generator_UserTableName="Departments" msprop:Generator_RowChangedName="DepartmentsRowChanged" msprop:Generator_RowEvArgName="DepartmentsRowChangeEvent" msprop:Generator_RowClassName="DepartmentsRow">
+        <xs:element name="Departments" msprop:Generator_TableClassName="DepartmentsDataTable" msprop:Generator_TableVarName="tableDepartments" msprop:Generator_RowChangedName="DepartmentsRowChanged" msprop:Generator_TablePropName="Departments" msprop:Generator_RowDeletingName="DepartmentsRowDeleting" msprop:Generator_RowChangingName="DepartmentsRowChanging" msprop:Generator_RowEvHandlerName="DepartmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentsRowDeleted" msprop:Generator_RowClassName="DepartmentsRow" msprop:Generator_UserTableName="Departments" msprop:Generator_RowEvArgName="DepartmentsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -337,7 +363,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Destinations" msprop:Generator_TableClassName="DestinationsDataTable" msprop:Generator_TableVarName="tableDestinations" msprop:Generator_TablePropName="Destinations" msprop:Generator_RowDeletingName="DestinationsRowDeleting" msprop:Generator_RowChangingName="DestinationsRowChanging" msprop:Generator_RowEvHandlerName="DestinationsRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinationsRowDeleted" msprop:Generator_UserTableName="Destinations" msprop:Generator_RowChangedName="DestinationsRowChanged" msprop:Generator_RowEvArgName="DestinationsRowChangeEvent" msprop:Generator_RowClassName="DestinationsRow">
+        <xs:element name="Destinations" msprop:Generator_TableClassName="DestinationsDataTable" msprop:Generator_TableVarName="tableDestinations" msprop:Generator_RowChangedName="DestinationsRowChanged" msprop:Generator_TablePropName="Destinations" msprop:Generator_RowDeletingName="DestinationsRowDeleting" msprop:Generator_RowChangingName="DestinationsRowChanging" msprop:Generator_RowEvHandlerName="DestinationsRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinationsRowDeleted" msprop:Generator_RowClassName="DestinationsRow" msprop:Generator_UserTableName="Destinations" msprop:Generator_RowEvArgName="DestinationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -366,7 +392,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -403,6 +429,42 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ViewerRaport" msprop:Generator_TableClassName="ViewerRaportDataTable" msprop:Generator_TableVarName="tableViewerRaport" msprop:Generator_TablePropName="ViewerRaport" msprop:Generator_RowDeletingName="ViewerRaportRowDeleting" msprop:Generator_RowChangingName="ViewerRaportRowChanging" msprop:Generator_RowEvHandlerName="ViewerRaportRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewerRaportRowDeleted" msprop:Generator_UserTableName="ViewerRaport" msprop:Generator_RowChangedName="ViewerRaportRowChanged" msprop:Generator_RowEvArgName="ViewerRaportRowChangeEvent" msprop:Generator_RowClassName="ViewerRaportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Brand" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBrand" msprop:Generator_ColumnPropNameInRow="Brand" msprop:Generator_ColumnPropNameInTable="BrandColumn" msprop:Generator_UserColumnName="Brand" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Model" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1024" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Login" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLogin" msprop:Generator_ColumnPropNameInRow="Login" msprop:Generator_ColumnPropNameInTable="LoginColumn" msprop:Generator_UserColumnName="Login" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartureDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepartureDate" msprop:Generator_ColumnPropNameInRow="DepartureDate" msprop:Generator_ColumnPropNameInTable="DepartureDateColumn" msprop:Generator_UserColumnName="DepartureDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ArrivalDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnArrivalDate" msprop:Generator_ColumnPropNameInRow="ArrivalDate" msprop:Generator_ColumnPropNameInTable="ArrivalDateColumn" msprop:Generator_UserColumnName="ArrivalDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -428,10 +490,10 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_BusinessTripsCar" msdata:parent="Cars" msdata:child="BusinessTrips" msdata:parentkey="Id" msdata:childkey="CarId" msprop:Generator_UserChildTable="BusinessTrips" msprop:Generator_ChildPropName="GetBusinessTripsRows" msprop:Generator_UserRelationName="FK_BusinessTripsCar" msprop:Generator_RelationVarName="relationFK_BusinessTripsCar" msprop:Generator_UserParentTable="Cars" msprop:Generator_ParentPropName="CarsRow" />
-      <msdata:Relationship name="FK_BusinessTripsDestination" msdata:parent="Destinations" msdata:child="BusinessTrips" msdata:parentkey="Id" msdata:childkey="DestinationId" msprop:Generator_UserChildTable="BusinessTrips" msprop:Generator_ChildPropName="GetBusinessTripsRows" msprop:Generator_UserRelationName="FK_BusinessTripsDestination" msprop:Generator_RelationVarName="relationFK_BusinessTripsDestination" msprop:Generator_UserParentTable="Destinations" msprop:Generator_ParentPropName="DestinationsRow" />
-      <msdata:Relationship name="FK_BusinessTripsUser" msdata:parent="Users" msdata:child="BusinessTrips" msdata:parentkey="Id" msdata:childkey="UserId" msprop:Generator_UserChildTable="BusinessTrips" msprop:Generator_ChildPropName="GetBusinessTripsRows" msprop:Generator_UserRelationName="FK_BusinessTripsUser" msprop:Generator_RelationVarName="relationFK_BusinessTripsUser" msprop:Generator_UserParentTable="Users" msprop:Generator_ParentPropName="UsersRow" />
-      <msdata:Relationship name="FK_UsersDepartment" msdata:parent="Departments" msdata:child="Users" msdata:parentkey="Id" msdata:childkey="DepartmentId" msprop:Generator_UserChildTable="Users" msprop:Generator_ChildPropName="GetUsersRows" msprop:Generator_UserRelationName="FK_UsersDepartment" msprop:Generator_ParentPropName="DepartmentsRow" msprop:Generator_RelationVarName="relationFK_UsersDepartment" msprop:Generator_UserParentTable="Departments" />
+      <msdata:Relationship name="FK_BusinessTripsCar" msdata:parent="Cars" msdata:child="BusinessTrips" msdata:parentkey="Id" msdata:childkey="CarId" msprop:Generator_UserChildTable="BusinessTrips" msprop:Generator_ChildPropName="GetBusinessTripsRows" msprop:Generator_UserRelationName="FK_BusinessTripsCar" msprop:Generator_ParentPropName="CarsRow" msprop:Generator_RelationVarName="relationFK_BusinessTripsCar" msprop:Generator_UserParentTable="Cars" />
+      <msdata:Relationship name="FK_BusinessTripsDestination" msdata:parent="Destinations" msdata:child="BusinessTrips" msdata:parentkey="Id" msdata:childkey="DestinationId" msprop:Generator_UserChildTable="BusinessTrips" msprop:Generator_ChildPropName="GetBusinessTripsRows" msprop:Generator_UserRelationName="FK_BusinessTripsDestination" msprop:Generator_ParentPropName="DestinationsRow" msprop:Generator_RelationVarName="relationFK_BusinessTripsDestination" msprop:Generator_UserParentTable="Destinations" />
+      <msdata:Relationship name="FK_BusinessTripsUser" msdata:parent="Users" msdata:child="BusinessTrips" msdata:parentkey="Id" msdata:childkey="UserId" msprop:Generator_UserChildTable="BusinessTrips" msprop:Generator_ChildPropName="GetBusinessTripsRows" msprop:Generator_UserRelationName="FK_BusinessTripsUser" msprop:Generator_ParentPropName="UsersRow" msprop:Generator_RelationVarName="relationFK_BusinessTripsUser" msprop:Generator_UserParentTable="Users" />
+      <msdata:Relationship name="FK_UsersDepartment" msdata:parent="Departments" msdata:child="Users" msdata:parentkey="Id" msdata:childkey="DepartmentId" msprop:Generator_UserChildTable="Users" msprop:Generator_ChildPropName="GetUsersRows" msprop:Generator_UserRelationName="FK_UsersDepartment" msprop:Generator_RelationVarName="relationFK_UsersDepartment" msprop:Generator_UserParentTable="Departments" msprop:Generator_ParentPropName="DepartmentsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
