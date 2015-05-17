@@ -34,7 +34,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbxStartLocation = new System.Windows.Forms.TextBox();
             this.btnSearchTravels = new System.Windows.Forms.Button();
-            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.tbxAppKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -59,6 +58,7 @@
             this.tbxLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbBoxUsers = new System.Windows.Forms.ComboBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,17 +110,6 @@
             this.btnSearchTravels.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearchTravels.UseVisualStyleBackColor = true;
             this.btnSearchTravels.Click += new System.EventHandler(this.btnSearchTravels_Click);
-            // 
-            // webBrowser
-            // 
-            this.webBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser.Location = new System.Drawing.Point(663, 71);
-            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(455, 640);
-            this.webBrowser.TabIndex = 15;
             // 
             // tbxAppKey
             // 
@@ -262,6 +251,7 @@
             // 
             // cmbCars
             // 
+            this.cmbCars.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCars.FormattingEnabled = true;
             this.cmbCars.Location = new System.Drawing.Point(426, 54);
             this.cmbCars.Name = "cmbCars";
@@ -385,7 +375,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tbxAppKey);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.btnSearchTravels);
             this.Controls.Add(this.tbxStartLocation);
             this.Controls.Add(this.label5);
@@ -411,7 +400,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbxStartLocation;
         private System.Windows.Forms.Button btnSearchTravels;
-        private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.TextBox tbxAppKey;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -436,6 +424,7 @@
         private System.Windows.Forms.ComboBox cmbBoxUsers;
         private System.Windows.Forms.ToolStripMenuItem wyjścieToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using GoogleApi;
 
 using PodrozeSluzbowe.Supervisor;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace PodrozeSluzbowe
 {
@@ -19,6 +21,7 @@ namespace PodrozeSluzbowe
         private string lat;
         private string lng;
         private Database.Users loggedUser;
+        private ChromiumWebBrowser chromeWebBrowser;
 
         public MainScreen(Database.Users LoggedUser)
         {
@@ -26,7 +29,24 @@ namespace PodrozeSluzbowe
             InitializeComponent();
             this.Text += this.loggedUser.SurName + " " + this.loggedUser.FirstName;
             LoadCarsToCombox();
+            initializeChrome("");
         }
+
+        private void initializeChrome(string URL)
+        {            
+            Cef.Initialize(new CefSettings());
+            chromeWebBrowser = new CefSharp.WinForms.ChromiumWebBrowser(URL)
+            {
+                Dock = DockStyle.Fill,
+                Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right))),
+                Location = new System.Drawing.Point(663, 71),
+                Size = new System.Drawing.Size(455, 640),
+            };
+            this.Controls.Add(chromeWebBrowser);
+        }
+
 
         private void btnGenerateRoute_Click(object sender, EventArgs e)
         {
@@ -44,15 +64,6 @@ namespace PodrozeSluzbowe
             //if (result.ContainsKey("duration")) tbxDuration.Text = result["duration"];
 
             //webBrowser.Navigate("https://www.google.pl/maps/dir/" + result["start_location_lat"] + "," + result["start_location_lng"] + "/" + result["end_location_lat"] + "," + result["end_location_lng"]);
-        }
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            webBrowser.Navigate("http://maps.google.com/maps?q=loc:" + tbxStartLocation.Text);
-            //ProcessStartInfo sInfo = new ProcessStartInfo("http://maps.google.com/maps?q=loc:" + tbxStartLocation.Text);
-            //Process.Start(sInfo);
         }
 
         private void calendar_Click(TextBox textBox, DateTime MinDate)
@@ -93,7 +104,7 @@ namespace PodrozeSluzbowe
                 tbxStartAddress.Text = result["formatted_address"];
                 lat = result["lat"].Replace(',', '.');
                 lng = result["lng"].Replace(',', '.');
-                webBrowser.Navigate(string.Format("http://maps.google.com/maps?q={0},{1}", lat, lng));
+                chromeWebBrowser.Load(string.Format("http://maps.google.com/maps?q={0},{1}&hl=pl", lat, lng));
             }
         }
 
@@ -128,18 +139,22 @@ namespace PodrozeSluzbowe
                         Dictionary<string, string> result2 = GoogleApi.GenerateRoute.GetDistance(Properties.Settings.Default.CompanyLatLng, latlng2, "", "&waipoints=" + latlng1);
                         double distance2 = 0;
                         double.TryParse(result2["distance2"], out distance2);
-                        if (distance1 < distance2)
+                        if (distance1 == 0 || distance2 == 0)
                         {
-                            webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}+to:{2}&dirflg=d", Properties.Settings.Default.CompanyLatLng, latlng1, latlng2));
+                            MessageBox.Show("Nie udało się znaleźć trasy");
+                        }
+                        else if (distance1 < distance2)
+                        {
+                            chromeWebBrowser.Load(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}+to:{2}&dirflg=d&hl=pl", Properties.Settings.Default.CompanyLatLng, latlng1, latlng2));
                         }
                         else
                         {
-                            webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}+to:{2}&dirflg=d", Properties.Settings.Default.CompanyLatLng, latlng2, latlng1));
+                            chromeWebBrowser.Load(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}+to:{2}&dirflg=d&hl=pl", Properties.Settings.Default.CompanyLatLng, latlng2, latlng1));
                         }
                     }
                     else
                     {
-                        webBrowser.Navigate(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}&dirflg=d", Properties.Settings.Default.CompanyLatLng, latlng1));
+                        chromeWebBrowser.Load(string.Format("http://maps.google.com/maps?saddr={0}&daddr={1}&dirflg=d&hl=pl", Properties.Settings.Default.CompanyLatLng, latlng1));
                     }
                 }
             }            
