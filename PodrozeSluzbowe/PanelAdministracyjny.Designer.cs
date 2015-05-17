@@ -249,7 +249,7 @@
             this.oknoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zakończToolStripMenuItem});
             this.oknoToolStripMenuItem.Name = "oknoToolStripMenuItem";
-            this.oknoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.oknoToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.oknoToolStripMenuItem.Text = "Menu";
             // 
             // zakończToolStripMenuItem
@@ -386,6 +386,7 @@
             // 
             // errorProvAdm
             // 
+            this.errorProvAdm.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvAdm.ContainerControl = this;
             // 
             // PanelAdministracyjny
