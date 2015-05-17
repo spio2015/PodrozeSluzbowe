@@ -5139,7 +5139,7 @@ namespace PodrozeSluzbowe.PodrozeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlServerCe.SqlCeConnection();
-            this._connection.ConnectionString = global::PodrozeSluzbowe.Properties.Settings.Default.PodrozeConnectionString;
+            this._connection.ConnectionString = global::PodrozeSluzbowe.Properties.Settings.Default.PodrozeConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5177,7 +5177,7 @@ ORDER BY bt.DepartureDate DESC";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, true, 0, 0, "Brand", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[3] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+            this._commandCollection[3].CommandText = @"SELECT        c.Brand, c.Model,  c.RegistrationNumber,d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
 FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
@@ -5188,7 +5188,7 @@ ORDER BY bt.DepartureDate DESC";
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[4] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+            this._commandCollection[4].CommandText = @"SELECT        c.Brand, c.Model, c.RegistrationNumber, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
 FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
@@ -5200,7 +5200,7 @@ ORDER BY bt.DepartureDate DESC";
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[5] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+            this._commandCollection[5].CommandText = @"SELECT        c.Brand, c.Model, c.RegistrationNumber, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
 FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
@@ -5211,7 +5211,7 @@ ORDER BY bt.DepartureDate DESC";
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ArrivalDate", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[6] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+            this._commandCollection[6].CommandText = @"SELECT        c.Brand, c.Model, c.RegistrationNumber, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
 FROM            BusinessTrips AS bt INNER JOIN
                          Cars AS c ON bt.CarId = c.Id INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
