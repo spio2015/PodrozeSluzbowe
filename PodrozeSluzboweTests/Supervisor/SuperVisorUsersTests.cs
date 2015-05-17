@@ -39,12 +39,12 @@ namespace PodrozeSluzbowe.Supervisor.Tests
         string firstName;
         string surName;
         string departmentId;
-
+        string expectedstring;
+        string actualstring;
         [TestMethod()]
         public void AddUserTestanowak()
         {
-            string expectedstring;
-            string actualstring;
+     
             login = "anowak";
              password = "12345";
             password2 = "12345";
