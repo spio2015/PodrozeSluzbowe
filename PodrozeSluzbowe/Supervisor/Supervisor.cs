@@ -120,7 +120,7 @@ namespace PodrozeSluzbowe.Supervisor
 
   public  class SuperVisorUsers
     {
-        public void AddUser(string Login, string Password, string Password2, string FirstName, string SurName, string Department)
+        public string AddUser(string Login, string Password, string Password2, string FirstName, string SurName, string Department)
         {
             int DepartmentId=1;
             if (checkUserInDatabase(Login) == false)            
@@ -146,10 +146,12 @@ namespace PodrozeSluzbowe.Supervisor
                         context.SaveChanges();
                         System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " został utworzony");
                     }
+                    return "userAdded";
                 }
                     else
                     {
                         System.Windows.Forms.MessageBox.Show("wpisane hasła nie są jednakowe");
+                        return "passwordMismatch";
                     }        
             }            
             else
@@ -161,6 +163,7 @@ namespace PodrozeSluzbowe.Supervisor
                     if (user.Active == true)
                     {
                         System.Windows.Forms.MessageBox.Show("Użytkownik " + Login + " znajduje się już w bazie danych");
+                        return "userExists";
                     }
                     else
                     {
@@ -168,10 +171,12 @@ namespace PodrozeSluzbowe.Supervisor
                         {
                             user.Active = true;
                             context.SaveChanges();
+                            return "userReplaced";
                         }
                         else
                         {
                             System.Windows.Forms.MessageBox.Show("Zaniechano dodawania użytkownika");
+                            return "userAddAbort";
                         }
                     }
                 }             

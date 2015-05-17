@@ -33,6 +33,30 @@ namespace PodrozeSluzbowe.Supervisor.Tests
             Assert.AreEqual(expected, actual);
 
         }
+        string login;
+        string password;
+        string password2;
+        string firstName;
+        string surName;
+        string departmentId;
+
+        [TestMethod()]
+        public void AddUserTestanowak()
+        {
+            string expectedstring;
+            string actualstring;
+            login = "anowak";
+             password = "12345";
+            password2 = "12345";
+             firstName = "Andrzej";
+             surName = "Nowak";
+             departmentId = "IT";
+            SuperVisorUsers superV = new SuperVisorUsers();
+             actualstring = superV.AddUser(login, password, password2, firstName, surName, departmentId);
+              expectedstring = "userExists";
+
+              Assert.AreEqual(expectedstring, actualstring);
+        }
 
     }
 }

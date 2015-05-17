@@ -17,10 +17,7 @@ namespace PodrozeSluzbowe
         public PanelAdministracyjny()
         {
             InitializeComponent();
-          //  removeUser.Visible = false;
-          //  button1.Visible = false;
-          //  dataGridViewCars.Visible = false;
-        //    dataGridViewUsers.Visible = false;
+   
             refreshCarList();
             refreshUserList();
             LoadDepartmentsToCombox();
@@ -47,7 +44,7 @@ namespace PodrozeSluzbowe
                 FirstName = txtLogin.Text;
                 SurName = txtNazwisko.Text;
                 password2 = txtPassword2.Text;
-             //   DepartmentId =Convert.ToInt16 ( txtDział.Text);
+      
                 DepartmentName = cmbBoxUsersDepartment.SelectedItem.ToString();            
             }
             catch

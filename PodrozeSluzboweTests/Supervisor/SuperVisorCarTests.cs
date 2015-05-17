@@ -80,11 +80,25 @@ namespace PodrozeSluzbowe.Supervisor.Tests
         {
             brand = "Opel";
             model = "Astra";
-          string   registrationNuberer = "PO 12345";
+             registrationNuberer = "PO 12345";
             short numbererOfSeats = 5;
             actualString = superVisorCar.AddCar(brand, model, registrationNuberer, numbererOfSeats);
             expectedString = "CarExists";
             Assert.AreEqual(actualString,expectedString);
         }
+        [TestMethod()]
+        public void AddCarTestPO12345ToManySeats()
+        {
+            brand = "Opel";
+            model = "Astra";
+            registrationNuberer = "PO 12345";
+            short numbererOfSeats = 11;
+            actualString = superVisorCar.AddCar(brand, model, registrationNuberer, numbererOfSeats);
+            expectedString = "toManySeats";
+            Assert.AreEqual(actualString, expectedString);
+        }
+
+
+
     }
 }
