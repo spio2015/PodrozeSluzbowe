@@ -9,6 +9,7 @@ namespace PodrozeSluzboweTest
     [TestClass]
     public class UnitTest1
     {
+        /*
     [TestInitialize]
         public void Setup()
         {
@@ -16,6 +17,7 @@ namespace PodrozeSluzboweTest
 
 
         }
+
         [TestMethod]
         public void CheckUserInDatabaseTestAnowak()
         {
@@ -40,6 +42,6 @@ namespace PodrozeSluzboweTest
 
         }
 
-
+        */
     }
 }
