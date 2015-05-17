@@ -5100,7 +5100,7 @@ namespace PodrozeSluzbowe.PodrozeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
@@ -5109,6 +5109,36 @@ FROM            BusinessTrips AS bt INNER JOIN
                          Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
                          Users AS u ON bt.UserId = u.Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id
+WHERE                    ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id
+WHERE        (bt.DepartureDate >= @Param1) AND (bt.DepartureDate <= @Param2)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "DepartureDate", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[3] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        c.Brand, c.Model, d.Address, u.Login, bt.DepartureDate, bt.ArrivalDate
+FROM            BusinessTrips AS bt INNER JOIN
+                         Cars AS c ON bt.CarId = c.Id INNER JOIN
+                         Destinations AS d ON bt.DestinationId = d.Id INNER JOIN
+                         Users AS u ON bt.UserId = u.Id
+WHERE        (c.Brand = @Param1)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@Param1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, true, 0, 0, "Brand", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5130,6 +5160,94 @@ FROM            BusinessTrips AS bt INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual PodrozeDataSet.ViewerRaportDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(PodrozeDataSet.ViewerRaportDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(PodrozeDataSet.ViewerRaportDataTable dataTable, System.DateTime Param1, System.DateTime Param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataByOdjazd(System.DateTime Param1, System.DateTime Param2) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Param1));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Param2));
+            PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(PodrozeDataSet.ViewerRaportDataTable dataTable, string Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PodrozeDataSet.ViewerRaportDataTable GetDataByBrand(string Param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Param1 == null)) {
+                throw new global::System.ArgumentNullException("Param1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+            }
             PodrozeDataSet.ViewerRaportDataTable dataTable = new PodrozeDataSet.ViewerRaportDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
