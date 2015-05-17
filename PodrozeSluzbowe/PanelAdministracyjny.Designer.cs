@@ -248,7 +248,7 @@
             // 
             this.zakończToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zakończToolStripMenuItem.Image")));
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
