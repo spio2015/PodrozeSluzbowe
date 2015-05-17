@@ -72,6 +72,7 @@
             // 
             // btnAddUser
             // 
+            this.btnAddUser.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUser.Image")));
             this.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddUser.Location = new System.Drawing.Point(6, 19);
             this.btnAddUser.Name = "btnAddUser";
