@@ -39,14 +39,17 @@ namespace GoogleApi
                         result.Add("end_location_lng", leg.end_location.lng.ToString().Replace(',', '.'));
                         result.Add("distance", leg.distance.text);
                         result.Add("distance2", leg.distance.value.ToString());
-                        result.Add("duration", leg.duration.text);                    
+                        result.Add("duration", leg.duration.text);
                         double distance = responseData.routes.Sum(r => r.legs.Sum(l => l.distance.value));
                         if (distance == 0)
                         {
                             DistanceZero(result);
                         }
                     }
-                    DistanceZero(result);                 
+                    else
+                    {
+                        DistanceZero(result);
+                    }
                 }
                 else
                 {
