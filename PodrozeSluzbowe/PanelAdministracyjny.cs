@@ -29,11 +29,14 @@ namespace PodrozeSluzbowe
             btnAddCar.Enabled = false;
             btnAddUser.Enabled = false;
         }
+
+
         private void LoadDepartmentsToCombox()
         {
             SuperVisorUsers superV = new SuperVisorUsers();
             cmbBoxUsersDepartment.DataSource = superV.getDepartments();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string Login = ""; string Password = ""; string FirstName = ""; string SurName = ""; string DepartmentName = ""; string password2 = "";
@@ -91,13 +94,13 @@ namespace PodrozeSluzbowe
                 refreshCarList();  
             }
              catch (FormatException ee)
-<<<<<<< HEAD
+
              {
-                 ee.ToString();
+             //    ee.ToString();
     
-                MessageBox.Show("błędne dane");
-=======
-            {
+              //  MessageBox.Show("błędne dane");
+
+            
                  /*
                 var boxes = gbAddCar.Controls.OfType<TextBox>();
                 foreach (var box in boxes)
@@ -105,13 +108,18 @@ namespace PodrozeSluzbowe
                     errorProvAdm.SetError(box, "błąd danych");
                 }
                  */
-                MessageBox.Show("błędne dane " + ee.Message);
->>>>>>> origin/master
+                MessageBox.Show(ee.Message);
+
              }
             catch
             { 
             }   
         }
+
+
+
+
+
         public void refreshCarList()
         {
             List<Cars> cars = new List<Cars>();
