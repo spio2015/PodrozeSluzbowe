@@ -52,16 +52,17 @@ namespace PodrozeSluzbowe
             this.reportViewer1.RefreshReport();
         }
 
-        private void textBox1_Click(object sender, EventArgs e)
-        {
 
-            calendar_Click(textBoxOD);
 
-        }
 
-        private void textBoxDO_Click(object sender, EventArgs e)
+        private void textBoxDO_Click_1(object sender, EventArgs e)
         {
             calendar_Click(textBoxDO);
+        }
+
+        private void textBoxOD_Click(object sender, EventArgs e)
+        {
+            calendar_Click(textBoxOD);
         }
     }
 }
