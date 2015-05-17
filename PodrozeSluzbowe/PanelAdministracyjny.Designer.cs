@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdministracyjny));
             this.btnAddUser = new System.Windows.Forms.Button();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -49,8 +50,8 @@
             this.oknoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRemoveCar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddCar = new System.Windows.Forms.Button();
+            this.gbAddCar = new System.Windows.Forms.GroupBox();
             this.dataGridViewCars = new System.Windows.Forms.DataGridView();
             this.lblNumberOfSeats = new System.Windows.Forms.Label();
             this.lblRegistrationNumber = new System.Windows.Forms.Label();
@@ -60,11 +61,13 @@
             this.txtModel = new System.Windows.Forms.TextBox();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
+            this.errorProvAdm = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbAddUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbAddCar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvAdm)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddUser
@@ -86,6 +89,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(121, 20);
             this.txtLogin.TabIndex = 1;
+            this.txtLogin.TextChanged += new System.EventHandler(this.txtLogin_TextChanged);
             // 
             // btnRemoveUser
             // 
@@ -192,6 +196,7 @@
             this.txtNazwisko.Name = "txtNazwisko";
             this.txtNazwisko.Size = new System.Drawing.Size(121, 20);
             this.txtNazwisko.TabIndex = 5;
+            this.txtNazwisko.TextChanged += new System.EventHandler(this.txtNazwisko_TextChanged);
             // 
             // txtImie
             // 
@@ -199,6 +204,7 @@
             this.txtImie.Name = "txtImie";
             this.txtImie.Size = new System.Drawing.Size(121, 20);
             this.txtImie.TabIndex = 4;
+            this.txtImie.TextChanged += new System.EventHandler(this.txtImie_TextChanged);
             // 
             // txtPassword2
             // 
@@ -207,6 +213,7 @@
             this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(121, 20);
             this.txtPassword2.TabIndex = 3;
+            this.txtPassword2.TextChanged += new System.EventHandler(this.txtPassword2_TextChanged);
             // 
             // txtPassword
             // 
@@ -215,6 +222,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // lblLogin
             // 
@@ -248,7 +256,7 @@
             // 
             this.zakończToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zakończToolStripMenuItem.Image")));
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -265,38 +273,38 @@
             this.btnRemoveCar.UseVisualStyleBackColor = true;
             this.btnRemoveCar.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // button2
+            // btnAddCar
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(6, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Dodaj samochód";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAddCar.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCar.Image")));
+            this.btnAddCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddCar.Location = new System.Drawing.Point(6, 19);
+            this.btnAddCar.Name = "btnAddCar";
+            this.btnAddCar.Size = new System.Drawing.Size(142, 23);
+            this.btnAddCar.TabIndex = 5;
+            this.btnAddCar.Text = "Dodaj samochód";
+            this.btnAddCar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddCar.UseVisualStyleBackColor = true;
+            this.btnAddCar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // groupBox1
+            // gbAddCar
             // 
-            this.groupBox1.Controls.Add(this.dataGridViewCars);
-            this.groupBox1.Controls.Add(this.btnRemoveCar);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.lblNumberOfSeats);
-            this.groupBox1.Controls.Add(this.lblRegistrationNumber);
-            this.groupBox1.Controls.Add(this.lblModel);
-            this.groupBox1.Controls.Add(this.txtNumberOfSeats);
-            this.groupBox1.Controls.Add(this.txtRegistrationNumber);
-            this.groupBox1.Controls.Add(this.txtModel);
-            this.groupBox1.Controls.Add(this.lblBrand);
-            this.groupBox1.Controls.Add(this.txtBrand);
-            this.groupBox1.Location = new System.Drawing.Point(680, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(678, 465);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Flota samochodów";
+            this.gbAddCar.Controls.Add(this.dataGridViewCars);
+            this.gbAddCar.Controls.Add(this.txtBrand);
+            this.gbAddCar.Controls.Add(this.btnRemoveCar);
+            this.gbAddCar.Controls.Add(this.btnAddCar);
+            this.gbAddCar.Controls.Add(this.lblNumberOfSeats);
+            this.gbAddCar.Controls.Add(this.lblRegistrationNumber);
+            this.gbAddCar.Controls.Add(this.lblModel);
+            this.gbAddCar.Controls.Add(this.txtNumberOfSeats);
+            this.gbAddCar.Controls.Add(this.txtRegistrationNumber);
+            this.gbAddCar.Controls.Add(this.txtModel);
+            this.gbAddCar.Controls.Add(this.lblBrand);
+            this.gbAddCar.Location = new System.Drawing.Point(680, 27);
+            this.gbAddCar.Name = "gbAddCar";
+            this.gbAddCar.Size = new System.Drawing.Size(678, 465);
+            this.gbAddCar.TabIndex = 13;
+            this.gbAddCar.TabStop = false;
+            this.gbAddCar.Text = "Flota samochodów";
             // 
             // dataGridViewCars
             // 
@@ -309,7 +317,7 @@
             // lblNumberOfSeats
             // 
             this.lblNumberOfSeats.AutoSize = true;
-            this.lblNumberOfSeats.Location = new System.Drawing.Point(181, 101);
+            this.lblNumberOfSeats.Location = new System.Drawing.Point(193, 97);
             this.lblNumberOfSeats.Name = "lblNumberOfSeats";
             this.lblNumberOfSeats.Size = new System.Drawing.Size(70, 13);
             this.lblNumberOfSeats.TabIndex = 9;
@@ -327,7 +335,7 @@
             // lblModel
             // 
             this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(206, 45);
+            this.lblModel.Location = new System.Drawing.Point(231, 48);
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(36, 13);
             this.lblModel.TabIndex = 7;
@@ -340,6 +348,7 @@
             this.txtNumberOfSeats.Size = new System.Drawing.Size(100, 20);
             this.txtNumberOfSeats.TabIndex = 5;
             this.txtNumberOfSeats.Text = "5";
+            this.txtNumberOfSeats.TextChanged += new System.EventHandler(this.txtNumberOfSeats_TextChanged);
             // 
             // txtRegistrationNumber
             // 
@@ -355,11 +364,12 @@
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(100, 20);
             this.txtModel.TabIndex = 2;
+            this.txtModel.TextChanged += new System.EventHandler(this.txtModel_TextChanged);
             // 
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-            this.lblBrand.Location = new System.Drawing.Point(209, 19);
+            this.lblBrand.Location = new System.Drawing.Point(231, 19);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(37, 13);
             this.lblBrand.TabIndex = 2;
@@ -367,17 +377,22 @@
             // 
             // txtBrand
             // 
-            this.txtBrand.Location = new System.Drawing.Point(269, 16);
+            this.txtBrand.Location = new System.Drawing.Point(269, 13);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(100, 20);
             this.txtBrand.TabIndex = 1;
+            this.txtBrand.TextChanged += new System.EventHandler(this.txtBrand_TextChanged);
+            // 
+            // errorProvAdm
+            // 
+            this.errorProvAdm.ContainerControl = this;
             // 
             // PanelAdministracyjny
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 663);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbAddCar);
             this.Controls.Add(this.gbAddUser);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -389,9 +404,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbAddCar.ResumeLayout(false);
+            this.gbAddCar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvAdm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,8 +433,8 @@
         private System.Windows.Forms.ToolStripMenuItem oknoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem;
         private System.Windows.Forms.Button btnRemoveCar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAddCar;
+        private System.Windows.Forms.GroupBox gbAddCar;
         private System.Windows.Forms.Label lblNumberOfSeats;
         private System.Windows.Forms.Label lblRegistrationNumber;
         private System.Windows.Forms.Label lblModel;
@@ -430,5 +446,6 @@
         private System.Windows.Forms.DataGridView dataGridViewCars;
         private System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.ComboBox cmbBoxUsersDepartment;
+        private System.Windows.Forms.ErrorProvider errorProvAdm;
     }
 }

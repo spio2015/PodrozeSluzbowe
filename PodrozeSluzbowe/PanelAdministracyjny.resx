@@ -157,6 +157,15 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="oknoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAHVJREFUSEvtktEJ
+        gDAMBaMTOKFWJ3Qo99AX0gqloR81gpU8uL9ykHLk+8wGsE77cVrArui8ZyZPwBlELQvaoyfAOYtaxucs
+        2sMW4GJ59kX9bwSbdm4LcBUVmckTcGYVvZFpUZFZqnB5RXXg8orqwPXDinod0QXz2WJbVnYgDwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="zakończToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAABYJJREFUSEut
@@ -186,15 +195,6 @@
         sSz/BZvglAHjTppFmvkf5ErijfPA/A2k90oOVIRMawAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="oknoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAHVJREFUSEvtktEJ
-        gDAMBaMTOKFWJ3Qo99AX0gqloR81gpU8uL9ykHLk+8wGsE77cVrArui8ZyZPwBlELQvaoyfAOYtaxucs
-        2sMW4GJ59kX9bwSbdm4LcBUVmckTcGYVvZFpUZFZqnB5RXXg8orqwPXDinod0QXz2WJbVnYgDwAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
   <data name="btnRemoveCar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -213,7 +213,7 @@
         Xjq842Fl0Z+TqOLCUxQLCYnKBclFhTE27ZMxlNm9454Y5i/LPST5DOuRAAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAddCar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC41ZYUyZQAAAsVJREFUOE9tkklM
@@ -231,6 +231,9 @@
         CspEjuZTezfuVT16ORxZOLdaYC3nCK3cEwILu+aLJRvb+ca/wrA/eKMaXDlpH34AAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="errorProvAdm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>39</value>
   </metadata>
