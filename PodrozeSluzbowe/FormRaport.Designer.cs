@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRaport));
-            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxDO = new System.Windows.Forms.TextBox();
@@ -40,30 +38,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BusinessTripsTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.BusinessTripsTableAdapter();
             this.ViewerRaportTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.ViewerRaportTableAdapter();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // ViewerRaportBindingSource
-            // 
-            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
-            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
-            // 
-            // PodrozeDataSet
-            // 
-            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
-            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // reportViewer1
             // 
-            reportDataSource4.Name = "DataSet1";
-            reportDataSource4.Value = this.ViewerRaportBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.ViewerRaportBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "PodrozeSluzbowe.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 118);
             this.reportViewer1.Name = "reportViewer1";
@@ -86,6 +76,7 @@
             // 
             // textBoxDO
             // 
+            this.textBoxDO.Enabled = false;
             this.textBoxDO.Location = new System.Drawing.Point(292, 23);
             this.textBoxDO.Name = "textBoxDO";
             this.textBoxDO.Size = new System.Drawing.Size(100, 20);
@@ -131,6 +122,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ViewerRaportBindingSource
+            // 
+            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
+            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
+            // 
+            // PodrozeDataSet
+            // 
+            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
+            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // BusinessTripsBindingSource
             // 
             this.BusinessTripsBindingSource.DataMember = "BusinessTrips";
@@ -155,10 +156,10 @@
             this.Name = "FormRaport";
             this.Text = "Raport";
             this.Load += new System.EventHandler(this.FormRaport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
