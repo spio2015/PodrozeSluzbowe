@@ -126,7 +126,7 @@
             this.gbAddUser.Size = new System.Drawing.Size(655, 465);
             this.gbAddUser.TabIndex = 3;
             this.gbAddUser.TabStop = false;
-            this.gbAddUser.Text = "użytkownik";
+            this.gbAddUser.Text = "Użytkownik";
             // 
             // cmbBoxUsersDepartment
             // 
@@ -142,6 +142,7 @@
             this.dataGridViewUsers.Location = new System.Drawing.Point(7, 194);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
+            this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUsers.Size = new System.Drawing.Size(635, 265);
             this.dataGridViewUsers.TabIndex = 13;
             // 
@@ -249,8 +250,8 @@
             this.zakończToolStripMenuItem});
             this.oknoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("oknoToolStripMenuItem.Image")));
             this.oknoToolStripMenuItem.Name = "oknoToolStripMenuItem";
-            this.oknoToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.oknoToolStripMenuItem.Text = "Okno";
+            this.oknoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.oknoToolStripMenuItem.Text = "Menu";
             // 
             // zakończToolStripMenuItem
             // 
@@ -311,6 +312,7 @@
             this.dataGridViewCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCars.Location = new System.Drawing.Point(11, 194);
             this.dataGridViewCars.Name = "dataGridViewCars";
+            this.dataGridViewCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCars.Size = new System.Drawing.Size(650, 265);
             this.dataGridViewCars.TabIndex = 10;
             // 
@@ -326,7 +328,7 @@
             // lblRegistrationNumber
             // 
             this.lblRegistrationNumber.AutoSize = true;
-            this.lblRegistrationNumber.Location = new System.Drawing.Point(168, 71);
+            this.lblRegistrationNumber.Location = new System.Drawing.Point(164, 71);
             this.lblRegistrationNumber.Name = "lblRegistrationNumber";
             this.lblRegistrationNumber.Size = new System.Drawing.Size(99, 13);
             this.lblRegistrationNumber.TabIndex = 8;
@@ -335,7 +337,11 @@
             // lblModel
             // 
             this.lblModel.AutoSize = true;
+<<<<<<< HEAD
             this.lblModel.Location = new System.Drawing.Point(231, 48);
+=======
+            this.lblModel.Location = new System.Drawing.Point(227, 45);
+>>>>>>> dafb67f321902a88711095c25e6a5dd217622383
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(36, 13);
             this.lblModel.TabIndex = 7;
@@ -369,7 +375,11 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
+<<<<<<< HEAD
             this.lblBrand.Location = new System.Drawing.Point(231, 19);
+=======
+            this.lblBrand.Location = new System.Drawing.Point(226, 19);
+>>>>>>> dafb67f321902a88711095c25e6a5dd217622383
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(37, 13);
             this.lblBrand.TabIndex = 2;
@@ -398,7 +408,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PanelAdministracyjny";
-            this.Text = "PanelAdministracyjny";
+            this.Text = "Panel Administracyjny";
             this.gbAddUser.ResumeLayout(false);
             this.gbAddUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();

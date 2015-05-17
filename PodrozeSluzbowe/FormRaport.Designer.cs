@@ -31,33 +31,23 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRaport));
-            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDO = new System.Windows.Forms.TextBox();
+            this.textBoxOD = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ViewerRaportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PodrozeDataSet = new PodrozeSluzbowe.PodrozeDataSet();
             this.BusinessTripsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BusinessTripsTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.BusinessTripsTableAdapter();
             this.ViewerRaportTableAdapter = new PodrozeSluzbowe.PodrozeDataSetTableAdapters.ViewerRaportTableAdapter();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ViewerRaportBindingSource
-            // 
-            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
-            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
-            // 
-            // PodrozeDataSet
-            // 
-            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
-            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -72,8 +62,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxDO);
+            this.groupBox1.Controls.Add(this.textBoxOD);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button1);
@@ -84,19 +74,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opcje filtrowania";
             // 
-            // textBox2
+            // textBoxDO
             // 
-            this.textBox2.Location = new System.Drawing.Point(292, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBoxDO.Enabled = false;
+            this.textBoxDO.Location = new System.Drawing.Point(292, 23);
+            this.textBoxDO.Name = "textBoxDO";
+            this.textBoxDO.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDO.TabIndex = 4;
+            this.textBoxDO.Click += new System.EventHandler(this.textBoxDO_Click_1);
             // 
-            // textBox1
+            // textBoxOD
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxOD.Location = new System.Drawing.Point(103, 23);
+            this.textBoxOD.Name = "textBoxOD";
+            this.textBoxOD.Size = new System.Drawing.Size(100, 20);
+            this.textBoxOD.TabIndex = 3;
+            this.textBoxOD.Click += new System.EventHandler(this.textBoxOD_Click);
             // 
             // label2
             // 
@@ -129,6 +122,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ViewerRaportBindingSource
+            // 
+            this.ViewerRaportBindingSource.DataMember = "ViewerRaport";
+            this.ViewerRaportBindingSource.DataSource = this.PodrozeDataSet;
+            // 
+            // PodrozeDataSet
+            // 
+            this.PodrozeDataSet.DataSetName = "PodrozeDataSet";
+            this.PodrozeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // BusinessTripsBindingSource
             // 
             this.BusinessTripsBindingSource.DataMember = "BusinessTrips";
@@ -153,10 +156,10 @@
             this.Name = "FormRaport";
             this.Text = "Raport";
             this.Load += new System.EventHandler(this.FormRaport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewerRaportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PodrozeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BusinessTripsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -170,8 +173,8 @@
         private System.Windows.Forms.BindingSource BusinessTripsBindingSource;
         private PodrozeDataSet PodrozeDataSet;
         private PodrozeDataSetTableAdapters.BusinessTripsTableAdapter BusinessTripsTableAdapter;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDO;
+        private System.Windows.Forms.TextBox textBoxOD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource ViewerRaportBindingSource;

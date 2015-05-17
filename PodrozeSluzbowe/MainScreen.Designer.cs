@@ -287,8 +287,8 @@
             this.wyjścieToolStripMenuItem1});
             this.aplikacjaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aplikacjaToolStripMenuItem.Image")));
             this.aplikacjaToolStripMenuItem.Name = "aplikacjaToolStripMenuItem";
-            this.aplikacjaToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.aplikacjaToolStripMenuItem.Text = "Aplikacja";
+            this.aplikacjaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.aplikacjaToolStripMenuItem.Text = "Menu";
             // 
             // panelAdministracyjnyToolStripMenuItem
             // 
